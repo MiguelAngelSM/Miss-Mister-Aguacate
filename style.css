@@ -10,29 +10,15 @@
     cursor: pointer;                /*Pointer: Changes the cursor arrow to a hand*/
 }
 
-#Instagram{
-    background-color:grey;
-    border-color:transparent;
+.Social{
     width:"20px";
     height:"20px";
-    display:inline-block;
     cursor: pointer;
+    opacity:1;                  /*Opacity for image effect when hover*/
+    transition:0.3s;
 }
 
-#Facebook{
-    background-color:gray;
-    border-color:transparent;
-    width:"20px";
-    height:"20px";
-    display:inline-block;
-    cursor: pointer;
+.Social:hover{
+    opacity:0.5;
 }
 
-#Twitter{
-    background-color:gray;
-    border-color:transparent;
-    width:"20px";
-    height:"20px";
-    display:inline-block;
-    cursor: pointer;
-}
