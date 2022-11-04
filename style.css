@@ -1,36 +1,38 @@
 #VeganMode {
-    background-color: rgb(36,85,1);
-    width:"30px";
+    background-color: rgb(112,224,0);
+    width:"20px";
     height:"20px";
-    border-width: 1px;
-    border-color:rgb(26,67,1);
+    border-width: 5px;
+    border-color:rgb(158,240,26);
     border-radius:3px;
     margin:auto;
     display:inline-block;
-    transition-duration: 0.4s
+    cursor: pointer;                /*Pointer: Changes the cursor arrow to a hand*/
 }
 
 #Instagram{
-    width:"30px";
+    background-color:grey;
+    border-color:transparent;
+    width:"20px";
     height:"20px";
     display:inline-block;
-    transition-duration: 0.4s
+    cursor: pointer;
 }
 
 #Facebook{
-    width:"30px";
+    background-color:gray;
+    border-color:transparent;
+    width:"20px";
     height:"20px";
     display:inline-block;
-    transition-duration: 0.4s
+    cursor: pointer;
 }
 
 #Twitter{
-    width:"30px";
+    background-color:gray;
+    border-color:transparent;
+    width:"20px";
     height:"20px";
     display:inline-block;
-    transition-duration: 0.4s
-}
-
-.button:hover{
-    color: rgb(254,254,227)
+    cursor: pointer;
 }
