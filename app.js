@@ -78,17 +78,13 @@ function showDishes(dishes, page) {
             img.innerHTML = '<img src ="imagenes/Plato.png" class="img-responsive" width="100%" height="100%"></img>'; //Prints a default image when there are no dishes
 
             let name = document.getElementById("Name" + i);//Refresh Name
-            name.innerHTML = '<p>No hay plato</p>';
+            name.innerHTML = '<p>No hay plato</p>'; //Prints a default name
 
-            let price = document.getElementById("Price" + i);//Refresh Price
+            let price = document.getElementById("Price" + i);//Print a default price
             price.innerHTML = '<p>???$</p>';
 
-            moreInfo = document.getElementById("Info" + i);//Refresh Button
-            b = document.getElementById("Button" + i);
-            moreInfo.removeChild(b); //Delete button
-
-
-           moreInfo.innerHTML = `<button id="Button ${i}" onclick="confirm('No implementado ${n+i}')">Mas info</button>` //Create the button{  }; //newDish()
+            let moreInfo = document.getElementById("Info" + i);//Refresh Button
+            moreInfo.innerHTML = `<button id="Button ${i}" onclick="confirm('No implementado ${n+i}')">Mas info</button>` //newDish() //Print a button to create a new dish
         }
 
     }
