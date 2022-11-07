@@ -1,24 +1,42 @@
-#VeganMode {
-    background-color: rgb(112,224,0);
-    width:"20px";
-    height:"20px";
-    border-width: 5px;
-    border-color:rgb(158,240,26);
-    border-radius:3px;
-    margin:auto;
-    Menu:inline-block;
-    cursor: pointer;                /*Pointer: Changes the cursor arrow to a hand*/
+body {
+    background-image: url("Imagenes/Fondo.jpg");
+    background-size: cover;
 }
 
-.Social{
-    width:"20px";
-    height:"20px";
+#Header {
+    background-color: rgb(39, 37, 38);
+}
+
+#Restaurant_Name {
+    font-family: 'WindSong', cursive;
+    color: white;
+}
+
+.Social {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin: 28%;
     cursor: pointer;
-    opacity:1;                  /*Opacity for image effect when hover*/
-    transition:0.3s;
+    opacity: 1;
+    /*Opacity for image effect when hover*/
+    transition: 0.3s;
 }
 
-.Social:hover{
-    opacity:0.5;
+.Social:hover {
+    opacity: 0.5;
 }
 
+
+#VeganMode {
+    background-color: rgb(112, 224, 0);
+    width: "20px";
+    height: "20px";
+    border-width: 5px;
+    border-color: rgb(158, 240, 26);
+    border-radius: 3px;
+    margin: auto;
+    display: inline-block;
+    cursor: pointer;
+    /*Pointer: Changes the cursor arrow to a hand*/
+}
