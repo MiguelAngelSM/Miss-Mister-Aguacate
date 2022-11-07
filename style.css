@@ -11,15 +11,20 @@ body {
     font-family: 'WindSong', cursive;
     color: white;
     margin-top: 10px;
-    margin-left: 10px;
 }
+
+.row{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:nowrap;
+}
+
+
 
 .Social {
     width: 35px;
     height: 35px;
-    display: flex;
-    justify-content: end;
-    margin-left: 50px;
+    display:block;
     margin-top: 15px;
     cursor: pointer;
     opacity: 1;
