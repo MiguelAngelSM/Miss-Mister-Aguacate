@@ -47,12 +47,12 @@ class Dish {
 }
 
 let dishes = [];//Array of dishes
-dishes[0] = new Dish("Plato 1", 10, "Plato delicioso", [], "Platos/Albondigas.jpg");
-dishes[1] = new Dish("Plato 2", 9, "Plato delicioso", [], "Platos/Lasaña.jpg");
-dishes[2] = new Dish("Plato 3", 8, "Plato delicioso", [], "Platos/Lentejas.jpeg");
-dishes[3] = new Dish("Plato 4", 7, "Plato delicioso", [], "Platos/Pesto.jpg");
-dishes[4] = new Dish("Plato 5", 6, "Plato delicioso", [], "Platos/Pizza.jpg");
-dishes[5] = new Dish("Plato 6", 5, "Plato delicioso", [], "Iconos/vegano.png");
+dishes[0] = new Dish("Albondigas", 10, "Plato delicioso", [], "Platos/Albondigas.jpg");
+dishes[1] = new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Lasaña.jpg");
+dishes[2] = new Dish("Lentejas", 8, "Plato delicioso", [], "Platos/Lentejas.jpeg");
+dishes[3] = new Dish("Pollo al pesto", 7, "Plato delicioso", [], "Platos/Pesto.jpg");
+dishes[4] = new Dish("Pizza 0% vegana", 6, "Plato delicioso", [], "Platos/Pizza.jpg");
+dishes[5] = new Dish("Tallarines chinos con setas y pollo", 5, "Plato delicioso", [], "Iconos/vegano.png"); //Needs image
 
 page = 0;
 showDishes(dishes, page);
@@ -63,7 +63,7 @@ function showDishes(dishes, page) {
     for (i = 0; i < 4; i++) {
         if (dishes[n + i]) {//undefined is false
             let img = document.getElementById("Image" + i);//Refresh Image
-            img.innerHTML = '<img src ="' + dishes[n + i].getImg() + '" class="img-responsive" width="100%" height="100%"></img>';
+            img.innerHTML = '<img src ="' + dishes[n + i].getImg() + '" class="dish-image img-responsive"></img>';
 
             let name = document.getElementById("Name" + i);//Refresh Name
             name.innerHTML = '<p>' + dishes[n + i].getName() + '</p>';
@@ -76,7 +76,7 @@ function showDishes(dishes, page) {
         }
         else {
             let img = document.getElementById("Image" + i);//Refresh Image
-            img.innerHTML = '<img src ="Platos/Plato.png" class="img-responsive" width="100%" height="100%"></img>'; //Prints a default image when there are no dishes
+            img.innerHTML = '<img src ="Platos/Plato.png" class="dish-image img-responsive"></img>'; //Prints a default image when there are no dishes
 
             let name = document.getElementById("Name" + i);//Refresh Name
             name.innerHTML = '<p>No hay plato</p>'; //Prints a default name
