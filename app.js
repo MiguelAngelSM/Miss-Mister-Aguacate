@@ -52,7 +52,7 @@ dishes[1] = new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Lasaña.jpg");
 dishes[2] = new Dish("Lentejas", 8, "Plato delicioso", [], "Platos/Lentejas.jpeg");
 dishes[3] = new Dish("Pollo al pesto", 7, "Plato delicioso", [], "Platos/Pesto.jpg");
 dishes[4] = new Dish("Pizza 0% vegana", 6, "Plato delicioso", [], "Platos/Pizza.jpg");
-dishes[5] = new Dish("Tallarines chinos con setas y pollo", 5, "Plato delicioso", [], "Iconos/vegano.png"); //Needs image
+dishes[5] = new Dish("Tallarines chinos con setas y pollo", 5, "Plato delicioso", [], "Platos/Tallarines.png"); 
 
 page = 0;
 showDishes(dishes, page);
