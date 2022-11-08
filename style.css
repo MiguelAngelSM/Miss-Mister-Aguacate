@@ -10,9 +10,20 @@ p {
     font-family: 'Courier New', cursive;
 }
 
+
 /*Id*/
 #Header {
     background-color: rgb(39, 37, 38);
+}
+
+#Display {
+    background-image: url("Imagenes/Marco.png");
+    background-size: 38%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #Restaurant_Name {
@@ -23,6 +34,7 @@ p {
 
 #Menu {
     background-color: rgba(39, 37, 38, 0.3);
+    padding: 0%;
 }
 
 #MenuTitle {
@@ -31,18 +43,10 @@ p {
 }
 
 
-
-
-#BackArrow{
-
-}
-
-#NextArrow{
-
-}
-
-
 /*Class*/
+.container-fluid {
+    padding: 0%;
+}
 
 .Social {
     width: 35px;
@@ -60,9 +64,17 @@ p {
     opacity: 0.5;
 }
 
+.Photo {
+    width: 25%;
+    height: 25%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
 .menu-header-button {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     text-align: center;
 }
 
@@ -71,14 +83,13 @@ p {
     border-width: 3px;
     border-color: rgba(39, 37, 38, 0.7);
     border-radius: 3px;
-    margin: auto;
     display: inline-block;
     cursor: pointer;
     /*Pointer: Changes the cursor arrow to a hand*/
 }
 
-
 .dish-image {
     width: 100%;
     height: 100%;
+    border-radius: 40%
 }
