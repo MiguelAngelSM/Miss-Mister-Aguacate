@@ -46,20 +46,33 @@ class Dish {
 
 }
 
+//function main() { //It will generate the default page
 let dishes = new Map();//Array of dishes //N for normal dishes, V for vegan dishes and D for drinks 
-dishes.set('N0', new Dish("Albóndigas", 10, "Plato delicioso", [], "Platos/Albondigas.jpg"));
-dishes.set('N1', new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Lasaña.jpg"));
-dishes.set('N2', new Dish("Lentejas", 8, "Plato delicioso", [], "Platos/Lentejas.jpeg"));
-dishes.set('N3', new Dish("Pollo al pesto", 7, "Plato delicioso", [], "Platos/Pesto.jpg"));
-dishes.set('N4', new Dish("Pizza 0% vegana", 6, "Plato delicioso", [], "Platos/Pizza.jpg"));
-dishes.set('N5', new Dish("Tallarines chinos con setas y pollo", 5, "Plato delicioso", [], "Platos/Tallarines.png"));
-
-page = 0;
-type = 'N';
-showDishes(dishes, page, type);
+//6 Normal dishes by default
+dishes.set('N0', new Dish("Albóndigas", 10, "Plato delicioso", [], "Platos/Normal/Albondigas.jpg"));
+dishes.set('N1', new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Normal/Lasaña.jpg"));
+dishes.set('N2', new Dish("Lentejas", 8, "Plato delicioso", [], "Platos/Normal/Lentejas.jpeg"));
+dishes.set('N3', new Dish("Pollo al pesto", 7, "Plato delicioso", [], "Platos/Normal/Pesto.jpg"));
+dishes.set('N4', new Dish("Pizza 0% vegana", 6, "Plato delicioso", [], "Platos/Normal/Pizza.jpg"));
+dishes.set('N5', new Dish("Tallarines chinos con setas y pollo", 5, "Plato delicioso", [], "Platos/Normal/Tallarines.png"));
+//4 Normal dishes by default
+dishes.set('V0', new Dish("Hamburguesa vegana", 10, "Plato delicioso", [], "Platos/Vegano/Burguer Vegana.jpg"));
+dishes.set('V1', new Dish("Ensalada vegana", 9, "Plato delicioso", [], "Platos/Vegano/Ensalada Vegana.jpg"));
+dishes.set('V2', new Dish("Macarrones con tomatico y queso", 8, "Plato delicioso", [], "Platos/Vegano/Pasta Vegana.jpg"));
+dishes.set('V3', new Dish("Tarta de Manzana", 7, "Plato delicioso", [], "Platos/Vegano/Tarta.jpg"));
+//X Drinks dishes by default
+dishes.set('D0', new Dish("Agua", 2, "Agua fresca de Solan de Cabras edicion Rocas del Manantial en botella de vidrio de 70cl", [], "Platos/Bebida/Agua.jpg"));
+dishes.set('D1', new Dish("Cerveza", 2, "Cerveza Mahou 5 estrellas en botellin de 33cl", [], "Platos/Bebida/Cerveza.jpg"));
+dishes.set('D2', new Dish("Refrescos", 3, "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limon, Aquarius de Naranja o de Limon, Trina de Naranja,", [], "Platos/Bebida/Refrescos.jpg"));
+dishes.set('D3', new Dish("Café", 1, "Café 100% natural hecho en cafetera moka italiana", [], "Platos/Bebida/Cafe.jpg"));
+dishes.set('D4', new Dish("Vino Pasion de Bobal", 7.95, "Vino ecologico con origen en viñedos de más de 60 años ", [], "Platos/Bebida/VinoBarato.jpg"));
+dishes.set('D5', new Dish("Vino Teso La Monja", 1272, "Vino de gran calidad cultivado segun los principios de la biodinámica", [], "Platos/Bebida/VinoCaro.jpg"));
+//Add Normal Burguer Vegan Pizza Remove Lentejas
+showDishes(dishes, 0, 'N');//It will charge the normal mode at page 0 by default
 let Index = 0;
 DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
 carousel();
+//}
 
 
 
@@ -96,6 +109,7 @@ function showDishes(dishes, page, type) {
         }
     }
 }
+
 function showSpecificDish(dish) {
     console.log(dish);
 }
@@ -104,55 +118,41 @@ function newDish() {
     confirm("No esta inplementada");
 }
 
-function changeVeganMode(type) {//The argument type is in what type the page was 
-    let b = document.getElementById('VeganButton');
-    if (type = 'N') {
-        b.id = 'NormalButton';
-        b.innerHTML = `<button id="NormalMode" class="MenuButton" onclick="changeNormalMode('V')"><img class="menu-header-button img-responsive" src="Iconos/Normal.png"></button>`
-        b = document.getElementById('DrinkButton');//Update Button
-        b.innerHTML = `<button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode('V')"><img class="menu-header-button img-responsive" src="Iconos/Bebida.png"></button>`
-    }
-    else {
-        b.id = 'DrinkButton';
-        b.innerHTML = `<button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode('V')"><img class="menu-header-button img-responsive" src="Iconos/Bebida.png"></button>`
-        b = document.getElementById('NormalButton');//Update Button
-        b.innerHTML = `<button id="NormalMode" class="MenuButton" onclick="changeNormalMode('V')"><img class="menu-header-button img-responsive" src="Iconos/Normal.png"></button>`
-    }
+function changeVeganMode() { 
+    let b = document.getElementById('Button1');//Update Button
+    b.innerHTML = ` <button id="NormalMode" class="MenuButton" onclick="changeNormalMode()">
+                        <img class="menu-header-button img-responsive" src="Iconos/Normal.png">
+                    </button>`
+    b = document.getElementById('Button2');//Update Button
+    b.innerHTML = ` <button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode()">
+                    <img class="menu-header-button img-responsive" src="Iconos/Bebida.png">
+                </button>`
     showDishes(dishes, 0, 'V');//It will start at page 0
 }
-function changeNormalMode(type) { //The argument type is in what type the page was 
-    let b = document.getElementById('NormalButton');
-    if (type = 'V') {
-        b.id = 'VeganButton';
-        b.innerHTML = `<button id="VeganMode" class="MenuButton" onclick="changeVeganMode('N')"><img class="menu-header-button img-responsive" src="Iconos/vegano.png"></button>`
-        b = document.getElementById('DrinkButton');//Update Button
-        b.innerHTML = `<button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode('N')"><img class="menu-header-button img-responsive" src="Iconos/Bebida.png"></button>`
-    }
-    else {
-        b.id = 'DrinkButton';
-        b.innerHTML = `<button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode('N')"><img class="menu-header-button img-responsive" src="Iconos/Bebida.png"></button>`
-        b = document.getElementById('VeganButton');//Update Button
-        b.innerHTML = `<button id="VeganMode" class="MenuButton" onclick="changeVeganMode('N')"><img class="menu-header-button img-responsive" src="Iconos/vegano.png"></button>`
-    }
+
+function changeNormalMode() {  
+    let b = document.getElementById('Button1');//Update Button
+    b.innerHTML = ` <button id="VeganMode" class="MenuButton" onclick="changeVeganMode()">
+                        <img class="menu-header-button img-responsive" src="Iconos/vegano.png">
+                    </button>`
+    b = document.getElementById('Button2');//Update Button
+    b.innerHTML = ` <button id="DrinkMode" class="MenuButton" onclick="changeDrinkMode()">
+                        <img class="menu-header-button img-responsive" src="Iconos/Bebida.png">
+                    </button>`
     showDishes(dishes, 0, 'N');//It will start at page 0
 }
-function changeDrinkMode(type) {//The argument type is in what type the page was 
-    let b = document.getElementById('DrinkButton');
-    if (type = 'N') {
-        b.id = 'NormalButton';
-        b.innerHTML = `<button id="NormalMode" class="MenuButton" onclick="changeNormalMode('D')"><img class="menu-header-button img-responsive" src="Iconos/Normal.png"></button>`
-        b = document.getElementById('VeganButton');//Update Button
-        b.innerHTML = `<button id="VeganMode" class="MenuButton" onclick="changeVeganMode('D')"><img class="menu-header-button img-responsive" src="Iconos/vegano.png"></button>`
-    }
-    else {
-        b.id = 'VeganButton';
-        b.innerHTML = `<button id="VeganMode" class="MenuButton" onclick="changeVeganMode('D')"><img class="menu-header-button img-responsive" src="Iconos/vegano.png"></button>`
-        b = document.getElementById('NormalButton');//Update Button
-        b.innerHTML = `<button id="NormalMode" class="MenuButton" onclick="changeNormalMode('D')"><img class="menu-header-button img-responsive" src="Iconos/Normal.png"></button>`
-    }
+
+function changeDrinkMode() { 
+    let b = document.getElementById('Button1');//Update Button
+    b.innerHTML = ` <button id="NormalMode" class="MenuButton" onclick="changeNormalMode()">
+                        <img class="menu-header-button img-responsive" src="Iconos/Normal.png">
+                    </button>`
+    b = document.getElementById('Button2');//Update Button
+    b.innerHTML = ` <button id="VeganMode" class="MenuButton" onclick="changeVeganMode()">
+                        <img class="menu-header-button img-responsive" src="Iconos/vegano.png">
+                    </button>`
     showDishes(dishes, 0, 'D');//It will start at page 0
 }
-
 
 function carousel() {
     let content = document.getElementById("Display");
