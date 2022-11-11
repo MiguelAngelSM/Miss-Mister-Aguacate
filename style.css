@@ -2,12 +2,13 @@
 /*Tags*/
 body {
     background-image: url("Imagenes/Fondo.jpg");
-    background-size: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 p {
     text-align: center;
-    color: rgb(120, 75, 69);
+    color: rgb(0, 0, 0);
     font-family: 'Courier New', cursive;
 }
 
@@ -18,10 +19,6 @@ p {
 }
 
 #Display {
-    background-image: url("Imagenes/Marco.png");
-    background-size: 38%;
-    background-repeat: no-repeat;
-    background-position: center;
     background-color: rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     margin-bottom: 10px;
@@ -34,7 +31,7 @@ p {
 }
 
 #Menu {
-    background-color: rgba(39, 37, 38, 0.3);
+    background-color: rgb(255, 255, 255);
     padding: 0%;
 }
 
@@ -42,6 +39,15 @@ p {
     color: rgb(120, 75, 69);
     font-family: 'WindSong', cursive;
 }
+
+#Footer{
+    background-image: url("Imagenes/FondoMenu.png");
+    background-color:rgb(255, 255, 255);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
 
 
 /*Class*/
