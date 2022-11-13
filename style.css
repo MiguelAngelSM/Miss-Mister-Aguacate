@@ -1,102 +1,99 @@
 /*Change images size*/
+/*object-fit: contain;*/
 /*Tags*/
 body {
-    background-image: url("Imagenes/Fondo.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url("Imagenes/Fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 p {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-family: 'Courier New', cursive;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: "Courier New", cursive;
 }
-
 
 /*Id*/
 #Header {
-    background-color: rgb(39, 37, 38);
+  background-color: rgb(39, 37, 38);
 }
 
 #Display {
-    background-color: rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
-    margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #Restaurant_Name {
-    font-family: 'WindSong', cursive;
-    color: white;
-    margin-top: 10px;
+  font-family: "WindSong", cursive;
+  color: white;
+  margin-top: 10px;
 }
 
 #Menu {
-    background-color: rgb(255, 255, 255);
-    padding: 0%;
+  background-image: url("Imagenes/FondoMenu.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0%;
 }
 
 #MenuTitle {
-    color: rgb(120, 75, 69);
-    font-family: 'WindSong', cursive;
+  color: rgb(120, 75, 69);
+  font-family: "WindSong", cursive;
 }
 
-#Footer{
-    background-image: url("Imagenes/FondoMenu.png");
-    background-color:rgb(255, 255, 255);
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: top;
+#Footer {
+  background-position: top;
 }
-
-
 
 /*Class*/
 .container-fluid {
-    padding: 0%;
+  padding: 0%;
 }
 
 .Social {
-    width: 35px;
-    height: 35px;
-    display: inline;
-    /*This is in order to avoid links out from the box*/
-    margin-top: 15px;
-    cursor: pointer;
-    opacity: 1;
-    /*Opacity for image effect when hover*/
-    transition: 0.3s;
+  width: 35px;
+  height: 35px;
+  display: inline;
+  /*This is in order to avoid links out from the box*/
+  margin-top: 15px;
+  cursor: pointer;
+  opacity: 1;
+  /*Opacity for image effect when hover*/
+  transition: 0.3s;
 }
 
 .Social:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .Photo {
-    width: 25%;
-    height: 25%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    border-radius: 10px;
+  width: 25%;
+  height: 25%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 10px;
 }
 
 .menu-header-button {
-    width: 50px;
-    height: 50px;
-    text-align: center;
+  width: 50px;
+  height: 50px;
+  text-align: center;
 }
 
 .MenuButton {
-    background-color: rgba(120, 75, 69, 0.6);
-    border-width: 3px;
-    border-color: rgba(39, 37, 38, 0.7);
-    border-radius: 3px;
-    display: inline-block;
-    cursor: pointer;
-    /*Pointer: Changes the cursor arrow to a hand*/
+  background-color: rgba(120, 75, 69, 0.6);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  /*Pointer: Changes the cursor arrow to a hand*/
 }
 
 .dish-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 40%
+  width: 100%;
+  height: 100%;
+  border-radius: 40%;
 }
