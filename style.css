@@ -34,10 +34,9 @@ p {
   margin-bottom: 10px;
 }
 
-
 #Menu {
-  background-image: url("Imagenes/FondoMenu.png");
   background-color: rgba(255, 255, 255, 0.6);
+  background-image: url("Imagenes/FondoMenu.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -65,26 +64,27 @@ p {
 /* In order to align some items that where misplaced*/
 
 /* Styles for the form*/
-#BlankForm {
-  display: flex;
-  align-items: center;
-}
 
 #FormImage {
-  width: 50px;
-  height: 50px;
-  margin-left: 60px;
-  align-content: center;
+  width: auto;
+  height: 70%;
+  margin-left: 40px;
+  margin-top: -30px;
 }
 
-#FormArrow {
-  margin-left: 30px;
+#FormPhoto {
+  display: flex;
+  align-items: center;
 }
 
 #BasicForm {
   margin-top: 30px;
 }
 /* Styles for the form*/
+
+#Reviews {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 /*Class*/
 .container-fluid {
@@ -113,14 +113,19 @@ p {
   margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 10px;
-  animation-name:fader;  /* This property is used to give a name to the animation we are going to use in the display*/
-  animation-delay:4s;    /* Also we added a timer for the duration and the delay of the transition*/
+  animation-name: fader; /* This property is used to give a name to the animation we are going to use in the display*/
+  animation-delay: 4s; /* Also we added a timer for the duration and the delay of the transition*/
   animation-duration: 1s;
 }
 
-@keyframes fader{        /* This is used to control the animation step by step*/
-  from { opacity: 1.0; }
-    to   { opacity: 0.0; }
+@keyframes fader {
+  /* This is used to control the animation step by step*/
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .menu-header-button {
@@ -132,7 +137,7 @@ p {
 }
 
 .MenuButton {
-  background-color: rgba(39, 37, 38,0.4);
+  background-color: rgba(39, 37, 38, 0.4);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
   border-radius: 3px;
@@ -146,3 +151,9 @@ p {
   height: 100%;
   border-radius: 40%;
 }
+
+/* Styles for the form*/
+.FormButtons {
+  margin-left: 80px;
+}
+/* Styles for the form*/

@@ -53,7 +53,8 @@ let Index = 0;
 DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
 carousel();
 
-function carousel() { //It will change between some images each 5 seconds
+function carousel() {
+  //It will change between some images each 5 seconds
   let content = document.getElementById("Display");
   content.innerHTML = `<img class="Photo" src="Imagenes/${DisplayPictures[Index]}"></img>`;
   if (Index >= DisplayPictures.length - 1) {
@@ -64,7 +65,8 @@ function carousel() { //It will change between some images each 5 seconds
   setTimeout(carousel, 5000); // Change image every 5 seconds
 }
 
-function createDefaultDishes(dishes) {//It will charge some dishes by default
+function createDefaultDishes(dishes) {
+  //It will charge some dishes by default
   //6 Normal dishes by default
   dishes.set(
     "N0",
@@ -226,9 +228,9 @@ function createDefaultDishes(dishes) {//It will charge some dishes by default
 }
 
 function changePage(mode, page, nextOrPrevious) {
-  //nextOrPrevious will be 1 if is the next or -1 if it is the previous. This function gives the funcionality to the arrows; 
-  //it will load the next or previous page of the menu depending on the mode and on the page; 
-  //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more 
+  //nextOrPrevious will be 1 if is the next or -1 if it is the previous. This function gives the funcionality to the arrows;
+  //it will load the next or previous page of the menu depending on the mode and on the page;
+  //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more
   //dishes to show or there aren't any 'Añadir Plato' button)
   switch (mode) {
     case "N":
@@ -270,11 +272,13 @@ function changeMode(actual_mode, mode, mode1) {
   showDishes(dishes, 0, actual_mode[0]); //It will start at page 0
 }
 
-function newDish() {//It must be implemented
+function newDish() {
+  //It must be implemented
   confirm("No esta implementada");
 }
 
-function showDishes(dishes, page, mode) {//It should be splitted
+function showDishes(dishes, page, mode) {
+  //It should be splitted
   n = page * 4; //page*4 is to be placed in the elements of each page cause each page has 4 dishes
   for (i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
@@ -312,7 +316,8 @@ function showDishes(dishes, page, mode) {//It should be splitted
   }
 }
 
-function showSpecificDish(dish) {//It must be implemented
+function showSpecificDish(dish) {
+  //It must be implemented
   console.log(dish);
 }
 
