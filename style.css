@@ -9,7 +9,7 @@ body {
 
 p {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: black;
   font-family: "Courier New", cursive;
 }
 
@@ -39,12 +39,41 @@ p {
 }
 
 #MenuTitle {
-  color: rgb(120, 75, 69);
+  color: black;
   font-family: "WindSong", cursive;
+  text-align: center;
+  margin-top: 3px;
 }
 
-#Footer {
-  background-position: top;
+#Button1 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#BackArrow {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+#BlankForm {
+  display: flex;
+  align-items: center;
+}
+
+#FormImage {
+  width: 50px;
+  height: 50px;
+  margin-left: 60px;
+  align-content: center;
+}
+
+#FormArrow {
+  margin-left: 30px;
+}
+
+#BasicForm {
+  margin-top: 30px;
 }
 
 /*Class*/
@@ -80,6 +109,8 @@ p {
   width: 50px;
   height: 50px;
   text-align: center;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .MenuButton {

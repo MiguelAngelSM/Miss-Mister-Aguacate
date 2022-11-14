@@ -49,7 +49,9 @@ class Dish {
 let dishes = new Map(); //Array of dishes //N for normal dishes, V for vegan dishes and D for drinks
 createDefaultDishes(dishes);
 showDishes(dishes, 0, "N"); //It will charge the normal mode at page 0 by default
-startCarousel();
+let Index = 0;
+DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
+carousel();
 
 function carousel() {
   let content = document.getElementById("Display");
@@ -59,168 +61,168 @@ function carousel() {
   } else {
     Index++;
   }
-  setTimeout(carousel, 5000); // Change image every 2 seconds
+  setTimeout(carousel, 5000); // Change image every 5 seconds
 }
 
 function createDefaultDishes(dishes) {
-    //6 Normal dishes by default
-    dishes.set(
-      "N0",
-      new Dish(
-        "Albóndigas",
-        10,
-        "Plato delicioso",
-        [],
-        "Platos/Normal/Albondigas.jpg"
-      )
-    );
-    dishes.set(
-      "N1",
-      new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Normal/Lasaña.jpg")
-    );
-    dishes.set(
-      "N2",
-      new Dish(
-        "Lentejas",
-        8,
-        "Plato delicioso",
-        [],
-        "Platos/Normal/Lentejas.jpeg"
-      )
-    );
-    dishes.set(
-      "N3",
-      new Dish(
-        "Pollo al pesto",
-        7,
-        "Plato delicioso",
-        [],
-        "Platos/Normal/Pesto.jpg"
-      )
-    );
-    dishes.set(
-      "N4",
-      new Dish(
-        "Pizza 0% vegana",
-        6,
-        "Plato delicioso",
-        [],
-        "Platos/Normal/Pizza.jpg"
-      )
-    );
-    dishes.set(
-      "N5",
-      new Dish(
-        "Tallarines chinos con setas y pollo",
-        5,
-        "Plato delicioso",
-        [],
-        "Platos/Normal/Tallarines.jpg"
-      )
-    );
-    //4 Normal dishes by default
-    dishes.set(
-      "V0",
-      new Dish(
-        "Hamburguesa vegana",
-        10,
-        "Plato delicioso",
-        [],
-        "Platos/Vegano/Burguer Vegana.jpg"
-      )
-    );
-    dishes.set(
-      "V1",
-      new Dish(
-        "Ensalada vegana",
-        9,
-        "Plato delicioso",
-        [],
-        "Platos/Vegano/Ensalada Vegana.jpg"
-      )
-    );
-    dishes.set(
-      "V2",
-      new Dish(
-        "Macarrones con tomatico y queso",
-        8,
-        "Plato delicioso",
-        [],
-        "Platos/Vegano/Pasta Vegana.jpg"
-      )
-    );
-    dishes.set(
-      "V3",
-      new Dish(
-        "Tarta de Manzana",
-        7,
-        "Plato delicioso",
-        [],
-        "Platos/Vegano/Tarta.jpg"
-      )
-    );
-    //6 Drinks by default
-    dishes.set(
-      "D0",
-      new Dish(
-        "Agua",
-        2,
-        "Agua fresca de Solan de Cabras edicion Rocas del Manantial en botella de vidrio de 70cl",
-        [],
-        "Platos/Bebida/Agua.jpg"
-      )
-    );
-    dishes.set(
-      "D1",
-      new Dish(
-        "Cerveza",
-        2,
-        "Cerveza Mahou 5 estrellas en botellin de 33cl",
-        [],
-        "Platos/Bebida/Cerveza.jpg"
-      )
-    );
-    dishes.set(
-      "D2",
-      new Dish(
-        "Refrescos",
-        3,
-        "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limon, Aquarius de Naranja o de Limon, Trina de Naranja,",
-        [],
-        "Platos/Bebida/Refrescos.jpg"
-      )
-    );
-    dishes.set(
-      "D3",
-      new Dish(
-        "Café",
-        1,
-        "Café 100% natural hecho en cafetera moka italiana",
-        [],
-        "Platos/Bebida/Cafe.jpg"
-      )
-    );
-    dishes.set(
-      "D4",
-      new Dish(
-        "Vino Pasion de Bobal",
-        7.95,
-        "Vino ecologico con origen en viñedos de más de 60 años ",
-        [],
-        "Platos/Bebida/VinoBarato.jpg"
-      )
-    );
-    dishes.set(
-      "D5",
-      new Dish(
-        "Vino Teso La Monja",
-        1272,
-        "Vino de gran calidad cultivado segun los principios de la biodinámica",
-        [],
-        "Platos/Bebida/VinoCaro.jpg"
-      )
-    );
-    //Add Normal Burguer Vegan Pizza Remove Lentejas
+  //6 Normal dishes by default
+  dishes.set(
+    "N0",
+    new Dish(
+      "Albóndigas",
+      10,
+      "Plato delicioso",
+      [],
+      "Platos/Normal/Albondigas.jpg"
+    )
+  );
+  dishes.set(
+    "N1",
+    new Dish("Lasaña", 9, "Plato delicioso", [], "Platos/Normal/Lasaña.jpg")
+  );
+  dishes.set(
+    "N2",
+    new Dish(
+      "Lentejas",
+      8,
+      "Plato delicioso",
+      [],
+      "Platos/Normal/Lentejas.jpeg"
+    )
+  );
+  dishes.set(
+    "N3",
+    new Dish(
+      "Pollo al pesto",
+      7,
+      "Plato delicioso",
+      [],
+      "Platos/Normal/Pesto.jpg"
+    )
+  );
+  dishes.set(
+    "N4",
+    new Dish(
+      "Pizza 0% vegana",
+      6,
+      "Plato delicioso",
+      [],
+      "Platos/Normal/Pizza.jpg"
+    )
+  );
+  dishes.set(
+    "N5",
+    new Dish(
+      "Tallarines chinos con setas y pollo",
+      5,
+      "Plato delicioso",
+      [],
+      "Platos/Normal/Tallarines.jpg"
+    )
+  );
+  //4 Normal dishes by default
+  dishes.set(
+    "V0",
+    new Dish(
+      "Hamburguesa vegana",
+      10,
+      "Plato delicioso",
+      [],
+      "Platos/Vegano/Burguer Vegana.jpg"
+    )
+  );
+  dishes.set(
+    "V1",
+    new Dish(
+      "Ensalada vegana",
+      9,
+      "Plato delicioso",
+      [],
+      "Platos/Vegano/Ensalada Vegana.jpg"
+    )
+  );
+  dishes.set(
+    "V2",
+    new Dish(
+      "Macarrones con tomatico y queso",
+      8,
+      "Plato delicioso",
+      [],
+      "Platos/Vegano/Pasta Vegana.jpg"
+    )
+  );
+  dishes.set(
+    "V3",
+    new Dish(
+      "Tarta de Manzana",
+      7,
+      "Plato delicioso",
+      [],
+      "Platos/Vegano/Tarta.jpg"
+    )
+  );
+  //6 Drinks by default
+  dishes.set(
+    "D0",
+    new Dish(
+      "Agua",
+      2,
+      "Agua fresca de Solan de Cabras edicion Rocas del Manantial en botella de vidrio de 70cl",
+      [],
+      "Platos/Bebida/Agua.jpg"
+    )
+  );
+  dishes.set(
+    "D1",
+    new Dish(
+      "Cerveza",
+      2,
+      "Cerveza Mahou 5 estrellas en botellin de 33cl",
+      [],
+      "Platos/Bebida/Cerveza.jpg"
+    )
+  );
+  dishes.set(
+    "D2",
+    new Dish(
+      "Refrescos",
+      3,
+      "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limon, Aquarius de Naranja o de Limon, Trina de Naranja,",
+      [],
+      "Platos/Bebida/Refrescos.jpg"
+    )
+  );
+  dishes.set(
+    "D3",
+    new Dish(
+      "Café",
+      1,
+      "Café 100% natural hecho en cafetera moka italiana",
+      [],
+      "Platos/Bebida/Cafe.jpg"
+    )
+  );
+  dishes.set(
+    "D4",
+    new Dish(
+      "Vino Pasion de Bobal",
+      7.95,
+      "Vino ecologico con origen en viñedos de más de 60 años ",
+      [],
+      "Platos/Bebida/VinoBarato.jpg"
+    )
+  );
+  dishes.set(
+    "D5",
+    new Dish(
+      "Vino Teso La Monja",
+      1272,
+      "Vino de gran calidad cultivado segun los principios de la biodinámica",
+      [],
+      "Platos/Bebida/VinoCaro.jpg"
+    )
+  );
+  //Add Normal Burguer Vegan Pizza Remove Lentejas
 }
 
 function changePage(mode, page, nextOrPrevious) {
@@ -265,7 +267,7 @@ function changeMode(actual_mode, mode, mode1) {
 }
 
 function newDish() {
-  confirm("No esta inplementada");
+  confirm("No esta implementada");
 }
 
 function showDishes(dishes, page, mode) {
@@ -308,12 +310,6 @@ function showDishes(dishes, page, mode) {
 
 function showSpecificDish(dish) {
   console.log(dish);
-}
-
-function startCarousel() {
-  let Index = 0;
-  DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
-  carousel();
 }
 
 function updateArrows(mode, page) {
