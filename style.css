@@ -18,20 +18,26 @@ p {
   background-color: rgb(39, 37, 38);
 }
 
-#Display {
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 #Restaurant_Name {
   font-family: "WindSong", cursive;
   color: white;
   margin-top: 10px;
 }
 
+#Display {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url("Imagenes/Skull.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 #Menu {
   background-image: url("Imagenes/FondoMenu.png");
+  background-color: rgba(255, 255, 255, 0.6);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -45,6 +51,7 @@ p {
   margin-top: 3px;
 }
 
+/* In order to align some items that where misplaced*/
 #Button1 {
   display: flex;
   flex-direction: row-reverse;
@@ -55,7 +62,9 @@ p {
   flex-direction: row-reverse;
   align-items: center;
 }
+/* In order to align some items that where misplaced*/
 
+/* Styles for the form*/
 #BlankForm {
   display: flex;
   align-items: center;
@@ -75,6 +84,7 @@ p {
 #BasicForm {
   margin-top: 30px;
 }
+/* Styles for the form*/
 
 /*Class*/
 .container-fluid {
@@ -103,6 +113,14 @@ p {
   margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 10px;
+  animation-name:fader;  /* This property is used to give a name to the animation we are going to use in the display*/
+  animation-delay:4s;    /* Also we added a timer for the duration and the delay of the transition*/
+  animation-duration: 1s;
+}
+
+@keyframes fader{        /* This is used to control the animation step by step*/
+  from { opacity: 1.0; }
+    to   { opacity: 0.0; }
 }
 
 .menu-header-button {
@@ -114,7 +132,7 @@ p {
 }
 
 .MenuButton {
-  background-color: rgba(120, 75, 69, 0.6);
+  background-color: rgba(39, 37, 38,0.4);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
   border-radius: 3px;
