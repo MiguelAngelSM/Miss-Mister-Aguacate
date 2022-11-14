@@ -53,7 +53,7 @@ let Index = 0;
 DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
 carousel();
 
-function carousel() {
+function carousel() { //It will change between some images each 5 seconds
   let content = document.getElementById("Display");
   content.innerHTML = `<img class="Photo" src="Imagenes/${DisplayPictures[Index]}"></img>`;
   if (Index >= DisplayPictures.length - 1) {
@@ -64,7 +64,7 @@ function carousel() {
   setTimeout(carousel, 5000); // Change image every 5 seconds
 }
 
-function createDefaultDishes(dishes) {
+function createDefaultDishes(dishes) {//It will charge some dishes by default
   //6 Normal dishes by default
   dishes.set(
     "N0",
@@ -226,7 +226,10 @@ function createDefaultDishes(dishes) {
 }
 
 function changePage(mode, page, nextOrPrevious) {
-  //nextOrPrevious will be 1 if is the next or -1 if it is the previous
+  //nextOrPrevious will be 1 if is the next or -1 if it is the previous. This function gives the funcionality to the arrows; 
+  //it will load the next or previous page of the menu depending on the mode and on the page; 
+  //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more 
+  //dishes to show or there aren't any 'Añadir Plato' button)
   switch (mode) {
     case "N":
       n = 0;
@@ -242,7 +245,6 @@ function changePage(mode, page, nextOrPrevious) {
     (nextOrPrevious === 1 && page >= 0 && page + 1 <= Dish.amount[n] / 4) ||
     (nextOrPrevious === -1 && page !== 0)
   ) {
-    //Only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more dishes to show or there aren't any 'Añadir Plato' button)
     p = page + nextOrPrevious;
     showDishes(dishes, p, mode);
     updateArrows(mode, p);
@@ -250,6 +252,7 @@ function changePage(mode, page, nextOrPrevious) {
 }
 
 function changeMenuButtons(actual_mode, mode, mode1) {
+  //This function change the buttons to change mode from the menu to show those who aren't the actual mode
   let b = document.getElementById("Button1"); //Update Menu Button 1
   b.innerHTML = ` <button id="${mode}Mode" class="MenuButton" onclick="changeMode('${mode}','${mode1}','${actual_mode}')">
                         <img class="menu-header-button img-responsive" src="Iconos/${mode}.png">
@@ -261,16 +264,17 @@ function changeMenuButtons(actual_mode, mode, mode1) {
 }
 
 function changeMode(actual_mode, mode, mode1) {
+  //This function change the menu display between each mode by starting at the page 0 (first page)
   changeMenuButtons(actual_mode, mode, mode1);
   updateArrows(actual_mode[0], 0);
   showDishes(dishes, 0, actual_mode[0]); //It will start at page 0
 }
 
-function newDish() {
+function newDish() {//It must be implemented
   confirm("No esta implementada");
 }
 
-function showDishes(dishes, page, mode) {
+function showDishes(dishes, page, mode) {//It should be splitted
   n = page * 4; //page*4 is to be placed in the elements of each page cause each page has 4 dishes
   for (i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
@@ -308,11 +312,12 @@ function showDishes(dishes, page, mode) {
   }
 }
 
-function showSpecificDish(dish) {
+function showSpecificDish(dish) {//It must be implemented
   console.log(dish);
 }
 
 function updateArrows(mode, page) {
+  //This function update the arrows to be ready to change to the right page
   b = document.getElementById("NextArrow"); //Update NextArrow
   b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, 1)">Flecha</button>`;
   b = document.getElementById("BackArrow"); //Update BackArrow
