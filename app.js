@@ -300,11 +300,6 @@ function changeMode(actual_mode, mode, mode1) {
   showDishes(dishes, 0, actual_mode[0]); //It will start at page 0
 }
 
-function newDish() {
-  //It must be implemented
-  confirm("No esta implementada");
-}
-
 function showDishes(dishes, page, mode) {
   //It should be splitted
   n = page * 4; //page*4 is to be placed in the elements of each page cause each page has 4 dishes
@@ -357,15 +352,20 @@ function updateArrows(mode, page) {
   b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, -1)">Flecha</button>`;
 }
 
+//Here starts the forms functions
+
 function showIngredientsList(key){
+  //Delete the previous list and make it again with all the elements from the list got from the dish got from the key
   dish=dishes.get(key);
   ingredients=dish.getAtributes();
   e=document.getElementById('IngredientsList');
-  e.innerHTML=``;//Delete the previous list
+  e.innerHTML=``;
   ingredients.forEach(i=>printIngredient(i,key));
 }
 
 function printIngredient(ingredient,key){
+  //Add to the IngredientsList the ingredient
+  //The key is required for the delete button
   e=document.getElementById('IngredientsList');
   e.innerHTML+=`<div>
     ${ingredient} 
@@ -374,13 +374,17 @@ function printIngredient(ingredient,key){
 }
 
 function deleteIngredient(ingredient,key){
+  //Delete the ingredient from the dish got from the key and then update the list
   dish=dishes.get(key);
   list=dish.getAtributes();
   list.splice(list.indexOf(ingredient),1);
-  showIngredientsList(key);//Update the list
+  showIngredientsList(key);
 }
 
-function newDish(mode){//Needs to be finished
+function newDish(mode){
+  //Hide the Menu and show the form
+  //Create a default dish that will be edited or deleted 
+  //Update the page buttons
   e = document.getElementById('Menu');
   e.style.display = 'none';
   e = document.getElementById('Form');
@@ -389,49 +393,58 @@ function newDish(mode){//Needs to be finished
   dishes.set(
     mode + Dish.getAmount(mode),
     new Dish(
-      '',
-      '',
-      '',
+      'Default dish',
+      '???',
+      'This dish was generated because the form was empty',
       [],
-      "Platos/Normal/Albondigas.jpg",
+      "Iconos/Plato.png",
       mode
     )
   );
+  showIngredientsList(mode + (Dish.getAmount(mode)-1));
   
   e = document.getElementById('IngredientButton');
-  e.onclick= function (){addNewIngredient(mode + (Dish.getAmount(mode)-1))};
-  e = document.getElementById('ListButton');
-  e.onclick=function (){showHideList(mode + (Dish.getAmount(mode)-1))};
+  e.onclick= function (){addNewIngredient(mode + (Dish.getAmount(mode)-1));};
   e = document.getElementById('formSaveButton');
-  e.onclick=function (){saveNewDish(mode + (Dish.getAmount(mode)-1))};
+  e.onclick=function (){saveNewDish(mode + (Dish.getAmount(mode)-1));};
+  e = document.getElementById('formCancelButton');
+  e.onclick=function (){backButton(mode);};
+}
+
+function backButton(mode){
+  //Delete the dish and return to the Menu
+  dishes.delete(mode + (Dish.getAmount(mode)-1));
+  backToMenu();
 }
 
 function backToMenu(){
+  //Hide the Form and return to the normal mode page 0 (default page)
   e = document.getElementById('Menu');
   e.style.display = 'block';
   e = document.getElementById('Form');
   e.style.display = 'none';
-  showDishes(dishes, 0, 'N');//It will return to the default page
-  updateArrows('N', 0);//It will return to the default page
+  showDishes(dishes, 0, 'N');
+  updateArrows('N', 0);
 }
 
-function saveNewDish(mode){//bugged
+function saveNewDish(key){
+  //If the user confirm at the pop-up the dish will be updated with the info from the form
+  //If the user cancel at the pop-up the dish will be deleted from the map
+  //The it will back to menu
   if (confirm('Deseas guardar el plato?')){
-    dish=dishes.get(mode + (Dish.getAmount(mode)-1));
-    dish.setName(document.getElementById('Name').value);
-    dish.setName(document.getElementById('Price').value);
-    dish.setName(document.getElementById('Description').value);
+    dishes.get(key).setName(document.getElementById('Name').value);
+    dishes.get(key).setPrice(document.getElementById('Price').value);
+    dishes.get(key).setDescription(document.getElementById('Description').value);
   }else{
-    dishes.delete(mode + (Dish.getAmount(mode)-1));
+    dishes.delete(key);
   }
   backToMenu();
 }
 
 function addNewIngredient(key){
+  //Add an ingredient to the dish got from the key and refresh the list
   dishes.get(key).addAtribute(document.getElementById('Ingredient').value);
   showIngredientsList(key);
 }
 
-function showHideList(key){
-  showIngredientsList(key);
-}
+//El problema es que al guardar un plato ejecuta dos veces la funcion saveNewDish(430) ligada al boton del div de formSaveButton (287 del html)
