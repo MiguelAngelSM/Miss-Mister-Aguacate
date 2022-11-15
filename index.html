@@ -49,6 +49,12 @@
       crossorigin="anonymous"
     ></script>
     <!--Bootstrap template from CDN Bootstrap-->
+
+    <!-- Library for stars rating in Reviews -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <!--Each row has 12 cells-->
 
@@ -107,7 +113,7 @@
             <!--Vegan Button is loaded by default-->
           </div>
           <div id="MenuTitle" class="col-4">
-            <h1 style="text-align: center">Menú</h1>
+            <h1>Menú</h1>
           </div>
           <div id="Button2" class="col-2">
             <button
@@ -247,13 +253,91 @@
         </div>
       </div>
 
-      <div id="Reviews" class="row">
-        <div class="block col-4"></div>
-        <div class="block col-4"></div>
-        <div class="block col-4"></div>
+      <div id="Reviews">
+        <div id="ReviewsTitle" class="row">
+          <h1>Reseñas</h1>
+        </div>
+
+        <div class="row">
+          <div class="block col-4">
+            <h4>Sergio De Oro Fernández</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              itaque ratione cupiditate consectetur nulla veritatis soluta
+              accusantium est repellendus aliquam, omnis laborum magnam libero,
+              laboriosam ipsam. Odio pariatur in nobis!
+            </h6>
+          </div>
+
+          <div class="block col-4">
+            <h4>Antonio José Alanís Bernal</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+              ipsa fugit vel accusantium itaque laudantium beatae et quis, iusto
+              ducimus nostrum suscipit quisquam voluptates tempore dignissimos
+              eligendi, magnam reiciendis architecto.
+            </h6>
+          </div>
+
+          <div class="block col-4">
+            <h4>Kiko Martínez</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
+              quis fugit modi soluta, atque eum est dicta porro, vero corporis
+              doloremque nulla. Dolor voluptatum iste in neque magnam earum
+              nulla!
+            </h6>
+          </div>
+        </div>
       </div>
-      <div id="Footer" class="row">
-        <h1>Miss & Mister Aguacate</h1>
+
+      <div id="Footer">
+        <div class="row">
+          <div class="col-6">
+            <h6>Horario: Lunes a Viernes 12:00 - 01:00</h6>
+            <h6>Contacto: missandmisteraguacate@gmail.com</h6>
+            <h6>Teléfono: +34 910 00 00 00</h6>
+            <h6>Calle: Las Antenas, 21 45631</h6>
+            <div id="Map">
+              <iframe
+                src="https://maps.google.com/maps?q=40.153524,%20-4.743002&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+          <div class="Logo col-6">
+            <img
+              id="FooterLogo"
+              class="img-responsive"
+              src="Iconos/aguacate.png"
+            />
+          </div>
+        </div>
+
+        <div class="Copyright row">
+          <h6>&copy; Design by Miguel y Demelza</h6>
+        </div>
       </div>
     </div>
     <div id="ElementInfo"></div>
