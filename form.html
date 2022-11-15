@@ -1,71 +1,102 @@
 <!DOCTYPE html>
-<head>
+<html>
+
+    <head>
+        <title>Miss&Mister Aguacate</title>
+        <link rel="shortcut icon" href="Iconos/aguacate.png" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+    
+        <!--The app.js is on the bottom and this must change-->
+    
+        <!--Font family link provided by Google-->
+        <link
+          href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap"
+          rel="stylesheet"
+        />
+        <!--Font family link provided by Google-->
+    
         <!--Bootstrap template from CDN Bootstrap-->
         <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous"
-      />
-      <!--Bootstrap template from CDN Bootstrap-->
-  
-      <!--Our css file-->
-      <link type="text/css" rel="stylesheet" href="style.css" />
-      <!--Our css file-->
-  
-      <!--Bootstrap template from CDN Bootstrap-->
-      <script
-        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"
-      ></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"
-      ></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"
-      ></script>
-      <!--Bootstrap template from CDN Bootstrap-->
-</head>
-<html>
-    <div id="BlankForm" class="container-fluid">
-        <div class="row">
-            <div id="FormPhoto" class="col-4">
-                <img id="FormImage" class= "img-responsive" src="Iconos/Plato.png"></img>
-            </div>
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+        />
+        <!--Bootstrap template from CDN Bootstrap-->
     
-            <div id="BasicForm" class="col-8">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="Name">Nombre:</label>
-                        <input type="text" class="form-control" id="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="Prize">Precio:</label>
-                        <input type="text" class="form-control" id="Prize">
-                    </div>
-                    <div class="form-group">
-                        <label for="Description">Descripción:</label>
-                        <input type="text" class="form-control" id="Description">
-                    </div>
-                    <div class="form-group">
-                        <label for="Element">Elementos:</label>
-                        <input type="text" class="form-control" id="Element"> <!--Add buttons for add or delete an element-->
-                    </div>
-                </form>
+        <!--Our css file-->
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <!--Our css file-->
+    
+        <!--Bootstrap template from CDN Bootstrap-->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+        ></script>
+        <!--Bootstrap template from CDN Bootstrap-->
+    </head>
+
+    <body>
+        <div id="Form" class="container-fluid">
+            <div class="row">
+                <div id="FormPhoto" class="col-4">
+                    <img id="FormImage" class="img-responsive" src="Iconos/Plato.png"></img><!--To be changed-->
+                </div>
+
+                <div id="BasicForm" class="col-8">
+                    <form role="form">
+                        <div class="form-group col-11">
+                                <label for="Name">Nombre:</label>
+                                <input type="text" class="form-control" id="Name">
+                        </div>
+                        <div class="form-group col-11">
+                                <label for="Price">Precio:</label>
+                                <input type="text" class="form-control" id="Price">
+                        </div>
+                        <div class="form-group col-11">
+                                <label for="Description">Descripción:</label>
+                                <input type="text" class="form-control" id="Description">
+                        </div>
+                        <div class="form-group col-11">
+                            <label for="Ingredients">Ingrediente:</label>
+                            <div class="form-inline">
+                                <input type="text" class="form-control col-11" id="Element">
+                                <button id="IngredientButton" class="col-1" onclick="addNewIngredient()">Añadir</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div id="formSaveButton" class="FormButtons col-1">
+                    <button>Guardar</button>
+                </div>
+                <div id="formCancelButton" class="FormButtons col-1">
+                    <button>Cancelar</button>
+                </div>
+            </div>
+            <div id="IngredientsList" class="col-12">
+                <button onclick="showIngredientsList(dishes.get('N0'))">Lista</button>
+                <!--The list will be generated by JS-->
             </div>
         </div>
-        <div class="row">
-            <div class=" FormButtons col-1">
-                <button>Guardar</button>
-            </div>
-            <div class=" FormButtons col-1">
-                <button>Cancelar</button>
-            </div>
-        </div>
-    </div>
+        <script src="app.js"></script>
+    </body>
+
 </html>
