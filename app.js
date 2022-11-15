@@ -4,14 +4,35 @@ class Dish {
   description;
   atributes = [];
   img; //image link
-  static amount = [6, 4, 6]; //Needs to be included
+  static amount = [0,0,0]; //Normal Vegan Drink
 
-  constructor(name, price, description, atributes, img) {
+  constructor(name, price, description, atributes, img, type) {
     this.setName(name);
     this.setPrice(price);
     this.setDescription(description);
     this.setAtributes(atributes);
     this.setImg(img);
+    Dish.setAmount(type);
+  }
+
+  static getAmount(type){
+    let n = 0;
+    switch(type){
+      case 'N': n=0;break;
+      case 'V': n=1;break;
+      case 'D': n=2;break;
+    }
+    return Dish.amount[n];
+  }
+
+  static setAmount(type){
+    let n = 0;
+    switch(type){
+      case 'N': n=0;break;
+      case 'V': n=1;break;
+      case 'D': n=2;break;
+    }
+    Dish.amount[n]++;
   }
 
   getName() {
@@ -52,6 +73,7 @@ showDishes(dishes, 0, "N"); //It will charge the normal mode at page 0 by defaul
 let Index = 0;
 DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
 carousel();
+//showIngredientsList(dishes.get('N0'));
 
 function carousel() {
   //It will change between some images each 5 seconds
@@ -74,8 +96,9 @@ function createDefaultDishes(dishes) {
       "Albóndigas",
       10,
       "Plato delicioso",
-      [],
-      "Platos/Normal/Albondigas.jpg"
+      ['a','b','c','d'],
+      "Platos/Normal/Albondigas.jpg",
+      'N'
     )
   );
   dishes.set(
@@ -89,7 +112,8 @@ function createDefaultDishes(dishes) {
       8,
       "Plato delicioso",
       [],
-      "Platos/Normal/Lentejas.jpeg"
+      "Platos/Normal/Lentejas.jpeg",
+      'N'
     )
   );
   dishes.set(
@@ -99,7 +123,8 @@ function createDefaultDishes(dishes) {
       7,
       "Plato delicioso",
       [],
-      "Platos/Normal/Pesto.jpg"
+      "Platos/Normal/Pesto.jpg",
+      'N'
     )
   );
   dishes.set(
@@ -109,7 +134,8 @@ function createDefaultDishes(dishes) {
       6,
       "Plato delicioso",
       [],
-      "Platos/Normal/Pizza.jpg"
+      "Platos/Normal/Pizza.jpg",
+      'N'
     )
   );
   dishes.set(
@@ -119,7 +145,8 @@ function createDefaultDishes(dishes) {
       5,
       "Plato delicioso",
       [],
-      "Platos/Normal/Tallarines.jpg"
+      "Platos/Normal/Tallarines.jpg",
+      'N'
     )
   );
   //4 Normal dishes by default
@@ -130,7 +157,8 @@ function createDefaultDishes(dishes) {
       10,
       "Plato delicioso",
       [],
-      "Platos/Vegano/Burguer Vegana.jpg"
+      "Platos/Vegano/Burguer Vegana.jpg",
+      'V'
     )
   );
   dishes.set(
@@ -140,7 +168,8 @@ function createDefaultDishes(dishes) {
       9,
       "Plato delicioso",
       [],
-      "Platos/Vegano/Ensalada Vegana.jpg"
+      "Platos/Vegano/Ensalada Vegana.jpg",
+      'V'
     )
   );
   dishes.set(
@@ -150,7 +179,8 @@ function createDefaultDishes(dishes) {
       8,
       "Plato delicioso",
       [],
-      "Platos/Vegano/Pasta Vegana.jpg"
+      "Platos/Vegano/Pasta Vegana.jpg",
+      'V'
     )
   );
   dishes.set(
@@ -160,7 +190,8 @@ function createDefaultDishes(dishes) {
       7,
       "Plato delicioso",
       [],
-      "Platos/Vegano/Tarta.jpg"
+      "Platos/Vegano/Tarta.jpg",
+      'V'
     )
   );
   //6 Drinks by default
@@ -171,7 +202,8 @@ function createDefaultDishes(dishes) {
       2,
       "Agua fresca de Solan de Cabras edicion Rocas del Manantial en botella de vidrio de 70cl",
       [],
-      "Platos/Bebida/Agua.jpg"
+      "Platos/Bebida/Agua.jpg",
+      'D'
     )
   );
   dishes.set(
@@ -181,7 +213,8 @@ function createDefaultDishes(dishes) {
       2,
       "Cerveza Mahou 5 estrellas en botellin de 33cl",
       [],
-      "Platos/Bebida/Cerveza.jpg"
+      "Platos/Bebida/Cerveza.jpg",
+      'D'
     )
   );
   dishes.set(
@@ -191,7 +224,8 @@ function createDefaultDishes(dishes) {
       3,
       "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limon, Aquarius de Naranja o de Limon, Trina de Naranja,",
       [],
-      "Platos/Bebida/Refrescos.jpg"
+      "Platos/Bebida/Refrescos.jpg",
+      'D'
     )
   );
   dishes.set(
@@ -201,7 +235,8 @@ function createDefaultDishes(dishes) {
       1,
       "Café 100% natural hecho en cafetera moka italiana",
       [],
-      "Platos/Bebida/Cafe.jpg"
+      "Platos/Bebida/Cafe.jpg",
+      'D'
     )
   );
   dishes.set(
@@ -211,7 +246,8 @@ function createDefaultDishes(dishes) {
       7.95,
       "Vino ecologico con origen en viñedos de más de 60 años ",
       [],
-      "Platos/Bebida/VinoBarato.jpg"
+      "Platos/Bebida/VinoBarato.jpg",
+      'D'
     )
   );
   dishes.set(
@@ -221,7 +257,8 @@ function createDefaultDishes(dishes) {
       1272,
       "Vino de gran calidad cultivado segun los principios de la biodinámica",
       [],
-      "Platos/Bebida/VinoCaro.jpg"
+      "Platos/Bebida/VinoCaro.jpg",
+      'D'
     )
   );
   //Add Normal Burguer Vegan Pizza Remove Lentejas
@@ -244,7 +281,7 @@ function changePage(mode, page, nextOrPrevious) {
       break;
   }
   if (
-    (nextOrPrevious === 1 && page >= 0 && page + 1 <= Dish.amount[n] / 4) ||
+    (nextOrPrevious === 1 && page >= 0 && page + 1 <= Dish.getAmount(mode) / 4) ||
     (nextOrPrevious === -1 && page !== 0)
   ) {
     p = page + nextOrPrevious;
@@ -327,4 +364,23 @@ function updateArrows(mode, page) {
   b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, 1)">Flecha</button>`;
   b = document.getElementById("BackArrow"); //Update BackArrow
   b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, -1)">Flecha</button>`;
+}
+
+function showIngredientsList(dish){
+  ingredients=dish.getAtributes();
+  e=document.getElementById('IngredientsList');
+  e.innerHTML=``;//Delete the previous list
+  ingredients.forEach(i=>printIngredient(i,dish));
+}
+
+function printIngredient(ingredient,dish){
+  e=document.getElementById('IngredientsList');
+  e.innerHTML+=`<div>
+    ${ingredient} 
+    <button onclick="deleteIngredient('${ingredient}',${dish})">Eliminar</button>
+  <div>`
+}
+
+function deleteIngredient(ingredient,dish){
+  dish.getAtributes().splice(dish.getAtributes().findIndex(ingredient),1);
 }
