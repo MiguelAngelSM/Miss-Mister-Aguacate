@@ -65,6 +65,9 @@ class Dish {
   setImg(value) {
     this.img = value;
   }
+  addAtribute(value){
+    this.atributes.push(value);
+  }
 }
 
 let dishes = new Map(); //Array of dishes //N for normal dishes, V for vegan dishes and D for drinks
@@ -73,7 +76,6 @@ showDishes(dishes, 0, "N"); //It will charge the normal mode at page 0 by defaul
 let Index = 0;
 DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
 carousel();
-//showIngredientsList(dishes.get('N0'));
 
 function carousel() {
   //It will change between some images each 5 seconds
@@ -269,17 +271,6 @@ function changePage(mode, page, nextOrPrevious) {
   //it will load the next or previous page of the menu depending on the mode and on the page;
   //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more
   //dishes to show or there aren't any 'Añadir Plato' button)
-  switch (mode) {
-    case "N":
-      n = 0;
-      break;
-    case "V":
-      n = 1;
-      break;
-    case "D":
-      n = 2;
-      break;
-  }
   if (
     (nextOrPrevious === 1 && page >= 0 && page + 1 <= Dish.getAmount(mode) / 4) ||
     (nextOrPrevious === -1 && page !== 0)
@@ -335,7 +326,7 @@ function showDishes(dishes, page, mode) {
       price.innerHTML = "<p>" + dish.getPrice() + "$</p>";
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish(${dish})">Mas info</button>`; //Create the button
+      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${mode + (n + i)}')">Mas info</button>`; //Create the button
     } else {
       let img = document.getElementById("Image" + i); //Refresh Image
       img.innerHTML =
@@ -348,7 +339,7 @@ function showDishes(dishes, page, mode) {
       price.innerHTML = "<p>???$</p>";
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish()">Añadir plato</button>`; //newDish() //Print a button to create a new dish
+      moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`; //newDish() //Print a button to create a new dish
     }
   }
 }
@@ -366,21 +357,81 @@ function updateArrows(mode, page) {
   b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, -1)">Flecha</button>`;
 }
 
-function showIngredientsList(dish){
+function showIngredientsList(key){
+  dish=dishes.get(key);
   ingredients=dish.getAtributes();
   e=document.getElementById('IngredientsList');
   e.innerHTML=``;//Delete the previous list
-  ingredients.forEach(i=>printIngredient(i,dish));
+  ingredients.forEach(i=>printIngredient(i,key));
 }
 
-function printIngredient(ingredient,dish){
+function printIngredient(ingredient,key){
   e=document.getElementById('IngredientsList');
   e.innerHTML+=`<div>
     ${ingredient} 
-    <button onclick="deleteIngredient('${ingredient}',${dish})">Eliminar</button>
+    <button onclick="deleteIngredient('${ingredient}','${key}')">Eliminar</button>
   <div>`
 }
 
-function deleteIngredient(ingredient,dish){
-  dish.getAtributes().splice(dish.getAtributes().findIndex(ingredient),1);
+function deleteIngredient(ingredient,key){
+  dish=dishes.get(key);
+  list=dish.getAtributes();
+  list.splice(list.indexOf(ingredient),1);
+  showIngredientsList(key);//Update the list
+}
+
+function newDish(mode){//Needs to be finished
+  e = document.getElementById('Menu');
+  e.style.display = 'none';
+  e = document.getElementById('Form');
+  e.style.display = 'block';
+
+  dishes.set(
+    mode + Dish.getAmount(mode),
+    new Dish(
+      '',
+      '',
+      '',
+      [],
+      "Platos/Normal/Albondigas.jpg",
+      mode
+    )
+  );
+  
+  e = document.getElementById('IngredientButton');
+  e.onclick= function (){addNewIngredient(mode + (Dish.getAmount(mode)-1))};
+  e = document.getElementById('ListButton');
+  e.onclick=function (){showHideList(mode + (Dish.getAmount(mode)-1))};
+  e = document.getElementById('formSaveButton');
+  e.onclick=function (){saveNewDish(mode + (Dish.getAmount(mode)-1))};
+}
+
+function backToMenu(){
+  e = document.getElementById('Menu');
+  e.style.display = 'block';
+  e = document.getElementById('Form');
+  e.style.display = 'none';
+  showDishes(dishes, 0, 'N');//It will return to the default page
+  updateArrows('N', 0);//It will return to the default page
+}
+
+function saveNewDish(mode){//bugged
+  if (confirm('Deseas guardar el plato?')){
+    dish=dishes.get(mode + (Dish.getAmount(mode)-1));
+    dish.setName(document.getElementById('Name').value);
+    dish.setName(document.getElementById('Price').value);
+    dish.setName(document.getElementById('Description').value);
+  }else{
+    dishes.delete(mode + (Dish.getAmount(mode)-1));
+  }
+  backToMenu();
+}
+
+function addNewIngredient(key){
+  dishes.get(key).addAtribute(document.getElementById('Ingredient').value);
+  showIngredientsList(key);
+}
+
+function showHideList(key){
+  showIngredientsList(key);
 }
