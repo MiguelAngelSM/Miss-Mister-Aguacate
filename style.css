@@ -1,20 +1,25 @@
 /*Tags*/
+
 body {
   background-image: url("Imagenes/Fondo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+
 /*Id*/
+
 #Header {
   background-color: rgb(39, 37, 38);
 }
+
 
 #Restaurant_Name {
   font-family: "WindSong", cursive;
   color: white;
   margin-top: 10px;
 }
+
 
 #Display {
   background-color: rgba(0, 0, 0, 0.1);
@@ -26,6 +31,7 @@ body {
   margin-bottom: 20px;
 }
 
+
 #Menu {
   background-color: rgba(255, 255, 255, 0.6);
   background-image: url("Imagenes/FondoMenu.png");
@@ -35,6 +41,7 @@ body {
   padding: 0%;
 }
 
+
 #MenuTitle {
   color: black;
   font-family: "WindSong", cursive;
@@ -42,37 +49,43 @@ body {
   margin-top: 3px;
 }
 
+
 #Menu p {
   text-align: center;
   color: black;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+
 #Block1 {
   margin-top: 20px;
 }
+
 
 #Arrows {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+
 #Block2 {
   margin-top: 20px;
 }
 
-/* In order to align some items that where misplaced*/
 
+/* In order to align some items that where misplaced*/
 .VeganButton {
   display: flex;
   flex-direction: row-reverse;
 }
+
 #BackArrow {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
 /* In order to align some items that where misplaced*/
+
 
 /* Styles for the form*/
 #FormImage {
@@ -90,12 +103,55 @@ body {
 #BasicForm {
   margin-top: 30px;
 }
+
+#IngredientListTitle{
+  font-family: "Times New Roman", Times, serif;
+  color:black;
+  margin-left: 20px;
+}
+
+#IngredientsList{
+  margin-left: 20px;
+  line-height: 30px;
+}
 /* Styles for the form*/
+
+
+/*Styles for Mas Info*/
+#InfodishImage{
+  width: 190px;
+  height: 190px;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+#InfoPhoto {
+  display: flex;
+  align-items: center;
+}
+
+#InfoArrow{
+  display:flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#DishAtributes{
+  margin-top: 20px;
+  margin-left: -300px;
+}
+
+
+
+/*Styles for Mas Info*/
+
 
 #Reviews {
   background-color: rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
+
 
 #ReviewsTitle {
   color: black;
@@ -107,10 +163,12 @@ body {
   margin-bottom: -2px;
 }
 
+
 #Footer {
   background-color: rgb(39, 37, 38);
   margin-top: 20px;
 }
+
 
 #Footer p {
   color: white;
@@ -120,10 +178,12 @@ body {
   font-size: medium;
 }
 
+
 #Footer p img {
   width: 35px;
   height: 35px;
 }
+
 
 #FooterLogo {
   width: 140px;
@@ -131,17 +191,21 @@ body {
   margin-right: 50px;
 }
 
+
 #Map {
   width: 350px;
   height: 200px;
   margin-top: 10px;
-  margin-left: -50px;
+  margin-left: -180px;
 }
 
+
 /*Class*/
+
 .container-fluid {
   padding: 0%;
 }
+
 
 .Social {
   width: 35px;
@@ -155,9 +219,11 @@ body {
   transition: 0.3s;
 }
 
+
 .Social:hover {
   opacity: 0.5;
 }
+
 
 .Photo {
   width: 25%;
@@ -173,6 +239,7 @@ body {
   animation-timing-function: ease-in;/*Makes the image to go slower*/
 }
 
+
 @keyframes fader {
   /* This is used to control the animation step by step*/
   from {
@@ -183,6 +250,7 @@ body {
   }
 }
 
+
 .menu-header-button {
   width: 50px;
   height: 50px;
@@ -190,6 +258,7 @@ body {
   display: flex;
   flex-direction: row-reverse;
 }
+
 
 .MenuButton {
   background-color: rgba(39, 37, 38, 0.4);
@@ -201,22 +270,35 @@ body {
   /*Pointer: Changes the cursor arrow to a hand*/
 }
 
+
 .dish-image {
-  width: 100%;
-  height: 100%;
+  width: 190px;
+  height: 190px;
   border-radius: 10px;
+  object-fit: contain;
 }
+
 
 .InfoButton {
   display: flex;
   flex-direction: column-reverse;
 }
 
+
+.MenuStyle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+
 .menu-arrow-button {
   width: 50px;
   height: 50px;
   text-align: center;
 }
+
 
 .ArrowButton {
   background-color: rgba(39, 37, 38, 0.4);
@@ -225,6 +307,7 @@ body {
   border-radius: 3px;
 }
 
+
 .block h4 {
   display: flex;
   justify-content: center;
@@ -232,14 +315,17 @@ body {
   color: black;
 }
 
+
 .Stars {
   display: flex;
   justify-content: center;
 }
 
+
 .checked {
   color: yellow;
 }
+
 
 .block h6 {
   margin-left: 20px;
@@ -247,11 +333,13 @@ body {
   color: black;
 }
 
+
 .FooterThing {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .Copyright {
   color: white;
@@ -259,8 +347,20 @@ body {
   justify-content: center;
 }
 
+
+/*Styles for Mas Info*/
+.InfoButtons{
+  margin-left: 40px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+
+}
+/*Styles for Mas Info*/
+
+
 /* Styles for the form*/
 .FormButtons {
-  margin-left: 80px;
+  margin-left: 40px;
+  margin-bottom: 30px;
 }
 /* Styles for the form*/
