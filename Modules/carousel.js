@@ -1,14 +1,20 @@
 //Some previous info for the function
 let Index = 0;
-let DisplayPictures = ["Cartel.jpg", "Sitio.jpg", "Amigos.jpg", "Mesa.jpg"];
+let content = document.getElementsByClassName("Photo");
 
 //Functions of this module
 export function carousel() {
   //It will change between some images each 5 seconds
   
-  let content = document.getElementById("Display");
-  content.innerHTML = `<img class="Photo" src="Imagenes/${DisplayPictures[Index]}"></img>`;
-  if (Index >= DisplayPictures.length - 1) {
+  for (let i=0; i<content.length;i++){
+    if (i==Index){
+      content[i].style.display="block";
+    }
+    else{
+      content[i].style.display="none";
+    }
+  }
+  if (Index >= content.length - 1) {
     Index = 0;
   } else {
     Index++;

@@ -89,9 +89,9 @@ export function updateArrows(mode, page) {
   //This function update the arrows to be ready to change to the right page
 
   let b = document.getElementById("NextArrow"); //Update NextArrow
-  b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, 1)">Flecha</button>`;
+  b.innerHTML = ` <button class="ArrowButton" onclick="changePage('${mode}', ${page}, 1)"><img class="menu-arrow-button img-responsive" src="Iconos/NextArrow.png"></button>`;
   b = document.getElementById("BackArrow"); //Update BackArrow
-  b.innerHTML = ` <button onclick="changePage('${mode}', ${page}, -1)">Flecha</button>`;
+  b.innerHTML = ` <button class="ArrowButton" onclick="changePage('${mode}', ${page}, -1)"><img class="menu-arrow-button img-responsive" src="Iconos/BackArrow.png"></button>`;
 }
 
 export function newDish(mode) {
@@ -117,6 +117,7 @@ export function newDish(mode) {
   );
   showIngredientsList(mode + (Dish.getAmount(mode) - 1), printIngredient);
 
+  document.getElementById("FormImage").src = "Iconos/Plato.png";
   let key = mode + (Dish.getAmount(mode) - 1);
   e = document.getElementById("IngredientButton");
   e.onclick = function () {

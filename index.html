@@ -55,8 +55,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <!-- Library for stars rating in Reviews -->
+
+    <!-- Our JS file -->
+    <script src="./main.js" type="module"></script>
+    <!-- Our JS file -->
+
   </head>
-  <!--Each row has 12 cells-->
 
   <body>
     <div id="Home" class="container-fluid">
@@ -91,6 +96,10 @@
       <div id="Display" class="row justify-content-center">
         <!--JavaScript code will generate it automatically when starts-->
         <!--It will change between four pictures every 5 seconds-->
+        <img class="Photo" src="Imagenes/Cartel.jpg">
+        <img class="Photo" src="Imagenes/Amigos.jpg">
+        <img class="Photo" src="Imagenes/Mesa.jpg">
+        <img class="Photo" src="Imagenes/Sitio.jpg">
       </div>
 
       <div id="Menu" style="display:block">
@@ -256,7 +265,7 @@
       <div id="Form" style="display:none">
         <div class="row">
             <div id="FormPhoto" class="col-4">
-                <img id="FormImage" class="img-responsive" src="Iconos/Plato.png"></img><!--To be changed-->
+                <img id="FormImage" class="dish-image img-responsive" src="Iconos/Plato.png"></img><!--To be changed-->
             </div>
 
             <div id="BasicForm" class="col-8">
@@ -390,6 +399,5 @@
     </div>
 
     <div id="ElementInfo"></div>
-    <script src="./main.js" type="module"></script>
   </body>
 </html>

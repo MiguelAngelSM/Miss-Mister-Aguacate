@@ -10,6 +10,7 @@ export function modifyDish(key) {
     e = document.getElementById("Form");
     e.style.display = "block";
   
+    document.getElementById("FormImage").src = dishes.get(key).getImg();
     document.getElementById("Name").value = dishes.get(key).getName();
     document.getElementById("Price").value = dishes.get(key).getPrice();
     document.getElementById("Description").value = dishes
@@ -32,4 +33,3 @@ export function modifyDish(key) {
       backButton(key, 0, copyArray);
     };
   }
-

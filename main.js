@@ -5,8 +5,11 @@ import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newD
 import {modifyDish} from './Modules/infoPage.js';
 
 //First Page Load
-showDishes(0, "N"); //It will charge the normal mode at page 0 by default
-carousel();
+document.addEventListener("DOMContentLoaded", function(){
+    showDishes(0, "N"); //It will charge the normal mode at page 0 by default
+    carousel();
+ });
+
 
 //Window will let html using the functions
 window.changePage = changePage;
