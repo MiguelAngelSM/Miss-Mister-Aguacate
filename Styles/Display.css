@@ -1,21 +1,19 @@
 #Display {
   background-color: rgba(0, 0, 0, 0.1);
-  background-image: url("../Imagenes/Skull.png");
-  background-size: 80%;
-  background-repeat: no-repeat;
+  background-image: url("../Imagenes/avocado.png");
   background-position: center;
+  background-size: cover;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .Photo {
-  width: 25%;
-  height: 25%;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
   animation-name: fader; /* This property is used to give a name to the animation we are going to use in the display*/
-  /*animation-delay: 0s; /* Also we added a timer for the duration and the delay of the transition*/
   animation-duration: 2.5s; /*Two animations, each one last 2.5s*/
   animation-direction: alternate-reverse; /*Makes the animation to play first reverse and then normal*/
   animation-iteration-count: 2; /*Makes the animation to play twice*/

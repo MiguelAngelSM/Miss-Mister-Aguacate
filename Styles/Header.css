@@ -1,9 +1,9 @@
 #Header {
   background-color: rgb(39, 37, 38);
-  display:flex;
+  display: flex;
   justify-content: space-between;
+  width: auto;
 }
-
 
 #Restaurant_Name {
   font-family: "WindSong", cursive;
@@ -12,22 +12,22 @@
   margin-left: 5px;
 }
 
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap; /*This property is used so that the items are covered if the parent container (div) shrinks*/
+  gap: 50px; /*Space between items*/
+  align-content: center;
+}
+
 .Social {
   width: 35px;
   height: 35px;
   object-fit: contain;
   margin-right: 10px;
-  display: inline;  /*This is in order to avoid links out from the box*/
+  display: inline; /*This is in order to avoid links out from the box*/
   cursor: pointer;
   opacity: 1; /*Opacity for image effect when hover*/
-  transition: 0.3s;  /*Property used for hover effect*/
-}
-
-.flex-gap{
-display:inline-flex;
-flex-wrap: wrap;    /*This property is used so that the items are covered if the parent container (div) shrinks*/
-gap:50px;           /*Space between items*/
-align-content: center;
+  transition: 0.3s; /*Property used for hover effect*/
 }
 
 .Social:hover {
