@@ -1,42 +1,8 @@
 //Imports from other modules
 import { dishes, Dish } from "./dish.js";
-import {
-  saveNewDish,
-  backButton,
-  addNewIngredient,
-} from "./forms.js";
-import { showIngredientsList } from "./common.js";
-
+import { modifyDish } from "./forms.js";
+import { showIngredientsList, loadMainPage } from "./common.js";
 //Functions of this module
-export function modifyDish(key) {
-  let e = document.getElementById("Menu");
-  e.style.display = "none";
-  e = document.getElementById("Form");
-  e.style.display = "block";
-
-  document.getElementById("FormImage").src = dishes.get(key).getImg();
-  document.getElementById("Name").value = dishes.get(key).getName();
-  document.getElementById("Price").value = dishes.get(key).getPrice();
-  document.getElementById("Description").value = dishes
-    .get(key)
-    .getDescription();
-  showIngredientsList(key, printIngredient);
-
-  let copyArray = [...dishes.get(key).getAtributes()];
-
-  e = document.getElementById("IngredientButton");
-  e.onclick = function () {
-    addNewIngredient(key);
-  };
-  e = document.getElementById("formSaveButton");
-  e.onclick = function () {
-    saveNewDish(key, 0, copyArray);
-  };
-  e = document.getElementById("formCancelButton");
-  e.onclick = function () {
-    backButton(key, 0, copyArray);
-  };
-}
 
 export function updateInfoScreen(key) {
   let dish = dishes.get(key);
@@ -52,14 +18,36 @@ export function updateInfoScreen(key) {
   e = document.getElementById("infoDishDescription");
   e.innerHTML = `${dish.getDescription()}`;
 
+  e = document.getElementById("infoDishIngredientsList");
+  e.innerHTML = ``;
   showIngredientsList(key, printIngredient);
 
-  //Update buttons
+  e = document.getElementById("DeleteButton");
+  e.onclick=function() {deleteDish(key)};
+
+  e = document.getElementById("ModifyButton");
+  e.onclick=function() {modifyDish(key)};
+  
 }
 
 export function printIngredient(ingredient) {
   //Add to the IngredientsList the ingredient
 
   let e = document.getElementById("infoDishIngredientsList");
-  e.innerHTML += `<div>${ingredient} <div>`;
+  e.innerHTML += `<p>${ingredient}</p>`;
+}
+
+export function goToMainPage() {
+  loadMainPage();
+  let e = document.getElementById("InfoDish");
+  e.style.display = "none";
+}
+
+export function deleteDish(key){
+  if (confirm('Desea borrar el plato?')){
+    Dish.removeDish(key[0]);
+    dishes.set(key,dishes.get(key[0] + Dish.getAmount(key[0])));
+    dishes.delete(key[0]+Dish.getAmount(key[0]));
+    goToMainPage();
+  }
 }

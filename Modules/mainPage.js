@@ -46,7 +46,6 @@ export function changeMode(actual_mode, mode, mode1) {
 
 export function showDishes(page, mode) {
   //Show four dishes from the specific mode and the specific page by filling the html
-
   let n = page * 4; //page*4 is to be placed in the right elements of each page cause each page has 4 dishes
   for (let i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
@@ -59,12 +58,10 @@ export function showDishes(page, mode) {
       name.innerHTML = `<p>${dish.getName()}</p>`;
 
       let price = document.getElementById("Price" + i); //Refresh Price
-      price.innerHTML = `<p>${dish.getPrice()}</p>`;
+      price.innerHTML = `<p>${dish.getPrice()}€</p>`;
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${
-        mode + (n + i)
-      }')">Modificar</button>`; //Must be changed
+      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${mode + (n + i)}')">Más Info</button>`; 
     } else {
       let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
       img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive"></img>`;
@@ -73,7 +70,7 @@ export function showDishes(page, mode) {
       name.innerHTML = `<p>No hay plato</p>`;
 
       let price = document.getElementById("Price" + i); //Print a default price
-      price.innerHTML = `<p>???$</p>`;
+      price.innerHTML = `<p>???</p>`;
 
       let moreInfo = document.getElementById("Info" + i); //Print a new dish button
       moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`;
@@ -97,6 +94,10 @@ export function newDish(mode) {
 
   let e = document.getElementById("Menu");
   e.style.display = "none";
+  e = document.getElementById("Display");
+  e.style.display = "none";
+  e = document.getElementById("Reviews");
+  e.style.display = "none";
   e = document.getElementById("Form");
   e.style.display = "block";
 
@@ -111,6 +112,8 @@ export function newDish(mode) {
       mode
     )
   );
+  e = document.getElementById("IngredientsList");
+  e.innerHTML = ``;
   showIngredientsList(mode + (Dish.getAmount(mode) - 1), printIngredient);
 
   document.getElementById("FormImage").src = "Iconos/Plato.png";
@@ -131,6 +134,10 @@ export function newDish(mode) {
 
 export function showSpecificDish(key) {
   let e = document.getElementById("Menu");
+  e.style.display = "none";
+  e = document.getElementById("Display");
+  e.style.display = "none";
+  e = document.getElementById("Reviews");
   e.style.display = "none";
   e = document.getElementById("InfoDish");
   e.style.display = "block";

@@ -322,7 +322,7 @@
       <div id="InfoDish" style="display:none" class="container-fluid">
         <div class="row">
             <div id="InfoArrow" class="col-1">
-                <button>Flecha</button>
+                <button onclick="goToMainPage()">Flecha</button>
             </div>
             <div id="InfoPhoto" class="col-3">
                 <img id="InfodishImage" class="dish-image img-responsive" src="Iconos/Plato.png"></img>
@@ -345,8 +345,9 @@
                 <button id ="ModifyButton">Modificar</button>
             </div>
         </div>
-        <div id="infoDishIngredientsList" class="row">
+        <div class="col-12">
           <h1>Ingredientes</h1>
+          <div id="infoDishIngredientsList"></div>
         </div>
       </div>
       
