@@ -1,0 +1,96 @@
+#Menu {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url("Imagenes/FondoMenu.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0%;
+}
+
+#MenuTitle {
+  color: black;
+  font-family: "WindSong", cursive;
+  text-align: center;
+  margin-top: 3px;
+}
+
+#Menu p {
+  text-align: center;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+#Block1 {
+  margin-top: 20px;
+}
+
+#Arrows {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#Block2 {
+  margin-top: 20px;
+}
+
+/* In order to align some items that where misplaced*/
+.VeganButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#BackArrow {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+/* In order to align some items that where misplaced*/
+
+.menu-header-button {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.MenuButton {
+  background-color: rgba(39, 37, 38, 0.4);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  /*Pointer: Changes the cursor arrow to a hand*/
+}
+
+.dish-image {
+  width: 190px;
+  height: 190px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.InfoButton {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.MenuStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.menu-arrow-button {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.ArrowButton {
+  background-color: rgba(39, 37, 38, 0.4);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+}

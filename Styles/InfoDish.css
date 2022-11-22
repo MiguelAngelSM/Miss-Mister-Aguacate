@@ -1,0 +1,29 @@
+#InfodishImage {
+  width: 190px;
+  height: 190px;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+#InfoPhoto {
+  display: flex;
+  align-items: center;
+}
+
+#InfoArrow {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#DishAtributes {
+  margin-top: 20px;
+  margin-left: -300px;
+}
+
+.InfoButtons {
+  margin-left: 40px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}

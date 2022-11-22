@@ -1,0 +1,31 @@
+#FormImage {
+  width: 60%;
+  height: 80%;
+  margin-left: 40px;
+  margin-top: -30px;
+}
+
+#FormPhoto {
+  display: flex;
+  align-items: center;
+}
+
+#BasicForm {
+  margin-top: 30px;
+}
+
+#IngredientListTitle {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  margin-left: 20px;
+}
+
+#IngredientsList {
+  margin-left: 20px;
+  line-height: 30px;
+}
+
+.FormButtons {
+  margin-left: 40px;
+  margin-bottom: 30px;
+}

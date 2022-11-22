@@ -1,0 +1,36 @@
+#Reviews {
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#ReviewsTitle {
+  color: black;
+  font-family: "WindSong", cursive;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  margin-bottom: -2px;
+}
+
+.block h4 {
+  display: flex;
+  justify-content: center;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+.Stars {
+  display: flex;
+  justify-content: center;
+}
+
+.checked {
+  color: yellow;
+}
+
+.block h6 {
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: black;
+}
