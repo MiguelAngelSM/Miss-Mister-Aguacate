@@ -1,6 +1,6 @@
 #Display {
   background-color: rgba(0, 0, 0, 0.1);
-  background-image: url("Imagenes/Skull.png");
+  background-image: url("../Imagenes/Skull.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;

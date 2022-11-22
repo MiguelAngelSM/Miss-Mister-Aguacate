@@ -2,7 +2,7 @@
 import {deleteIngredient,saveNewDish} from './Modules/forms.js';
 import {carousel} from './Modules/carousel.js';
 import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newDish} from './Modules/mainPage.js';
-
+import {goToMainPage,deleteDish} from './Modules/infoPage.js';
 
 //First Page Load
 document.addEventListener("DOMContentLoaded", function(){
@@ -21,3 +21,5 @@ window.showSpecificDish=showSpecificDish;
 window.deleteIngredient=deleteIngredient;
 window.newDish=newDish;
 window.saveNewDish=saveNewDish;
+window.goToMainPage=goToMainPage;
+window.deleteDish=deleteDish;

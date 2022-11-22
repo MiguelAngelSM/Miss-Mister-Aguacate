@@ -20,8 +20,10 @@ export function deleteIngredient(ingredient, key) {
     let dish = dishes.get(key);
     let list = dish.getAtributes();
     list.splice(list.indexOf(ingredient), 1);
-    showIngredientsList(key, printIngredient);
   }
+  let e = document.getElementById("IngredientsList");
+  e.innerHTML = ``;
+  showIngredientsList(key, printIngredient);
 }
 
 export function backButton(key, opt, copyArray) {
@@ -64,6 +66,41 @@ export function addNewIngredient(key) {
   //Add an ingredient to the dish got from the key and refresh the list
   if (confirm("Deseas añadir el ingrediente")) {
     dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
-    showIngredientsList(key, printIngredient);
   }
+  let e = document.getElementById("IngredientsList");
+  e.innerHTML = ``;
+  showIngredientsList(key, printIngredient);
+}
+
+export function modifyDish(key) {
+  //It will change to the form for modifying the dish
+  let e = document.getElementById("InfoDish");
+  e.style.display = "none";
+  e = document.getElementById("Form");
+  e.style.display = "block";
+
+  document.getElementById("FormImage").src = dishes.get(key).getImg();
+  document.getElementById("Name").value = dishes.get(key).getName();
+  document.getElementById("Price").value = dishes.get(key).getPrice();
+  document.getElementById("Description").value = dishes
+    .get(key)
+    .getDescription();
+  e = document.getElementById("IngredientsList");
+  e.innerHTML = ``;
+  showIngredientsList(key, printIngredient);
+
+  let copyArray = [...dishes.get(key).getAtributes()];
+
+  e = document.getElementById("IngredientButton");
+  e.onclick = function () {
+    addNewIngredient(key);
+  };
+  e = document.getElementById("formSaveButton");
+  e.onclick = function () {
+    saveNewDish(key, 0, copyArray);
+  };
+  e = document.getElementById("formCancelButton");
+  e.onclick = function () {
+    backButton(key, 0, copyArray);
+  };
 }
