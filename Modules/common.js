@@ -7,11 +7,6 @@ export function backToMenu() {
   //Hide the Form and return to the normal mode page 0 (default page)
   
   loadMainPage();
-
-  document.getElementById("Name").value = "";
-  document.getElementById("Price").value = "";
-  document.getElementById("Description").value = "";
-  document.getElementById("Ingredient").value = "";
   let e = document.getElementById("Form");
   e.style.display = "none";
 }

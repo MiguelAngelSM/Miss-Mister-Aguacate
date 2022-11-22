@@ -1,6 +1,7 @@
 //Imports from other modules
 import { dishes, Dish } from "./dish.js";
 import { backToMenu, showIngredientsList } from "./common.js";
+import { newDish } from "./mainPage.js";
 
 //Functions of this module
 export function printIngredient(ingredient, key) {
@@ -43,7 +44,8 @@ export function saveNewDish(key, opt, copyArray) {
   //If the user confirm at the pop-up the dish will be updated with the info from the form
   //If the user cancel at the pop-up the dish will be deleted from the map
   //It will clean the form also
-  //The it will back to menu
+  //Then it will back to menu
+  //Option 1 delete the last dish, any other value won't delete it
 
   if (confirm("Deseas guardar el plato?")) {
     dishes.get(key).setName(document.getElementById("Name").value);
@@ -51,15 +53,17 @@ export function saveNewDish(key, opt, copyArray) {
     dishes
       .get(key)
       .setDescription(document.getElementById("Description").value);
+    backToMenu();
   } else {
     if (opt === 1) {
       dishes.delete(key);
       Dish.removeDish(key[0]); //First char from the array is the mode
+      newDish(key[0]);
     } else {
       dishes.get(key).setAtributes(copyArray);
+      modifyDish(key);
     }
   }
-  backToMenu();
 }
 
 export function addNewIngredient(key) {
