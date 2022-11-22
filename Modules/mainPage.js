@@ -2,6 +2,7 @@
 import { dishes, Dish } from "./dish.js";
 import { printIngredient, backButton, saveNewDish, addNewIngredient } from "./forms.js";
 import { showIngredientsList } from "./common.js";
+import { updateInfoScreen} from './infoPage.js';
 
 //Functions of this module
 export function changePage(mode, page, nextOrPrevious) {
@@ -61,7 +62,7 @@ export function showDishes(page, mode) {
       price.innerHTML = `<p>${dish.getPrice()}</p>`;
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" onclick="modifyDish('${
+      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${
         mode + (n + i)
       }')">Modificar</button>`; //Must be changed
     } else {
@@ -78,11 +79,6 @@ export function showDishes(page, mode) {
       moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`;
     }
   }
-}
-
-export function showSpecificDish(dish) {
-  //It must be implemented
-  console.log(dish);
 }
 
 export function updateArrows(mode, page) {
@@ -131,4 +127,13 @@ export function newDish(mode) {
   e.onclick = function () {
     backButton(key, 1);
   };
+}
+
+export function showSpecificDish(key) {
+  let e = document.getElementById("Menu");
+  e.style.display = "none";
+  e = document.getElementById("InfoDish");
+  e.style.display = "block";
+
+  updateInfoScreen(key);
 }

@@ -6,7 +6,7 @@ import { backToMenu, showIngredientsList } from "./common.js";
 export function printIngredient(ingredient, key) {
   //Add to the IngredientsList the ingredient
   //The key is required for the delete button
-  
+
   let e = document.getElementById("IngredientsList");
   e.innerHTML += `<div>
       ${ingredient} 
@@ -16,17 +16,18 @@ export function printIngredient(ingredient, key) {
 
 export function deleteIngredient(ingredient, key) {
   //Delete the ingredient from the dish got from the key and then update the list
-  
-  let dish = dishes.get(key);
-  let list = dish.getAtributes();
-  list.splice(list.indexOf(ingredient), 1);
-  showIngredientsList(key, printIngredient);
+  if (confirm("Deseas borrar el ingrediente")) {
+    let dish = dishes.get(key);
+    let list = dish.getAtributes();
+    list.splice(list.indexOf(ingredient), 1);
+    showIngredientsList(key, printIngredient);
+  }
 }
 
 export function backButton(key, opt, copyArray) {
   //Delete the dish and return to the Menu
   //Option 1 delete the last dish, any other value won't delete it
-  
+
   if (opt === 1) {
     dishes.delete(key);
     Dish.removeDish(key[0]);
@@ -41,7 +42,7 @@ export function saveNewDish(key, opt, copyArray) {
   //If the user cancel at the pop-up the dish will be deleted from the map
   //It will clean the form also
   //The it will back to menu
-  
+
   if (confirm("Deseas guardar el plato?")) {
     dishes.get(key).setName(document.getElementById("Name").value);
     dishes.get(key).setPrice(document.getElementById("Price").value);
@@ -61,7 +62,8 @@ export function saveNewDish(key, opt, copyArray) {
 
 export function addNewIngredient(key) {
   //Add an ingredient to the dish got from the key and refresh the list
-  
-  dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
-  showIngredientsList(key, printIngredient);
+  if (confirm("Deseas añadir el ingrediente")) {
+    dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
+    showIngredientsList(key, printIngredient);
+  }
 }

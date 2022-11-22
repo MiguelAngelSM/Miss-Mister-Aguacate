@@ -174,7 +174,7 @@
                 <!--Price will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
-              <div id="Name1" class="col-8 col-xs-8">
+              <div id="Name1" class="col-8 ">
                 <!--Name will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
@@ -311,6 +311,37 @@
 
 
       </div>
+
+      <div id="InfoDish" style="display:none" class="container-fluid">
+        <div class="row">
+            <div id="InfoArrow" class="col-1">
+                <button>Flecha</button>
+            </div>
+            <div id="InfoPhoto" class="col-3">
+                <img id="InfodishImage" class="dish-image img-responsive" src="Iconos/Plato.png"></img>
+            </div>
+
+            <div class="col-6"><!--To be changed-->
+                <p></p>
+                <p id="infoDishName">Nombre Plato</p>
+                <p id="infoDishPrice">Precio</p>
+                <p id="infoDishDescription">Descripcion</p>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="InfoButtons col-1">
+                <button id ="DeleteButton">Borrar</button>
+            </div>
+            <div class="InfoButtons col-1">
+                <button id ="ModifyButton">Modificar</button>
+            </div>
+        </div>
+        <div id="infoDishIngredientsList" class="row">
+          <h1>Ingredientes</h1>
+        </div>
+      </div>
       
       <div id="Reviews">
         <div id="ReviewsTitle" class="row">
@@ -401,7 +432,5 @@
         </div>
       </div>
     </div>
-
-    <div id="ElementInfo"></div>
   </body>
 </html>
