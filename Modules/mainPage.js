@@ -1,8 +1,13 @@
 //Imports from other modules
 import { dishes, Dish } from "./dish.js";
-import { printIngredient, backButton, saveNewDish, addNewIngredient } from "./forms.js";
+import {
+  printIngredient,
+  backButton,
+  saveNewDish,
+  addNewIngredient,
+} from "./forms.js";
 import { showIngredientsList } from "./common.js";
-import { updateInfoScreen} from './infoPage.js';
+import { updateInfoScreen } from "./infoPage.js";
 
 //Functions of this module
 export function changePage(mode, page, nextOrPrevious) {
@@ -10,7 +15,7 @@ export function changePage(mode, page, nextOrPrevious) {
   //it will load the next or previous page of the menu depending on the mode and on the page;
   //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more
   //dishes to show or there aren't any 'Añadir Plato' button)
-  
+
   if (
     (nextOrPrevious === 1 &&
       page >= 0 &&
@@ -25,7 +30,7 @@ export function changePage(mode, page, nextOrPrevious) {
 
 export function changeMenuButtons(actual_mode, mode, mode1) {
   //This function change the buttons to change mode from the menu to show those who aren't the actual mode
-  
+
   let b = document.getElementById("Button1"); //Update Menu Button 1
   b.innerHTML = ` <button id="${mode}Mode" class="MenuButton" onclick="changeMode('${mode}','${mode1}','${actual_mode}')">
                           <img class="menu-header-button img-responsive" src="Iconos/${mode}.png">
@@ -38,7 +43,7 @@ export function changeMenuButtons(actual_mode, mode, mode1) {
 
 export function changeMode(actual_mode, mode, mode1) {
   //This function change the menu display between each mode by starting at the page 0 (first page)
-  
+
   changeMenuButtons(actual_mode, mode, mode1);
   updateArrows(actual_mode[0], 0);
   showDishes(0, actual_mode[0]); //It will start at page 0
@@ -47,6 +52,7 @@ export function changeMode(actual_mode, mode, mode1) {
 export function showDishes(page, mode) {
   //Show four dishes from the specific mode and the specific page by filling the html
   let n = page * 4; //page*4 is to be placed in the right elements of each page cause each page has 4 dishes
+  let thereAreNotMoreDishes = false; //It will help to avoid many new dishes buttons
   for (let i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
       let dish = dishes.get(mode + (n + i)); //Get the dish
@@ -61,19 +67,36 @@ export function showDishes(page, mode) {
       price.innerHTML = `<p>${dish.getPrice()}€</p>`;
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${mode + (n + i)}')">Más Info</button>`; 
+      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${
+        mode + (n + i)
+      }')">Más Info</button>`;
     } else {
-      let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
-      img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive"></img>`;
+      if (thereAreNotMoreDishes) {
+        let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
+        img.innerHTML = ``;
 
-      let name = document.getElementById("Name" + i); //Prints a default name
-      name.innerHTML = `<p>No hay plato</p>`;
+        let name = document.getElementById("Name" + i); //Prints a default name
+        name.innerHTML = ``;
 
-      let price = document.getElementById("Price" + i); //Print a default price
-      price.innerHTML = `<p>???</p>`;
+        let price = document.getElementById("Price" + i); //Print a default price
+        price.innerHTML = ``;
 
-      let moreInfo = document.getElementById("Info" + i); //Print a new dish button
-      moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`;
+        let moreInfo = document.getElementById("Info" + i); //Print a new dish button
+        moreInfo.innerHTML = ``;
+      } else {
+        let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
+        img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive"></img>`;
+
+        let name = document.getElementById("Name" + i); //Prints a default name
+        name.innerHTML = `<p>No hay plato</p>`;
+
+        let price = document.getElementById("Price" + i); //Print a default price
+        price.innerHTML = `<p>???</p>`;
+
+        let moreInfo = document.getElementById("Info" + i); //Print a new dish button
+        moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`;
+        thereAreNotMoreDishes = true;
+      }
     }
   }
 }
@@ -90,6 +113,7 @@ export function updateArrows(mode, page) {
 export function newDish(mode) {
   //Hide the Menu and show the form
   //Create a default dish that will be edited or deleted
+  //Clean the form
   //Update the page buttons
 
   let e = document.getElementById("Menu");
@@ -112,6 +136,11 @@ export function newDish(mode) {
       mode
     )
   );
+
+  document.getElementById("Name").value = "";
+  document.getElementById("Price").value = "";
+  document.getElementById("Description").value = "";
+  document.getElementById("Ingredient").value = "";
   e = document.getElementById("IngredientsList");
   e.innerHTML = ``;
   showIngredientsList(mode + (Dish.getAmount(mode) - 1), printIngredient);
