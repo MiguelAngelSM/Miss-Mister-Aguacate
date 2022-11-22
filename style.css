@@ -1,9 +1,4 @@
 body {
   background-image: url("Imagenes/Fondo.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.container-fluid {
-  padding: 0%;
 }
