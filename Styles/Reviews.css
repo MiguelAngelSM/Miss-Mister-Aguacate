@@ -1,16 +1,14 @@
 #Reviews {
   background-color: rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #ReviewsTitle {
   color: black;
   font-family: "WindSong", cursive;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  margin-top: 3px;
-  margin-bottom: -2px;
 }
 
 .block h4 {
@@ -30,7 +28,8 @@
 }
 
 .block h6 {
-  margin-left: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: justify; /*All lines have equal width*/
   color: black;
+  margin-left: 10px;
 }

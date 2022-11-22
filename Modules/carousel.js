@@ -5,13 +5,12 @@ let content = document.getElementsByClassName("Photo");
 //Functions of this module
 export function carousel() {
   //It will change between some images each 5 seconds
-  
-  for (let i=0; i<content.length;i++){
-    if (i==Index){
-      content[i].style.display="block";
-    }
-    else{
-      content[i].style.display="none";
+
+  for (let i = 0; i < content.length; i++) {
+    if (i == Index) {
+      content[i].style.display = "block";
+    } else {
+      content[i].style.display = "none";
     }
   }
   if (Index >= content.length - 1) {

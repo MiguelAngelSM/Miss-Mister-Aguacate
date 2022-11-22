@@ -30,13 +30,13 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="style.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Header.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/Display.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/Menu.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/Form.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/InfoDish.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/Reviews.css"/>
-    <link type="text/css" rel="stylesheet" href="./Styles/Footer.css"/>
+    <link type="text/css" rel="stylesheet" href="./Styles/Header.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/Display.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/Menu.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/Form.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/InfoDish.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/Reviews.css" />
+    <link type="text/css" rel="stylesheet" href="./Styles/Footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -67,7 +67,6 @@
     <!-- Our JS file -->
     <script src="./main.js" type="module"></script>
     <!-- Our JS file -->
-
   </head>
 
   <body>
@@ -103,13 +102,13 @@
       <div id="Display" class="row">
         <!--JavaScript code will generate it automatically when starts-->
         <!--It will change between four pictures every 5 seconds-->
-        <img class="Photo" src="Imagenes/Cartel.jpg">
-        <img class="Photo" src="Imagenes/Amigos.jpg">
-        <img class="Photo" src="Imagenes/Mesa.jpg">
-        <img class="Photo" src="Imagenes/Sitio.jpg">
+        <img class="Photo" src="Imagenes/Cartel.jpg" />
+        <img class="Photo" src="Imagenes/Amigos.jpg" />
+        <img class="Photo" src="Imagenes/Mesa.jpg" />
+        <img class="Photo" src="Imagenes/Sitio.jpg" />
       </div>
 
-      <div id="Menu" style="display:block">
+      <div id="Menu" style="display: block">
         <div id="Head" class="row justify-content-center">
           <!--Default mode is Normal mode-->
           <div id="space-menu-header-right" class="col-2">
@@ -181,7 +180,7 @@
                 <!--Price will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
-              <div id="Name1" class="col-8 ">
+              <div id="Name1" class="col-8">
                 <!--Name will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
@@ -204,14 +203,24 @@
 
         <div id="Arrows" class="row justify-content-center">
           <div id="BackArrow" class="col-1">
-            <button class="ArrowButton" onclick="changePage('N', 0, -1)"><img class="menu-arrow-button img-responsive" src="Iconos/BackArrow.png"></button>
+            <button class="ArrowButton" onclick="changePage('N', 0, -1)">
+              <img
+                class="menu-arrow-button img-responsive"
+                src="Iconos/BackArrow.png"
+              />
+            </button>
             <!--Normal mode at page 0 by default-->
           </div>
           <div id="space-between-arrows" class="col-10">
             <!--Space-->
           </div>
           <div id="NextArrow" class="col-1">
-            <button class="ArrowButton" onclick="changePage('N', 0, 1)"><img class="menu-arrow-button img-responsive" src="Iconos/NextArrow.png"></button>
+            <button class="ArrowButton" onclick="changePage('N', 0, 1)">
+              <img
+                class="menu-arrow-button img-responsive"
+                src="Iconos/NextArrow.png"
+              />
+            </button>
           </div>
         </div>
 
@@ -269,95 +278,114 @@
         </div>
       </div>
 
-      <div id="Form" style="display:none">
+      <div id="Form" style="display: none">
         <div class="row">
-            <div id="FormPhoto" class="col-4">
-                <img id="FormImage" class="dish-image img-responsive" src="Iconos/Plato.png"></img><!--To be changed-->
-            </div>
+          <div id="FormPhoto" class="col-4">
+            <img
+              id="FormImage"
+              class="dish-image img-responsive"
+              src="Iconos/Plato.png"
+            /><!--To be changed-->
+          </div>
 
-            <div id="BasicForm" class="col-8">
-                <form role="form">
-                    <div class="form-group col-11">
-                            <label for="Name">Nombre:</label>
-                            <input id="Name" class="form-control" type="text">
-                    </div>
-                    <div class="form-group col-11">
-                            <label for="Price">Precio:</label>
-                            <input id="Price" class="form-control" type="text">
-                    </div>
-                    <div class="form-group col-11">
-                            <label for="Description">Descripción:</label>
-                            <input id="Description" class="form-control" type="text">
-                    </div>
-                    <div class="form-group col-11">
-                        <label for="Ingredients">Ingrediente:</label>
-                        <div class="form-inline">
-                            <input id="Ingredient" class="form-control col-11" type="text">
-                            <input id="IngredientButton" class="form-control col-1" type="button" onclick="addNewIngredient()" value="Añadir">
-                        </div>
-                    </div>
-                </form>
-            </div>
+          <div id="BasicForm" class="col-8">
+            <form role="form">
+              <div class="form-group col-11">
+                <label for="Name">Nombre:</label>
+                <input id="Name" class="form-control" type="text" />
+              </div>
+              <div class="form-group col-11">
+                <label for="Price">Precio:</label>
+                <input id="Price" class="form-control" type="text" />
+              </div>
+              <div class="form-group col-11">
+                <label for="Description">Descripción:</label>
+                <input id="Description" class="form-control" type="text" />
+              </div>
+              <div class="form-group col-11">
+                <label for="Ingredients">Ingrediente:</label>
+                <div class="form-inline">
+                  <input
+                    id="Ingredient"
+                    class="form-control col-11"
+                    type="text"
+                  />
+                  <input
+                    id="IngredientButton"
+                    class="form-control col-1"
+                    type="button"
+                    onclick="addNewIngredient()"
+                    value="Añadir"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="row">
-            <div class="FormButtons col-1">
-                <button id="formSaveButton" onclick="saveNewDish('N')">Guardar</button>
-            </div>
-            <div class="FormButtons col-1">
-                <button id="formCancelButton" onclick="backButton('N')">Cancelar</button>
-            </div>
+          <div class="FormButtons col-1">
+            <button id="formSaveButton" onclick="saveNewDish('N')">
+              Guardar
+            </button>
+          </div>
+          <div class="FormButtons col-1">
+            <button id="formCancelButton" onclick="backButton('N')">
+              Cancelar
+            </button>
+          </div>
         </div>
 
         <div id="IngredientListTitle">
           <h2>Lista de ingredientes</h2>
         </div>
         <div id="IngredientsList" class="col-12">
-            <!--The list will be generated by JS-->
+          <!--The list will be generated by JS-->
         </div>
-        
-
-
       </div>
 
-      <div id="InfoDish" style="display:none" class="container-fluid">
+      <div id="InfoDish" style="display: none" class="container-fluid">
         <div class="row">
-            <div id="InfoArrow" class="col-1">
-                <button onclick="goToMainPage()">Flecha</button>
-            </div>
-            <div id="InfoPhoto" class="col-3">
-                <img id="InfodishImage" class="dish-image img-responsive" src="Iconos/Plato.png"></img>
-            </div>
+          <div id="InfoArrow" class="col-1">
+            <button onclick="goToMainPage()">Flecha</button>
+          </div>
+          <div id="InfoPhoto" class="col-3">
+            <img
+              id="InfodishImage"
+              class="dish-image img-responsive"
+              src="Iconos/Plato.png"
+            />
+          </div>
 
-            <div class="col-6"><!--To be changed-->
-                <p></p>
-                <p id="infoDishName">Nombre Plato</p>
-                <p id="infoDishPrice">Precio</p>
-                <p id="infoDishDescription">Descripcion</p>
-                
-            </div>
+          <div class="col-6">
+            <!--To be changed-->
+            <p></p>
+            <p id="infoDishName">Nombre Plato</p>
+            <p id="infoDishPrice">Precio</p>
+            <p id="infoDishDescription">Descripcion</p>
+          </div>
         </div>
 
         <div class="row">
-            <div class="InfoButtons col-1">
-                <button id ="DeleteButton">Borrar</button>
-            </div>
-            <div class="InfoButtons col-1">
-                <button id ="ModifyButton">Modificar</button>
-            </div>
+          <div class="InfoButtons col-1">
+            <button id="DeleteButton">Borrar</button>
+          </div>
+          <div class="InfoButtons col-1">
+            <button id="ModifyButton">Modificar</button>
+          </div>
         </div>
         <div class="col-12">
           <h1>Ingredientes</h1>
           <div id="infoDishIngredientsList"></div>
         </div>
       </div>
-      
-      <div id="Reviews">
-        <div id="ReviewsTitle" class="row">
+
+      <div id="Reviews" class="row">
+        <div id="ReviewsTitle">
           <h1>Reseñas</h1>
         </div>
 
         <div class="row">
-          <div class="block col-4">
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Sergio De Oro Fernández</h4>
             <div class="Stars">
               <span class="fa fa-star checked"></span>
@@ -374,7 +402,7 @@
             </h6>
           </div>
 
-          <div class="block col-4">
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Antonio José Alanís Bernal</h4>
             <div class="Stars">
               <span class="fa fa-star checked"></span>
@@ -391,7 +419,7 @@
             </h6>
           </div>
 
-          <div class="block col-4">
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Kiko Martínez De Lizarduy</h4>
             <div class="Stars">
               <span class="fa fa-star checked"></span>
@@ -413,15 +441,22 @@
       <div id="Footer">
         <div class="row">
           <div class="col-4">
-            <p><img src="Iconos/Reloj.png"> Horario: Lunes a Viernes 12:00 - 01:00</p>
-            <p><img src="Iconos/Correo.png"> Contacto: missandmisteraguacate@gmail.com</p>
-            <p><img src="Iconos/Telefono.png"> Teléfono: +34 910 00 00 00</p>
-            <p><img src="Iconos/Mapa.png"> Calle: Las Antenas, 21 45631</p>
+            <p>
+              <img src="Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 -
+              01:00
+            </p>
+            <p>
+              <img src="Iconos/Correo.png" /> Contacto:
+              missandmisteraguacate@gmail.com
+            </p>
+            <p><img src="Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
+            <p><img src="Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
           </div>
 
           <div class="FooterThing col-6">
             <div>
-              <iframe id="Map"
+              <iframe
+                id="Map"
                 src="https://maps.google.com/maps?q=40.153524,%20-4.743002&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0"
               ></iframe>
@@ -429,14 +464,14 @@
           </div>
 
           <div class="FooterThing col-2">
-            <img id="FooterLogo" src="Iconos/aguacate.png">
+            <img id="FooterLogo" src="Iconos/aguacate.png" />
           </div>
-
-
         </div>
 
         <div class="Copyright row">
-          <p>&copy; Design by Miguel y Demelza <img src="Iconos/corazon.png"></p>
+          <p>
+            &copy; Design by Miguel y Demelza <img src="Iconos/corazon.png" />
+          </p>
         </div>
       </div>
     </div>
