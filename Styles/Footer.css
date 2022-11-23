@@ -1,42 +1,34 @@
 #Footer {
   background-color: rgb(39, 37, 38);
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#ContactInfo {
+  display: contents;
 }
 
 #Footer p {
   color: white;
   font-family: "Times New Roman", Times, serif;
   margin-left: 20px;
-  margin-top: 30px;
-  font-size: medium;
+  margin-top: 20px;
 }
 
 #Footer p img {
   width: 35px;
   height: 35px;
-}
-
-#FooterLogo {
-  width: 140px;
-  height: 140px;
-  margin-right: 50px;
+  object-fit: contain;
 }
 
 #Map {
-  width: 350px;
-  height: 200px;
+  width: 550px;
+  height: 250px;
   margin-top: 10px;
-  margin-left: -180px;
 }
 
-.FooterThing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Copyright {
+#Copyright {
   color: white;
-  display: flex;
-  justify-content: center;
+  display: contents;
+  text-align: center;
 }
