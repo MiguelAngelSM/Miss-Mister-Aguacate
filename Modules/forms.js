@@ -53,6 +53,15 @@ export function saveNewDish(key, opt, copyArray) {
     dishes
       .get(key)
       .setDescription(document.getElementById("Description").value);
+      //This is to get the images saved
+      let input = document.getElementById("AddImage");
+      let fReader = new FileReader();
+      fReader.readAsDataURL(input.files[0]);
+      fReader.onloadend = function(event){
+          dishes.get(key).setImg(event.target.result);
+        }
+        //This is to get the images saved
+      
     backToMenu();
   } else {
     if (opt === 1) {
@@ -82,6 +91,9 @@ export function modifyDish(key) {
   e.style.display = "none";
   e = document.getElementById("Form");
   e.style.display = "block";
+  e = document.getElementById("AddImage");
+  e.style.display = "none";
+  document.getElementById("FormImage").style.display = "block";
 
   document.getElementById("FormImage").src = dishes.get(key).getImg();
   document.getElementById("Name").value = dishes.get(key).getName();
