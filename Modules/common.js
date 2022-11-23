@@ -16,7 +16,9 @@ export function showIngredientsList(key, printIngredient) {
 
   let dish = dishes.get(key);
   let ingredients = dish.getAtributes();
-  ingredients.forEach((i) => printIngredient(i, key));
+  for (let i=0;i<ingredients.length;i++){
+    printIngredient(ingredients[i], key, i)
+  };
 }
 
 export function loadMainPage() {

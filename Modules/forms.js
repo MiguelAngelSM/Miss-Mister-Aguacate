@@ -4,15 +4,26 @@ import { backToMenu, showIngredientsList } from "./common.js";
 import { newDish } from "./mainPage.js";
 
 //Functions of this module
-export function printIngredient(ingredient, key) {
+export function printIngredient(ingredient, key, i) {
   //Add to the IngredientsList the ingredient
   //The key is required for the delete button
 
   let e = document.getElementById("IngredientsList");
-  e.innerHTML += `<div>
-      ${ingredient} 
-      <button onclick="deleteIngredient('${ingredient}','${key}')">Eliminar</button>
-    <div>`;
+  e.innerHTML += `
+  <div class="form-inline">
+    <input
+      id="Ingredient${i}"
+      class="form-control col-11"
+      type="text"
+      value="${ingredient}"
+      />
+      <input
+      class="form-control col-1"
+      type="button"
+      onclick="deleteIngredient('${ingredient}','${key}')"
+      value="Eliminar"
+      />
+    </div>`
 }
 
 export function deleteIngredient(ingredient, key) {
@@ -45,7 +56,7 @@ export function saveNewDish(key, opt, copyArray) {
   //If the user cancel at the pop-up the dish will be deleted from the map
   //It will clean the form also
   //Then it will back to menu
-  //Option 1 delete the last dish, any other value won't delete it
+  //Option 1 is for the newDishOption
 
   if (confirm("Deseas guardar el plato?")) {
     dishes.get(key).setName(document.getElementById("Name").value);
@@ -53,15 +64,18 @@ export function saveNewDish(key, opt, copyArray) {
     dishes
       .get(key)
       .setDescription(document.getElementById("Description").value);
-      //This is to get the images saved
+    //This is to get the images saved
+    if (opt == 1) {
       let input = document.getElementById("AddImage");
       let fReader = new FileReader();
       fReader.readAsDataURL(input.files[0]);
-      fReader.onloadend = function(event){
-          dishes.get(key).setImg(event.target.result);
-        }
-        //This is to get the images saved
-      
+      fReader.onloadend = function (event) {
+        dishes.get(key).setImg(event.target.result);
+      };
+    }
+    saveIngredients(key);
+    //This is to get the images saved
+
     backToMenu();
   } else {
     if (opt === 1) {
@@ -119,4 +133,13 @@ export function modifyDish(key) {
   e.onclick = function () {
     backButton(key, 0, copyArray);
   };
+}
+
+export function saveIngredients(key){
+  let size=dishes.get(key).getAtributes().length;
+  dishes.get(key).setAtributes([]);//Delete the previous list of ingredients
+  for(let i=0;i<size; i++){
+    document.getElementById('Ingredient'+i).value;
+    dishes.get(key).addAtribute(document.getElementById('Ingredient'+i).value);
+  }
 }

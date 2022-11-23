@@ -31,11 +31,11 @@ export function changePage(mode, page, nextOrPrevious) {
 export function changeMenuButtons(actual_mode, mode, mode1) {
   //This function change the buttons to change mode from the menu to show those who aren't the actual mode
 
-  let b = document.getElementById("Button1"); //Update Menu Button 1
+  let b = document.getElementById("OptionButton1"); //Update Menu Button 1
   b.innerHTML = ` <button id="${mode}Mode" class="MenuButton" onclick="changeMode('${mode}','${mode1}','${actual_mode}')">
                           <img class="menu-header-button img-responsive" src="Iconos/${mode}.png">
                       </button>`;
-  b = document.getElementById("Button2"); //Update Menu Button 2
+  b = document.getElementById("OptionButton2"); //Update Menu Button 2
   b.innerHTML = ` <button id="${mode1}Mode" class="MenuButton" onclick="changeMode('${mode1}','${mode}','${actual_mode}')">
                       <img class="menu-header-button img-responsive" src="Iconos/${mode1}.png">
                   </button>`;
