@@ -10,8 +10,10 @@
 }
 
 .Photo {
-  width: 400px;
-  height: 400px;
+  width: 30%;
+  height: 30%;
+  border-radius: 3%;
+  margin:2%;
   object-fit: contain;
   animation-name: fader; /* This property is used to give a name to the animation we are going to use in the display*/
   animation-duration: 2.5s; /*Two animations, each one last 2.5s*/
