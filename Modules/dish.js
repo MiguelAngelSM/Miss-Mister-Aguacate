@@ -223,7 +223,7 @@ dishes.set(
     5,
     "Deliciosa hamburguesa vegana hecha para los amantes de los sabores exóticos",
     [
-      '"Carne" Beyond',
+      "'Carne' Beyond",
       "Cebolla morada",
       "Rúcula",
       "Aguacate",
