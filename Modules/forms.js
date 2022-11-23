@@ -111,6 +111,7 @@ export function modifyDish(key) {
 
   document.getElementById("FormImage").src = dishes.get(key).getImg();
   document.getElementById("Name").value = dishes.get(key).getName();
+  document.getElementById("Name").disabled = true;///////////////////////
   document.getElementById("Price").value = dishes.get(key).getPrice();
   document.getElementById("Description").value = dishes
     .get(key)
