@@ -1,5 +1,5 @@
 //Import functions from the modules
-import {deleteIngredient,saveNewDish} from './Modules/forms.js';
+import {backButton,deleteIngredient,saveNewDish} from './Modules/forms.js';
 import {carousel} from './Modules/carousel.js';
 import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newDish} from './Modules/mainPage.js';
 import {goToMainPage,deleteDish} from './Modules/infoPage.js';
@@ -23,3 +23,4 @@ window.newDish=newDish;
 window.saveNewDish=saveNewDish;
 window.goToMainPage=goToMainPage;
 window.deleteDish=deleteDish;
+window.backButton=backButton;

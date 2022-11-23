@@ -124,6 +124,9 @@ export function newDish(mode) {
   e.style.display = "none";
   e = document.getElementById("Form");
   e.style.display = "block";
+  e = document.getElementById("AddImage");
+  e.style.display = "block";
+  document.getElementById("FormImage").style.display = "none";
 
   dishes.set(
     mode + Dish.getAmount(mode),
@@ -145,7 +148,6 @@ export function newDish(mode) {
   e.innerHTML = ``;
   showIngredientsList(mode + (Dish.getAmount(mode) - 1), printIngredient);
 
-  document.getElementById("FormImage").src = "Iconos/Plato.png";
   let key = mode + (Dish.getAmount(mode) - 1);
   e = document.getElementById("IngredientButton");
   e.onclick = function () {
