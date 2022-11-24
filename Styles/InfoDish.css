@@ -1,3 +1,26 @@
+#InfoDish {
+  background-color: rgba(39, 37, 38, 0.2);
+}
+
+#InfoArrow {
+  display: flex;
+  align-items: center;
+}
+
+#InfoDishArrow {
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+#InfoPhoto {
+  display: flex;
+  align-items: center;
+}
+
 #InfodishImage {
   width: 190px;
   height: 190px;
@@ -6,24 +29,45 @@
   margin-top: 20px;
 }
 
-#InfoPhoto {
-  display: flex;
-  align-items: center;
-}
-
-#InfoArrow {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
-
 #DishAtributes {
   margin-top: 20px;
-  margin-left: -300px;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: justify;
 }
 
 .InfoButtons {
   margin-left: 40px;
   margin-bottom: 30px;
   margin-top: 20px;
+}
+
+#DeleteButton {
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+#ModifyButton {
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+#InfoIngredientTitle {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  margin-left: 20px;
+}
+
+#infoDishIngredientsList {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: black;
+  margin-bottom: 5px;
 }

@@ -1,21 +1,18 @@
-#Form{
+#Form {
   background-color: rgba(39, 37, 38, 0.2);
-  background-image:url("../Imagenes/FondoMenu.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.FormStructure{
-  display:flex;
+.FormStructure {
+  display: flex;
   justify-content: center;
   align-content: center;
 }
 
 #FormImage {
-  width: 60%;
-  height: 80%;
+  width: 190px;
+  height: 190px;
   object-fit: contain;
+  border-radius: 10px;
 }
 
 #FormPhoto {
@@ -23,7 +20,7 @@
   align-items: center;
 }
 
-#AddImage{
+#AddImage {
   font-family: "Times New Roman", Times, serif;
   color: black;
 }
@@ -32,19 +29,19 @@
   margin-top: 30px;
 }
 
-label{
+label {
   font-family: "Times New Roman", Times, serif;
-  color: black;  
+  color: black;
 }
 
-#IngredientButton{
+#IngredientButton {
   background-color: white;
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
   border-radius: 3px;
   font-family: "Times New Roman", Times, serif;
-  color: black; 
-  display:flex;
+  color: black;
+  display: flex;
   justify-content: center;
   cursor: pointer;
 }
@@ -54,14 +51,14 @@ label{
   margin-bottom: 30px;
 }
 
-#formSaveButton{
+#formSaveButton {
   background-color: white;
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
   border-radius: 3px;
 }
 
-#formCancelButton{
+#formCancelButton {
   background-color: white;
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
@@ -78,13 +75,13 @@ label{
   margin-left: 20px;
 }
 
-.IngredientsStructure{
+.IngredientsStructure {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
   margin-bottom: 5px;
 }
 
-.IngredientsStructureButton{
+.IngredientsStructureButton {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
   margin-bottom: 5px;
@@ -92,7 +89,7 @@ label{
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
   border-radius: 3px;
-  display:flex;
+  display: flex;
   justify-content: center;
   cursor: pointer;
 }

@@ -13,7 +13,7 @@ export function updateInfoScreen(key) {
   e.innerHTML = `${dish.getName()}`;
 
   e = document.getElementById("infoDishPrice");
-  e.innerHTML = `${dish.getPrice()}`;
+  e.innerHTML = `${dish.getPrice()}€`;
 
   e = document.getElementById("infoDishDescription");
   e.innerHTML = `${dish.getDescription()}`;
