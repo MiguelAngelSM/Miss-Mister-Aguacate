@@ -1,3 +1,5 @@
+/*Styles that affect the 'Reviews' block*/
+
 #Reviews {
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
@@ -14,7 +16,7 @@
 .block h4 {
   display: flex;
   justify-content: center;
-  text-align: justify;
+  text-align: justify; /*All the lines have the same width*/
   font-family: "Times New Roman", Times, serif;
   color: black;
 }
@@ -30,7 +32,7 @@
 
 .block h6 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  text-align: justify; /*All lines have equal width*/
+  text-align: justify; /*All the lines have the same width*/
   color: black;
   margin-left: 10px;
   margin-right: 10px;

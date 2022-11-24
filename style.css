@@ -1,3 +1,5 @@
+/*Styles that affect elements of the entire page*/
+
 body {
   background-image: url("Imagenes/Fondo.jpg");
   background-size: cover;

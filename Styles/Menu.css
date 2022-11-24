@@ -1,10 +1,12 @@
+/*Styles that affect all elements of the 'Menu' block*/
+
 #Menu {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
 #Head {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /*The space between the adjacent items, the start edge and the first item, and last edge and item is the same*/
   align-items: center;
 }
 
@@ -27,7 +29,7 @@
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
   border-radius: 3px;
-  display: inline-block;
+  display: inline-block; /*This is in order to avoid links out from the box*/
 }
 
 #Block1 {

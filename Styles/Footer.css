@@ -1,11 +1,13 @@
+/*Styles that affect the 'Footer' block*/
+
 #Footer {
   background-color: rgb(39, 37, 38);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /*Leaves the same space between the adjacent items*/
 }
 
 #ContactInfo {
-  display: contents;
+  display: contents; /*The box of these elements is replaced by its pseudo-box*/
 }
 
 #Footer p {

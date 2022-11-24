@@ -1,3 +1,5 @@
+/*Styles that affect elements of the 'Display' block*/
+
 #Display {
   background-color: rgba(0, 0, 0, 0.1);
   margin-top: 10px;
@@ -9,10 +11,10 @@
 .Photo {
   width: 30%;
   height: 30%;
-  border-radius: 3%;
+  border-radius: 3%; /*This property makes the edges of the photo rounded*/
   margin: 2%;
-  object-fit: contain;
-  animation-name: fader; /* This property is used to give a name to the animation we are going to use in the display*/
+  object-fit: contain; /*Makes all photos fit the size specified in width and height*/
+  animation-name: fader; /*This property is used to give a name to the animation we are going to use in the display*/
   animation-duration: 2.5s; /*Two animations, each one last 2.5s*/
   animation-direction: alternate-reverse; /*Makes the animation to play first reverse and then normal*/
   animation-iteration-count: 2; /*Makes the animation to play twice*/
@@ -20,7 +22,7 @@
 }
 
 @keyframes fader {
-  /* This is used to control the animation step by step*/
+  /*This is used to control the animation step by step*/
   from {
     opacity: 1;
   }
