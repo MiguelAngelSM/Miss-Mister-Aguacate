@@ -58,7 +58,7 @@ export function showDishes(page, mode) {
       let dish = dishes.get(mode + (n + i)); //Get the dish
 
       let img = document.getElementById("Image" + i); //Refresh Image
-      img.innerHTML = `<img src ="${dish.getImg()}" class="dish-image img-responsive"></img>`;
+      img.innerHTML = `<img src ="${dish.getImg()}" class="dish-image img-responsive">`;
 
       let name = document.getElementById("Name" + i); //Refresh Name
       name.innerHTML = `<p>${dish.getName()}</p>`;
@@ -85,7 +85,7 @@ export function showDishes(page, mode) {
         moreInfo.innerHTML = ``;
       } else {
         let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
-        img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive"></img>`;
+        img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive">`;
 
         let name = document.getElementById("Name" + i); //Prints a default name
         name.innerHTML = `<p>No hay plato</p>`;

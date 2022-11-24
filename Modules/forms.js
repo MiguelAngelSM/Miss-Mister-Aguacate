@@ -28,7 +28,7 @@ export function printIngredient(ingredient, key, i) {
 
 export function deleteIngredient(ingredient, key) {
   //Delete the ingredient from the dish got from the key and then update the list
-  if (confirm("Deseas borrar el ingrediente")) {
+  if (confirm("¿Deseas borrar el ingrediente?")) {
     let dish = dishes.get(key);
     let list = dish.getAtributes();
     list.splice(list.indexOf(ingredient), 1);
@@ -58,7 +58,7 @@ export function saveNewDish(key, opt, copyArray) {
   //Then it will back to menu
   //Option 1 is for the newDishOption
 
-  if (confirm("Deseas guardar el plato?")) {
+  if (confirm("¿Deseas guardar el plato?")) {
     dishes.get(key).setName(document.getElementById("Name").value);
     dishes.get(key).setPrice(document.getElementById("Price").value);
     dishes
@@ -91,7 +91,7 @@ export function saveNewDish(key, opt, copyArray) {
 
 export function addNewIngredient(key) {
   //Add an ingredient to the dish got from the key and refresh the list
-  if (confirm("Deseas añadir el ingrediente")) {
+  if (confirm("¿Deseas añadir el ingrediente?")) {
     dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
   }
   let e = document.getElementById("IngredientsList");

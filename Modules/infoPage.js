@@ -7,7 +7,7 @@ import { showIngredientsList, loadMainPage } from "./common.js";
 export function updateInfoScreen(key) {
   let dish = dishes.get(key);
   let e = document.getElementById("InfoPhoto");
-  e.innerHTML = `<img id="InfodishImage" class="img-responsive" src="${dish.getImg()}"></img>`;
+  e.innerHTML = `<img id="InfodishImage" class="img-responsive" src="${dish.getImg()}">`;
 
   e = document.getElementById("infoDishName");
   e.innerHTML = `${dish.getName()}`;
@@ -44,7 +44,7 @@ export function goToMainPage() {
 }
 
 export function deleteDish(key){
-  if (confirm('Desea borrar el plato?')){
+  if (confirm('¿Desea borrar el plato?')){
     Dish.removeDish(key[0]);
     dishes.set(key,dishes.get(key[0] + Dish.getAmount(key[0])));
     dishes.delete(key[0]+Dish.getAmount(key[0]));

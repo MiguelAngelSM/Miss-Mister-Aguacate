@@ -139,7 +139,7 @@ dishes.set(
       "Champiñones",
       "Aceitunas negras",
       "Salchichas",
-      "Jamon Serrano",
+      "Jamón Serrano",
       "Queso de cabra",
     ],
     "Platos/Normal/Pizza.jpg"
@@ -209,7 +209,7 @@ dishes.set(
   new Dish(
     "Pescado con papas",
     4,
-    "Podría parecer que es una copia del fish&chips inglés, pero no, este pescado con papas es mejor gracias a nuestro chef valenciano que pone su toque culinario",
+    "Podría parecer que es una copia del 'Fish&Chips' inglés, pero no, este pescado con papas es mejor gracias a nuestro chef valenciano que pone su toque culinario",
     ["Filete de merluza a la plancha", "Patatas fritas", "Cebolla", "Pimiento"],
     "Platos/Normal/Pescado con papas.jpg",
     "N"
