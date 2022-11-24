@@ -1,8 +1,21 @@
+#Form{
+  background-color: rgba(39, 37, 38, 0.2);
+  background-image:url("../Imagenes/FondoMenu.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.FormStructure{
+  display:flex;
+  justify-content: center;
+  align-content: center;
+}
+
 #FormImage {
   width: 60%;
   height: 80%;
-  margin-left: 40px;
-  margin-top: -30px;
+  object-fit: contain;
 }
 
 #FormPhoto {
@@ -10,8 +23,49 @@
   align-items: center;
 }
 
+#AddImage{
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
 #BasicForm {
   margin-top: 30px;
+}
+
+label{
+  font-family: "Times New Roman", Times, serif;
+  color: black;  
+}
+
+#IngredientButton{
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  font-family: "Times New Roman", Times, serif;
+  color: black; 
+  display:flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.FormButtons {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+#formSaveButton{
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+}
+
+#formCancelButton{
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
 }
 
 #IngredientListTitle {
@@ -22,10 +76,23 @@
 
 #IngredientsList {
   margin-left: 20px;
-  line-height: 30px;
 }
 
-.FormButtons {
-  margin-left: 40px;
-  margin-bottom: 30px;
+.IngredientsStructure{
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.IngredientsStructureButton{
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: black;
+  margin-bottom: 5px;
+  background-color: white;
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  display:flex;
+  justify-content: center;
+  cursor: pointer;
 }

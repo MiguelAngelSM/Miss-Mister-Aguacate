@@ -13,12 +13,12 @@ export function printIngredient(ingredient, key, i) {
   <div class="form-inline">
     <input
       id="Ingredient${i}"
-      class="form-control col-11"
+      class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
       type="text"
       value="${ingredient}"
       />
       <input
-      class="form-control col-1"
+      class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
       type="button"
       onclick="deleteIngredient('${ingredient}','${key}')"
       value="Eliminar"

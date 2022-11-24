@@ -94,7 +94,7 @@ export function showDishes(page, mode) {
         price.innerHTML = `<p>???</p>`;
 
         let moreInfo = document.getElementById("Info" + i); //Print a new dish button
-        moreInfo.innerHTML = `<button id="Button ${i}" onclick="newDish('${mode}')">Añadir plato</button>`;
+        moreInfo.innerHTML = `<button id="Button ${i}" class="InfoButton" onclick="newDish('${mode}')">Añadir plato</button>`;
         thereAreNotMoreDishes = true;
       }
     }
