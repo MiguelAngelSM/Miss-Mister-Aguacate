@@ -40,12 +40,13 @@
 #DishAtributes {
   margin-top: 20px;
   color: black;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Times New Roman", Times, serif;
+  text-align: justify;
   text-align: justify; /*All the lines have the same width*/
 }
 
 .InfoButtons {
-  margin-left: 40px;
+  margin-left: 80px;
   margin-bottom: 30px;
   margin-top: 20px;
 }
@@ -57,6 +58,7 @@
   border-radius: 3px;
   font-family: "Times New Roman", Times, serif;
   color: black;
+  margin-left: 20px;
 }
 
 #ModifyButton {
