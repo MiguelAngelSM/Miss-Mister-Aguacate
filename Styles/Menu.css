@@ -1,13 +1,9 @@
 #Menu {
-  background-color: rgba(255, 255, 255, 0.6);
-  background-image: url("../Imagenes/FondoMenu.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-#Head{
-  display:flex;
+#Head {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -19,8 +15,23 @@
   margin-top: 10px;
 }
 
+.menu-header-button {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  text-align: center;
+}
+
+.MenuButton {
+  background-color: rgba(39, 37, 38, 0.4);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+  display: inline-block;
+}
+
 #Block1 {
-  display:flex;
+  display: flex;
   align-items: flex-start;
   justify-content: center;
   margin-top: 10px;
@@ -32,59 +43,37 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-#Arrows {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#Block2 {
-  margin-top: 20px;
-}
-
-/* In order to align some items that where misplaced*/
-.VeganButton {
+.ShowInfo {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
 }
 
-#Image0{
-  display:flex;
-  flex-direction: row-reverse;
-}
-
-#Button0{
-  display:flex;
-  flex-direction: column;
-}
-
-#Button1{
-  display:flex;
-  flex-direction: column;
-}
-
-#BackArrow {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-/* In order to align some items that where misplaced*/
-
-.menu-header-button {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.MenuButton {
+.InfoButton {
   background-color: rgba(39, 37, 38, 0.4);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
   border-radius: 3px;
-  display: inline-block;
-  cursor: pointer;
-  /*Pointer: Changes the cursor arrow to a hand*/
+}
+
+.menu-arrow-button {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.ArrowButton {
+  background-color: rgba(39, 37, 38, 0.4);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+  margin: 10px;
+}
+
+#Block2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .dish-image {
@@ -94,26 +83,23 @@
   object-fit: contain;
 }
 
-.InfoButton {
+/* In order to align some items that where misplaced*/
+.VeganButton {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
 }
 
-.MenuStyle {
+#Image0 {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row-reverse;
 }
 
-.menu-arrow-button {
-  width: 50px;
-  height: 50px;
-  text-align: center;
+#NextArrow {
+  display: flex;
+  flex-direction: row-reverse;
 }
-
-.ArrowButton {
-  background-color: rgba(39, 37, 38, 0.4);
-  border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.7);
-  border-radius: 3px;
+#Image2 {
+  display: flex;
+  flex-direction: row-reverse;
 }
+/* In order to align some items that where misplaced*/

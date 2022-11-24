@@ -67,7 +67,7 @@ export function showDishes(page, mode) {
       price.innerHTML = `<p>${dish.getPrice()}€</p>`;
 
       let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" onclick="showSpecificDish('${
+      moreInfo.innerHTML = `<button id="Button${i}" class="InfoButton" onclick="showSpecificDish('${
         mode + (n + i)
       }')">Más Info</button>`;
     } else {

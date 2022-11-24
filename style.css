@@ -2,3 +2,9 @@ body {
   background-image: url("Imagenes/Fondo.jpg");
   background-size: cover;
 }
+
+button {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  cursor: pointer; /*Pointer: Changes the cursor arrow to a hand*/
+}

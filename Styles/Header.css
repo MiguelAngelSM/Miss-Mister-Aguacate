@@ -24,7 +24,6 @@
   object-fit: contain;
   margin-right: 10px;
   display: inline; /*This is in order to avoid links out from the box*/
-  cursor: pointer;
   opacity: 1; /*Opacity for image effect when hover*/
   transition: 0.3s; /*Property used for hover effect*/
 }

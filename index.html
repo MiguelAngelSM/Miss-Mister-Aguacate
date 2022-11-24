@@ -107,11 +107,14 @@
         <img class="Photo" src="Imagenes/Sitio.jpg" />
       </div>
 
-      <div id="Menu" style="display: block">
+      <div id="Menu" class="row" style="display: block">
         <div id="Head" class="row">
           <!--Default mode is Normal mode-->
 
-          <div id="OptionButton1" class="VeganButton col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div
+            id="OptionButton1"
+            class="VeganButton col-xs-4 col-sm-4 col-md-4 col-lg-4"
+          >
             <button
               id="VeganMode"
               class="MenuButton"
@@ -142,11 +145,9 @@
             </button>
             <!--Drink Button is loadedby default-->
           </div>
-
         </div>
 
         <div id="Block1" class="row">
-  
           <div id="Image0" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <!--Image will be loaded by JS when it starts-->
             <!--It will change when the page changes-->
@@ -163,7 +164,7 @@
               </div>
             </div>
             <div class="row">
-              <div id="Info0" class="InfoButton">
+              <div id="Info0" class="ShowInfo col-12">
                 <!--Info button will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
@@ -171,17 +172,17 @@
           </div>
           <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <div class="row">
-              <div id="Price1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <!--Price will be loaded by JS when it starts-->
-                <!--It will change when the page changes-->
-              </div>
               <div id="Name1" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <!--Name will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
+              <div id="Price1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <!--Price will be loaded by JS when it starts-->
+                <!--It will change when the page changes-->
+              </div>
             </div>
             <div class="row">
-              <div id="Info1" class="InfoButton">
+              <div id="Info1" class="ShowInfo col-12">
                 <!--Info button will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
@@ -191,11 +192,10 @@
             <!--Image will be loaded by JS when it starts-->
             <!--It will change when the page changes-->
           </div>
-
         </div>
 
-        <div id="Arrows" class="row justify-content-center">
-          <div id="BackArrow" class="col-1">
+        <div id="Arrows" class="row">
+          <div id="BackArrow" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <button class="ArrowButton" onclick="changePage('N', 0, -1)">
               <img
                 class="menu-arrow-button img-responsive"
@@ -204,10 +204,8 @@
             </button>
             <!--Normal mode at page 0 by default-->
           </div>
-          <div id="space-between-arrows" class="col-10">
-            <!--Space-->
-          </div>
-          <div id="NextArrow" class="col-1">
+
+          <div id="NextArrow" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <button class="ArrowButton" onclick="changePage('N', 0, 1)">
               <img
                 class="menu-arrow-button img-responsive"
@@ -217,65 +215,63 @@
           </div>
         </div>
 
-        <div id="Block2" class="row justify-content-center">
-          <div id="space-column-down-right" class="col-1">
-            <!--Space-->
-          </div>
-          <div id="Image2" class="col-2">
+        <div id="Block2" class="row">
+          <div id="Image2" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <!--Image will be loaded by JS when it starts-->
             <!--It will change when the page changes-->
           </div>
-          <div class="MenuStyle col-3">
-            <div class="row justify-content-center">
-              <div id="Name2" class="col-8">
+          <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="row">
+              <div id="Name2" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <!--Name will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
-              <div id="Price2" class="col-4">
+              <div id="Price2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <!--Price will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
             </div>
-            <div class="row justify-content-center">
-              <div id="Info2" class="InfoButton col-12">
+            <div class="row">
+              <div id="Info2" class="ShowInfo col-12">
                 <!--Info button will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
             </div>
           </div>
-          <div class="MenuStyle col-3">
-            <div class="row justify-content-center">
-              <div id="Price3" class="col-4">
-                <!--Price will be loaded by JS when it starts-->
-                <!--It will change when the page changes-->
-              </div>
-              <div id="Name3" class="col-8">
+          <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="row">
+              <div id="Name3" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <!--Name will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
+              <div id="Price3" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <!--Price will be loaded by JS when it starts-->
+                <!--It will change when the page changes-->
+              </div>
             </div>
-            <div class="row justify-content-center">
-              <div id="Info3" class="InfoButton col-12">
+            <div class="row">
+              <div id="Info3" class="ShowInfo col-12">
                 <!--Info button will be loaded by JS when it starts-->
                 <!--It will change when the page changes-->
               </div>
             </div>
           </div>
-          <div id="Image3" class="col-2">
+          <div id="Image3" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <!--Image will be loaded by JS when it starts-->
             <!--It will change when the page changes-->
-          </div>
-          <div id="space-column-down-left" class="col-1">
-            <!--Space-->
           </div>
         </div>
       </div>
 
-      <div id="Form" style="display: none">
+      <div id="Form" style="display: none" class="container-fluid">
         <div class="row">
           <div id="FormPhoto" class="col-4">
-              <input id="AddImage" type="file" style="display: none"/>
-            <img id="FormImage" class="dish-image img-responsive" src="Iconos/Plato.png"/>
+            <input id="AddImage" type="file" style="display: none" />
+            <img
+              id="FormImage"
+              class="dish-image img-responsive"
+              src="Iconos/Plato.png"
+            />
           </div>
 
           <div id="BasicForm" class="col-8">
