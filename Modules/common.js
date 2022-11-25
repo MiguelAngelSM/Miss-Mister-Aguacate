@@ -4,7 +4,7 @@ import { dishes } from "./dish.js";
 
 //Functions of this module
 export function backToMenu() {
-  //Hide the Form and return to the normal mode page 0 (default page)
+  //Hide the Form and return to the default page (normal mode page 0)
 
   loadMainPage();
   let e = document.getElementById("Form");
@@ -13,6 +13,7 @@ export function backToMenu() {
 
 export function showIngredientsList(key, printIngredient) {
   //Delete the previous list and make it again with all the elements from the list got from the dish got from the key
+  //printIngredient will be a function that will decide how each ingredient will be printed
 
   let dish = dishes.get(key);
   let ingredients = dish.getAtributes();
@@ -22,6 +23,9 @@ export function showIngredientsList(key, printIngredient) {
 }
 
 export function loadMainPage() {
+  //It load the page 0 from the normal mode and will show again the display and the reviews hidden 
+  //when change to other part of the page
+  
   let e = document.getElementById("Menu");
   e.style.display = "block";
   e = document.getElementById("Display");

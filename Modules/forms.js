@@ -5,8 +5,10 @@ import { newDish } from "./mainPage.js";
 
 //Functions of this module
 export function printIngredient(ingredient, key, i) {
-  //Add to the IngredientsList the ingredient
+  //Add to the IngredientsList the ingredient selected
   //The key is required for the delete button
+  //i is the number of the dish printed
+  //This printIngredient will print them in an input modifyable and with a delete button for each one
 
   let e = document.getElementById("IngredientsList");
   e.innerHTML += `
@@ -27,7 +29,8 @@ export function printIngredient(ingredient, key, i) {
 }
 
 export function deleteIngredient(ingredient, key) {
-  //Delete the ingredient from the dish got from the key and then update the list
+  //Delete the ingredient from the dish got from the key and then update the list of ingredients calling the function
+
   if (confirm("¿Deseas borrar el ingrediente?")) {
     let dish = dishes.get(key);
     let list = dish.getAtributes();
@@ -39,8 +42,9 @@ export function deleteIngredient(ingredient, key) {
 }
 
 export function backButton(key, opt, copyArray) {
-  //Delete the dish and return to the Menu
-  //Option 1 delete the last dish, any other value won't delete it
+  //This is the cancel button from the page; not the cancel from the confirm when save; it will send you to the default page
+  //Option 1 delete the last dish (needed for the newDish function), any other value won't delete it
+  //copyArray is a backup of the ingredients list from the dish before modifying it
 
   if (opt === 1) {
     dishes.delete(key);
@@ -53,10 +57,10 @@ export function backButton(key, opt, copyArray) {
 
 export function saveNewDish(key, opt, copyArray) {
   //If the user confirm at the pop-up the dish will be updated with the info from the form
-  //If the user cancel at the pop-up the dish will be deleted from the map
-  //It will clean the form also
+  //If the user cancel at the pop-up the new dish will be deleted from the map
+  //It will clean the form
   //Then it will back to menu
-  //Option 1 is for the newDishOption
+  //Option 1 is for the newDish function
 
   if (confirm("¿Deseas guardar el plato?")) {
     dishes.get(key).setName(document.getElementById("Name").value);
@@ -65,8 +69,8 @@ export function saveNewDish(key, opt, copyArray) {
       .get(key)
       .setDescription(document.getElementById("Description").value);
     //This is to get the images saved
-    if (opt == 1) {
-      let input = document.getElementById("AddImage");
+    let input = document.getElementById("AddImage");
+    if ((opt == 1)&&input.files[0]) { //if the user does not select an image it would let the default one
       let fReader = new FileReader();
       fReader.readAsDataURL(input.files[0]);
       fReader.onloadend = function (event) {
@@ -91,16 +95,24 @@ export function saveNewDish(key, opt, copyArray) {
 
 export function addNewIngredient(key) {
   //Add an ingredient to the dish got from the key and refresh the list
+  //If confirm the ingredient will be added and then the list will be refreshed
+
   if (confirm("¿Deseas añadir el ingrediente?")) {
     dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
+    let e = document.getElementById("IngredientsList");
+    e.innerHTML = ``;
+    showIngredientsList(key, printIngredient);
   }
-  let e = document.getElementById("IngredientsList");
-  e.innerHTML = ``;
-  showIngredientsList(key, printIngredient);
 }
 
 export function modifyDish(key) {
   //It will change to the form for modifying the dish
+  //It will hide the add image option and the infoDish menu
+  //It will disable the name cause it must not be changed due to the design 
+  //It will fill the inputs with the previous info but it could be changed
+  //It will print the ingredients list too
+  //It will upload the buttons from that menu
+
   let e = document.getElementById("InfoDish");
   e.style.display = "none";
   e = document.getElementById("Form");
@@ -111,7 +123,7 @@ export function modifyDish(key) {
 
   document.getElementById("FormImage").src = dishes.get(key).getImg();
   document.getElementById("Name").value = dishes.get(key).getName();
-  document.getElementById("Name").disabled = true;///////////////////////
+  document.getElementById("Name").disabled = true;//put the input only readable
   document.getElementById("Price").value = dishes.get(key).getPrice();
   document.getElementById("Description").value = dishes
     .get(key)
@@ -137,6 +149,9 @@ export function modifyDish(key) {
 }
 
 export function saveIngredients(key){
+  //This function will collect the value of the ingredients from the list cause the might have changed
+  //It will delete the previous list and push each ingredient to the list
+
   let size=dishes.get(key).getAtributes().length;
   dishes.get(key).setAtributes([]);//Delete the previous list of ingredients
   for(let i=0;i<size; i++){

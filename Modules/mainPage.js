@@ -11,10 +11,11 @@ import { updateInfoScreen } from "./infoPage.js";
 
 //Functions of this module
 export function changePage(mode, page, nextOrPrevious) {
-  //nextOrPrevious will be 1 if is the next or -1 if it is the previous. This function gives the funcionality to the arrows;
-  //it will load the next or previous page of the menu depending on the mode and on the page;
-  //only change page if it is a valid change(if you are in the first page you can't go to the previous page and if there are more
-  //dishes to show or there aren't any 'Añadir Plato' button)
+  //This function gives the funcionality to the arrows
+  //nextOrPrevious will be 1 if is the next page or -1 if it is the previous page
+  //It will load the next or previous page of the menu depending on the mode and on the page
+  //Only change page if it is a valid change(if you are in the first page you can't go to the previous page and 
+  //if you are in the last (there must be any new dish button) you can go to the next)
 
   if (
     (nextOrPrevious === 1 &&
@@ -30,6 +31,8 @@ export function changePage(mode, page, nextOrPrevious) {
 
 export function changeMenuButtons(actual_mode, mode, mode1) {
   //This function change the buttons to change mode from the menu to show those who aren't the actual mode
+  //Actual_mode is the mode from where we change
+  //mode and mode1 are the other modes
 
   let b = document.getElementById("OptionButton1"); //Update Menu Button 1
   b.innerHTML = ` <button id="${mode}Mode" class="MenuButton" onclick="changeMode('${mode}','${mode1}','${actual_mode}')">
@@ -42,15 +45,21 @@ export function changeMenuButtons(actual_mode, mode, mode1) {
 }
 
 export function changeMode(actual_mode, mode, mode1) {
-  //This function change the menu display between each mode by starting at the page 0 (first page)
+  //This function change the menu display between each mode by starting at the page 0 of the mode (first page)
+  //It will update the buttons, the arrows and the dishes shown
 
   changeMenuButtons(actual_mode, mode, mode1);
   updateArrows(actual_mode[0], 0);
-  showDishes(0, actual_mode[0]); //It will start at page 0
+  showDishes(0, actual_mode[0]); 
 }
 
 export function showDishes(page, mode) {
   //Show four dishes from the specific mode and the specific page by filling the html
+  //It will only show one new dish button then it will fill the other clean
+  //If there are dishes to show it will charge  the dish and print the info
+  //If there are not more dishes to show it will print one dish with a new dish button and a default image, name and price
+  //The other places wher dishes are shown will be filled with nothing
+
   let n = page * 4; //page*4 is to be placed in the right elements of each page cause each page has 4 dishes
   let thereAreNotMoreDishes = false; //It will help to avoid many new dishes buttons
   for (let i = 0; i < 4; i++) {
@@ -113,7 +122,8 @@ export function updateArrows(mode, page) {
 export function newDish(mode) {
   //Hide the Menu and show the form
   //Create a default dish that will be edited or deleted
-  //Clean the form
+  //It will enable the name input because here it should be added
+  //It will clean the Ingredients list
   //Update the page buttons
 
   let e = document.getElementById("Menu");
@@ -165,6 +175,8 @@ export function newDish(mode) {
 }
 
 export function showSpecificDish(key) {
+  //It will show the more info dish page and hide the menu, the display and the reviews
+  
   let e = document.getElementById("Menu");
   e.style.display = "none";
   e = document.getElementById("Display");

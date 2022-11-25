@@ -5,6 +5,9 @@ import { showIngredientsList, loadMainPage } from "./common.js";
 //Functions of this module
 
 export function updateInfoScreen(key) {
+  //This function will update the info menu with the dish get from the key
+  //It will also update the buttons
+
   let dish = dishes.get(key);
   let e = document.getElementById("InfoPhoto");
   e.innerHTML = `<img id="InfodishImage" class="img-responsive" src="${dish.getImg()}">`;
@@ -32,18 +35,23 @@ export function updateInfoScreen(key) {
 
 export function printIngredient(ingredient) {
   //Add to the IngredientsList the ingredient
+  //This printInngredient just add the ingredient to the Ingredients list as a paragraph
 
   let e = document.getElementById("infoDishIngredientsList");
   e.innerHTML += `<p>${ingredient}</p>`;
 }
 
 export function goToMainPage() {
+  //It will return to the default page and hide the info dish page
+
   loadMainPage();
   let e = document.getElementById("InfoDish");
   e.style.display = "none";
 }
 
 export function deleteDish(key){
+  //This function delete the dish from the map if the user confirms; else it will let you in the same page
+
   if (confirm('¿Desea borrar el plato?')){
     Dish.removeDish(key[0]);
     dishes.set(key,dishes.get(key[0] + Dish.getAmount(key[0])));

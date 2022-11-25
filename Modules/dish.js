@@ -3,9 +3,9 @@ export class Dish {
   name;
   price;
   description;
-  atributes = [];
+  atributes = []; //The ingredients
   img; //image link
-  static amount = [0, 0, 0]; //Normal Vegan Drink
+  static amount = [0, 0, 0]; //Normal Vegan Drink; it will help us to know exactly how many elements from each type are.
 
   constructor(name, price, description, atributes, img, type) {
     this.setName(name);
@@ -30,7 +30,7 @@ export class Dish {
         break;
     }
     Dish.amount[n]--;
-  }
+  }//just for decrease the amount of dishes of one type
 
   static getAmount(type) {
     let n = 0;
@@ -62,7 +62,7 @@ export class Dish {
         break;
     }
     Dish.amount[n]++;
-  }
+  }//just for increase the amount of dishes of one type
 
   getName() {
     return this.name;
@@ -96,11 +96,11 @@ export class Dish {
   }
   addAtribute(value) {
     this.atributes.push(value);
-  }
+  }//just for adding an ingredient to the list
 }
 
 export let dishes = new Map(); //Map of dishes
-//The keys will be made by a letter (N for normal dishes, V for vegan dishes and D for drinks) and a number
+//The keys will be made by a letter (N for normal dishes, V for vegan dishes and D for drinks) and a number of the element
 
 //Deafult dishes definition
 dishes.set(

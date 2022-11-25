@@ -5,6 +5,7 @@ let content = document.getElementsByClassName("Photo");
 //Functions of this module
 export function carousel() {
   //It will change between some images each 5 seconds
+  //It will change the display style of all the images and only one will be block, the other will be none
 
   for (let i = 0; i < content.length; i++) {
     if (i == Index) {
@@ -18,5 +19,5 @@ export function carousel() {
   } else {
     Index++;
   }
-  setTimeout(carousel, 5000); // Change image every 5 seconds
+  setTimeout(carousel, 5000); 
 }
