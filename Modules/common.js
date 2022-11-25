@@ -25,11 +25,11 @@ export function showIngredientsList(key, printIngredient) {
 export function loadMainPage() {
   //It load the page 0 from the normal mode and will show again the display and the reviews hidden 
   //when change to other part of the page
-  
+
   let e = document.getElementById("Menu");
   e.style.display = "block";
   e = document.getElementById("Display");
-  e.style.display = "block";
+  e.style.display = "flex";
   e = document.getElementById("Reviews");
   e.style.display = "block";
   showDishes(0, "N");
