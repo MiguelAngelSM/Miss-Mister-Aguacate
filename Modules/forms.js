@@ -12,9 +12,9 @@ export function printIngredient(ingredient, key, i) {
 
   let e = document.getElementById("IngredientsList");
   e.innerHTML += `
-  <div class="form-inline">
+  <div id="Ingredient${i}" class="form-inline">
     <input
-      id="Ingredient${i}"
+      id="IngredientText${i}"
       class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
       type="text"
       value="${ingredient}"
@@ -29,16 +29,15 @@ export function printIngredient(ingredient, key, i) {
 }
 
 export function deleteIngredient(ingredient, key) {
-  //Delete the ingredient from the dish got from the key and then update the list of ingredients calling the function
+  //Delete the ingredient from the dish got from the key and the ingredients list from the page
 
   if (confirm("¿Deseas borrar el ingrediente?")) {
     let dish = dishes.get(key);
     let list = dish.getAtributes();
+    let e = document.getElementById('Ingredient'+list.indexOf(ingredient));
+    e.remove();
     list.splice(list.indexOf(ingredient), 1);
   }
-  let e = document.getElementById("IngredientsList");
-  e.innerHTML = ``;
-  showIngredientsList(key, printIngredient);
 }
 
 export function backButton(key, opt, copyArray) {
@@ -94,14 +93,23 @@ export function saveNewDish(key, opt, copyArray) {
 }
 
 export function addNewIngredient(key) {
-  //Add an ingredient to the dish got from the key and refresh the list
-  //If confirm the ingredient will be added and then the list will be refreshed
+  //Add an ingredient to the dish got from the key and the ingredients list from the page
+  //If confirm the ingredient will be added 
+  //index will 
 
   if (confirm("¿Deseas añadir el ingrediente?")) {
-    dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
-    let e = document.getElementById("IngredientsList");
-    e.innerHTML = ``;
-    showIngredientsList(key, printIngredient);
+    //dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
+    let inputs = document.getElementsByClassName('IngredientsStructure');
+    for(let i=0;i<inputs.length; i++){//It is to not delete the info when adding an ingredient
+      let aux = inputs[i].value;
+      inputs[i].removeAttribute('value');
+      inputs[i].setAttribute('value',aux);
+    }
+
+    let lastId = inputs[inputs.length-1].id;//It is to calculate what index must have
+    let index = lastId.slice(14,lastId.length);
+    index = Number(index)+1;
+    printIngredient(document.getElementById("Ingredient").value,key,index);
   }
 }
 
@@ -149,13 +157,12 @@ export function modifyDish(key) {
 }
 
 export function saveIngredients(key){
-  //This function will collect the value of the ingredients from the list cause the might have changed
+  //This function will collect the tags of the ingredients from the list cause they might have changed and then save them 
   //It will delete the previous list and push each ingredient to the list
 
-  let size=dishes.get(key).getAtributes().length;
   dishes.get(key).setAtributes([]);//Delete the previous list of ingredients
-  for(let i=0;i<size; i++){
-    document.getElementById('Ingredient'+i).value;
-    dishes.get(key).addAtribute(document.getElementById('Ingredient'+i).value);
+  let inputs = document.getElementsByClassName('IngredientsStructure');
+  for(let i=0;i<inputs.length; i++){
+    dishes.get(key).addAtribute(inputs[i].value);
   }
 }

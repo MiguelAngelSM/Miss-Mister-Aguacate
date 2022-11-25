@@ -30,9 +30,9 @@
 }
 
 #InfodishImage {
-  width: 190px;
-  height: 190px;
-  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+  border-radius: 11%;
   object-fit: contain;
   margin-top: 20px;
 }
@@ -41,7 +41,6 @@
   margin-top: 20px;
   color: black;
   font-family: "Times New Roman", Times, serif;
-  text-align: justify;
   text-align: justify; /*All the lines have the same width*/
 }
 
@@ -58,7 +57,7 @@
   border-radius: 3px;
   font-family: "Times New Roman", Times, serif;
   color: black;
-  margin-left: 20px;
+  margin-left: 100%;
 }
 
 #ModifyButton {
@@ -68,6 +67,7 @@
   border-radius: 3px;
   font-family: "Times New Roman", Times, serif;
   color: black;
+  margin-left: 40%;
 }
 
 #InfoIngredientTitle {
