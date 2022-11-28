@@ -31,7 +31,7 @@ export function loadMainPage() {
   e = document.getElementById("Display");
   e.style.display = "flex";
   e = document.getElementById("Reviews");
-  e.style.display = "block";
+  e.style.display = "flex";
   showDishes(0, "N");
   updateArrows("N", 0);
   changeMenuButtons("Normal", "Vegan", "Drink");
