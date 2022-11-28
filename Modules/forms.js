@@ -22,13 +22,13 @@ export function printIngredient(ingredient, key, i) {
       <input
       class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
       type="button"
-      onclick="deleteIngredient('${ingredient}','${key}')"
+      onclick="deleteIngredient('${i}','${key}')"
       value="Eliminar"
       />
     </div>`;
 }
 
-export function deleteIngredient(ingredient, key) {
+export function deleteIngredient(i, key) {
   //Delete the ingredient from the dish got from the key and the ingredients list from the page
 
   if (confirm("¿Deseas borrar el ingrediente?")) {
@@ -38,7 +38,7 @@ export function deleteIngredient(ingredient, key) {
     for(let i=0;i<inputs.length;i++){
       list[i]=inputs[i].value;
     }
-    let e = document.getElementById("Ingredient" + list.indexOf(ingredient));
+    let e = document.getElementById("Ingredient" + i);
     e.remove();
   }
 }

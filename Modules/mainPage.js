@@ -151,8 +151,9 @@ export function newDish(mode) {
   );
 
   document.getElementById("Name").value = "";
-  document.getElementById("Name").disabled = false;///////////////////////
+  document.getElementById("Name").disabled = false;
   document.getElementById("Price").value = "";
+  document.getElementById("AddImage").value = "";
   document.getElementById("Description").value = "";
   document.getElementById("Ingredient").value = "";
   e = document.getElementById("IngredientsList");
