@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
  });
 
 
-//Window will let html using the functions
+//Window will let html use the functions
 window.changePage = changePage;
 window.carousel = carousel;
 window.changeMenuButtons=changeMenuButtons;

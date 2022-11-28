@@ -12,14 +12,13 @@ import { updateInfoScreen } from "./infoPage.js";
 //Functions of this module
 export function changePage(mode, page, nextOrPrevious) {
   //This function gives the funcionality to the arrows
-  //nextOrPrevious will be 1 if is the next page or -1 if it is the previous page
+  //nextOrPrevious will be 1 if we want to change to the next page or -1 if we want to change to the previous page
   //It will load the next or previous page of the menu depending on the mode and on the page
   //Only change page if it is a valid change(if you are in the first page you can't go to the previous page and 
   //if you are in the last (there must be any new dish button) you can go to the next)
 
   if (
     (nextOrPrevious === 1 &&
-      page >= 0 &&
       page + 1 <= Dish.getAmount(mode) / 4) ||
     (nextOrPrevious === -1 && page !== 0)
   ) {
@@ -31,7 +30,7 @@ export function changePage(mode, page, nextOrPrevious) {
 
 export function changeMenuButtons(actual_mode, mode, mode1) {
   //This function change the buttons to change mode from the menu to show those who aren't the actual mode
-  //Actual_mode is the mode from where we change
+  //Actual_mode is the mode we change to
   //mode and mode1 are the other modes
 
   let b = document.getElementById("OptionButton1"); //Update Menu Button 1
@@ -47,6 +46,7 @@ export function changeMenuButtons(actual_mode, mode, mode1) {
 export function changeMode(actual_mode, mode, mode1) {
   //This function change the menu display between each mode by starting at the page 0 of the mode (first page)
   //It will update the buttons, the arrows and the dishes shown
+  //Actual_mode is the mode we change to
 
   changeMenuButtons(actual_mode, mode, mode1);
   updateArrows(actual_mode[0], 0);
