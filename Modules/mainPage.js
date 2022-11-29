@@ -1,12 +1,10 @@
 //Imports from other modules
 import { dishes, Dish } from "./dish.js";
 import {
-  printIngredient,
   backButton,
-  saveNewDish,
+  saveDish,
   addNewIngredient,
 } from "./forms.js";
-import { showIngredientsList } from "./common.js";
 import { updateInfoScreen } from "./infoPage.js";
 
 //Functions of this module
@@ -61,7 +59,7 @@ export function showDishes(page, mode) {
   //The other places wher dishes are shown will be filled with nothing
 
   let n = page * 4; //page*4 is to be placed in the right elements of each page cause each page has 4 dishes
-  let thereAreNotMoreDishes = false; //It will help to avoid many new dishes buttons
+  let thereAreNewDishButton = false; //It will help to avoid many new dishes buttons
   for (let i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
       let dish = dishes.get(mode + (n + i)); //Get the dish
@@ -80,17 +78,17 @@ export function showDishes(page, mode) {
         mode + (n + i)
       }')">Más Info</button>`;
     } else {
-      if (thereAreNotMoreDishes) {
-        let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
+      if (thereAreNewDishButton) {
+        let img = document.getElementById("Image" + i); //Clear the div
         img.innerHTML = ``;
 
-        let name = document.getElementById("Name" + i); //Prints a default name
+        let name = document.getElementById("Name" + i); //Clear the div
         name.innerHTML = ``;
 
-        let price = document.getElementById("Price" + i); //Print a default price
+        let price = document.getElementById("Price" + i); //Clear the div
         price.innerHTML = ``;
 
-        let moreInfo = document.getElementById("Info" + i); //Print a new dish button
+        let moreInfo = document.getElementById("Info" + i); //Clear the div
         moreInfo.innerHTML = ``;
       } else {
         let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
@@ -104,7 +102,7 @@ export function showDishes(page, mode) {
 
         let moreInfo = document.getElementById("Info" + i); //Print a new dish button
         moreInfo.innerHTML = `<button id="Button ${i}" class="InfoButton" onclick="newDish('${mode}')">Añadir plato</button>`;
-        thereAreNotMoreDishes = true;
+        thereAreNewDishButton = true;
       }
     }
   }
@@ -158,16 +156,15 @@ export function newDish(mode) {
   document.getElementById("Ingredient").value = "";
   e = document.getElementById("IngredientsList");
   e.innerHTML = ``;
-  showIngredientsList(mode + (Dish.getAmount(mode) - 1), printIngredient);
 
   let key = mode + (Dish.getAmount(mode) - 1);
   e = document.getElementById("IngredientButton");
   e.onclick = function () {
-    addNewIngredient(key);
+    addNewIngredient();
   };
   e = document.getElementById("formSaveButton");
   e.onclick = function () {
-    saveNewDish(key, 1);
+    saveDish(key, 1);
   };
   e = document.getElementById("formCancelButton");
   e.onclick = function () {

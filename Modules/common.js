@@ -12,13 +12,13 @@ export function backToMenu() {
 }
 
 export function showIngredientsList(key, printIngredient) {
-  //Delete the previous list and make it again with all the elements from the list got from the dish got from the key
+  //Print the ingredients list with all the elements from the list got from the dish got from the key
   //printIngredient will be a function that will decide how each ingredient will be printed
 
   let dish = dishes.get(key);
   let ingredients = dish.getAtributes();
   for (let i=0;i<ingredients.length;i++){
-    printIngredient(ingredients[i], key, i)
+    printIngredient(ingredients[i], i);
   };
 }
 

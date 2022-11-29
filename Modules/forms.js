@@ -4,7 +4,7 @@ import { backToMenu, showIngredientsList } from "./common.js";
 import { newDish } from "./mainPage.js";
 
 //Functions of this module
-export function printIngredient(ingredient, key, i) {
+export function printIngredient(ingredient, i) {
   //Add to the IngredientsList the ingredient selected
   //The key is required for the delete button
   //i is the number of the dish printed
@@ -22,42 +22,33 @@ export function printIngredient(ingredient, key, i) {
       <input
       class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
       type="button"
-      onclick="deleteIngredient('${i}','${key}')"
+      onclick="deleteIngredient('${i}')"
       value="Eliminar"
       />
     </div>`;
 }
 
-export function deleteIngredient(i, key) {
-  //Delete the ingredient from the dish got from the key and the ingredients list from the page
+export function deleteIngredient(i) {
+  //Delete the ingredient from the ingredients list from the page
 
   if (confirm("¿Deseas borrar el ingrediente?")) {
-    let dish = dishes.get(key);
-    let inputs = document.getElementsByClassName("IngredientsStructure");
-    let list=[];
-    for(let i=0;i<inputs.length;i++){
-      list[i]=inputs[i].value;
-    }
     let e = document.getElementById("Ingredient" + i);
     e.remove();
   }
 }
 
-export function backButton(key, opt, copyArray) {
+export function backButton(key, opt) {
   //This is the cancel button from the page; not the cancel from the confirm when save; it will send you to the default page
   //Option 1 delete the last dish (needed for the newDish function), any other value won't delete it
-  //copyArray is a backup of the ingredients list from the dish before modifying it
 
   if (opt === 1) {
     dishes.delete(key);
     Dish.removeDish(key[0]);
-  } else {
-    dishes.get(key).setAtributes(copyArray);
   }
   backToMenu();
 }
 
-export function saveNewDish(key, opt, copyArray) {
+export function saveDish(key, opt) {
   //If the user confirm at the pop-up the dish will be updated with the info from the form
   //If the user cancel at the pop-up the new dish will be deleted from the map
   //It will clean the form
@@ -72,7 +63,7 @@ export function saveNewDish(key, opt, copyArray) {
       .setDescription(document.getElementById("Description").value);
     //This is to get the images saved
     let input = document.getElementById("AddImage");
-    if (opt == 1 && input.files[0]) {
+    if (opt === 1 && input.files[0]) {
       //if the user does not select an image it would let the default one
       let fReader = new FileReader();
       fReader.readAsDataURL(input.files[0]);
@@ -80,29 +71,26 @@ export function saveNewDish(key, opt, copyArray) {
         dishes.get(key).setImg(event.target.result);
       };
     }
-    saveIngredients(key);
     //This is to get the images saved
+    saveIngredients(key);
 
     backToMenu();
   } else {
     if (opt === 1) {
       dishes.delete(key);
-      Dish.removeDish(key[0]); //First char from the array is the mode
+      Dish.removeDish(key[0]); //First char from the key is the mode
       newDish(key[0]);
     } else {
-      dishes.get(key).setAtributes(copyArray);
       modifyDish(key);
     }
   }
 }
 
-export function addNewIngredient(key) {
-  //Add an ingredient to the dish got from the key and the ingredients list from the page
+export function addNewIngredient() {
+  //Add an ingredient to the ingredients list from the page
   //If confirm the ingredient will be added
-  //index will
 
   if (confirm("¿Deseas añadir el ingrediente?")) {
-    //dishes.get(key).addAtribute(document.getElementById("Ingredient").value);
     let inputs = document.getElementsByClassName("IngredientsStructure");
     for (let i = 0; i < inputs.length; i++) {
       //It is to not delete the info when adding an ingredient
@@ -117,7 +105,7 @@ export function addNewIngredient(key) {
       index = lastId.slice(14, lastId.length);
       index = Number(index) + 1;
     }
-    printIngredient(document.getElementById("Ingredient").value, key, index);
+    printIngredient(document.getElementById("Ingredient").value, index);
     document.getElementById("Ingredient").value='';//To clean the label
   }
 }
@@ -150,19 +138,17 @@ export function modifyDish(key) {
   e.innerHTML = ``;
   showIngredientsList(key, printIngredient);
 
-  let copyArray = [...dishes.get(key).getAtributes()];
-
   e = document.getElementById("IngredientButton");
   e.onclick = function () {
-    addNewIngredient(key);
+    addNewIngredient();
   };
   e = document.getElementById("formSaveButton");
   e.onclick = function () {
-    saveNewDish(key, 0, copyArray);
+    saveDish(key, 0);
   };
   e = document.getElementById("formCancelButton");
   e.onclick = function () {
-    backButton(key, 0, copyArray);
+    backButton(key, 0);
   };
 }
 
