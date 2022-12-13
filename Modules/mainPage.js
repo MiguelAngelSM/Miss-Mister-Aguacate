@@ -31,14 +31,15 @@ export function changeMenuButtons(actual_mode, mode, mode1) {
   //Actual_mode is the mode we change to
   //mode and mode1 are the other modes
 
-  let b = document.getElementById("OptionButton1"); //Update Menu Button 1
-  b.innerHTML = ` <button id="${mode}Mode" class="MenuButton" onclick="changeMode('${mode}','${mode1}','${actual_mode}')">
-                          <img class="menu-header-button img-responsive" src="Iconos/${mode}.png">
-                      </button>`;
-  b = document.getElementById("OptionButton2"); //Update Menu Button 2
-  b.innerHTML = ` <button id="${mode1}Mode" class="MenuButton" onclick="changeMode('${mode1}','${mode}','${actual_mode}')">
-                      <img class="menu-header-button img-responsive" src="Iconos/${mode1}.png">
-                  </button>`;
+  let b = document.getElementById("ModeLeft"); //Update Menu Button Left
+  b.onclick=function(){changeMode(mode,mode1,actual_mode)};
+  b = document.getElementById("ImageModeLeft"); //Update Menu Image Left
+  b.src=`Iconos/${mode}.png`;
+
+  b = document.getElementById("ModeRight"); //Update Menu Button Right
+  b.onclick=function(){changeMode(mode1,mode,actual_mode)};
+  b = document.getElementById("ImageModeRight"); //Update Menu Image Right
+  b.src=`Iconos/${mode1}.png`;
 }
 
 export function changeMode(actual_mode, mode, mode1) {
@@ -62,21 +63,7 @@ export function showDishes(page, mode) {
   let thereAreNewDishButton = false; //It will help to avoid many new dishes buttons
   for (let i = 0; i < 4; i++) {
     if (dishes.get(mode + (n + i))) {
-      let dish = dishes.get(mode + (n + i)); //Get the dish
-
-      let img = document.getElementById("Image" + i); //Refresh Image
-      img.innerHTML = `<img src ="${dish.getImg()}" class="dish-image img-responsive">`;
-
-      let name = document.getElementById("Name" + i); //Refresh Name
-      name.innerHTML = `<p>${dish.getName()}</p>`;
-
-      let price = document.getElementById("Price" + i); //Refresh Price
-      price.innerHTML = `<p>${dish.getPrice()}€</p>`;
-
-      let moreInfo = document.getElementById("Info" + i); //Refresh Button
-      moreInfo.innerHTML = `<button id="Button${i}" class="InfoButton" onclick="showSpecificDish('${
-        mode + (n + i)
-      }')">Más Info</button>`;
+      showDish(mode,n,i);
     } else {
       if (thereAreNewDishButton) {
         let img = document.getElementById("Image" + i); //Clear the div
@@ -106,6 +93,25 @@ export function showDishes(page, mode) {
       }
     }
   }
+}
+
+export function showDish(mode,n,i,dish){
+  //This function show a dish in the Menu
+  //It only works for the created dishes
+  
+  let dish = dishes.get(mode + (n + i)); //Get the dish
+  
+  let img = document.getElementById("Image" + i); //Refresh Image
+  img.innerHTML = `<img src ="${dish.getImg()}" class="dish-image img-responsive">`;
+
+  let name = document.getElementById("Name" + i); //Refresh Name
+  name.innerHTML = `<p>${dish.getName()}</p>`;
+
+  let price = document.getElementById("Price" + i); //Refresh Price
+  price.innerHTML = `<p>${dish.getPrice()}€</p>`;
+
+  let moreInfo = document.getElementById("Info" + i); //Refresh Button
+  moreInfo.innerHTML = `<button id="Button${i}" class="InfoButton" onclick="showSpecificDish('${mode + (n + i)}')">Más Info</button>`;
 }
 
 export function updateArrows(mode, page) {

@@ -113,11 +113,12 @@
 
           <div id="OptionButton1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <button
-              id="VeganMode"
+              id="ModeLeft"
               class="MenuButton"
               onclick="changeMode('Vegan','Normal','Drink')"
             >
               <img
+                id="ImageModeLeft"
                 class="menu-header-button img-responsive"
                 src="Iconos/Vegan.png"
               />
@@ -131,11 +132,12 @@
 
           <div id="OptionButton2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <button
-              id="DrinkMode"
+              id="ModeRight"
               class="MenuButton"
               onclick="changeMode('Drink','Normal','Vegan')"
             >
               <img
+                id="ImageModeRight"
                 class="menu-header-button img-responsive"
                 src="Iconos/Drink.png"
               />
@@ -335,7 +337,7 @@
       <div id="InfoDish" style="display: none" class="container-fluid">
         <div class="row">
           <div id="InfoArrow" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-            <button id="InfoDishArrow" onclick="goToMainPage()">
+            <button id="InfoDishArrow" onclick="loadMainPage()">
               <img class="arrow-button img-responsive" src="Iconos/BackArrow.png" />
             </button>
           </div>

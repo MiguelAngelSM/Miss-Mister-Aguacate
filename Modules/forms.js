@@ -1,6 +1,6 @@
 //Imports from other modules
 import { dishes, Dish } from "./dish.js";
-import { backToMenu, showIngredientsList } from "./common.js";
+import { loadMainPage } from "./common.js";
 import { newDish } from "./mainPage.js";
 
 //Functions of this module
@@ -45,7 +45,7 @@ export function backButton(key, opt) {
     dishes.delete(key);
     Dish.removeDish(key[0]);
   }
-  backToMenu();
+  loadMainPage();
 }
 
 export function saveDish(key, opt) {
@@ -74,7 +74,7 @@ export function saveDish(key, opt) {
     //This is to get the images saved
     saveIngredients(key);
 
-    backToMenu();
+    loadMainPage();
   } else {
     if (opt === 1) {
       dishes.delete(key);
@@ -108,48 +108,6 @@ export function addNewIngredient() {
     printIngredient(document.getElementById("Ingredient").value, index);
     document.getElementById("Ingredient").value='';//To clean the label
   }
-}
-
-export function modifyDish(key) {
-  //It will change to the form for modifying the dish
-  //It will hide the add image option and the infoDish menu
-  //It will disable the name cause it must not be changed due to the design
-  //It will fill the inputs with the previous info but it could be changed
-  //It will print the ingredients list too
-  //It will upload the buttons from that menu
-
-  let e = document.getElementById("InfoDish");
-  e.style.display = "none";
-  e = document.getElementById("Form");
-  e.style.display = "block";
-  e = document.getElementById("AddImage");
-  e.style.display = "none";
-  document.getElementById("FormImage").style.display = "block";
-
-  document.getElementById("Ingredient").value='';//To clean the label
-  document.getElementById("FormImage").src = dishes.get(key).getImg();
-  document.getElementById("Name").value = dishes.get(key).getName();
-  document.getElementById("Name").disabled = true; //put the input only readable
-  document.getElementById("Price").value = dishes.get(key).getPrice();
-  document.getElementById("Description").value = dishes
-    .get(key)
-    .getDescription();
-  e = document.getElementById("IngredientsList");
-  e.innerHTML = ``;
-  showIngredientsList(key, printIngredient);
-
-  e = document.getElementById("IngredientButton");
-  e.onclick = function () {
-    addNewIngredient();
-  };
-  e = document.getElementById("formSaveButton");
-  e.onclick = function () {
-    saveDish(key, 0);
-  };
-  e = document.getElementById("formCancelButton");
-  e.onclick = function () {
-    backButton(key, 0);
-  };
 }
 
 export function saveIngredients(key) {

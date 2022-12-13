@@ -2,7 +2,8 @@
 import {backButton,deleteIngredient,saveDish} from './Modules/forms.js';
 import {carousel} from './Modules/carousel.js';
 import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newDish} from './Modules/mainPage.js';
-import {goToMainPage,deleteDish} from './Modules/infoPage.js';
+import {deleteDish} from './Modules/infoPage.js';
+import {loadMainPage} from './Modules/common.js';
 
 //First Page Load
 document.addEventListener("DOMContentLoaded", function(){
@@ -21,6 +22,6 @@ window.showSpecificDish=showSpecificDish;
 window.deleteIngredient=deleteIngredient;
 window.newDish=newDish;
 window.saveDish=saveDish;
-window.goToMainPage=goToMainPage;
 window.deleteDish=deleteDish;
 window.backButton=backButton;
+window.loadMainPage=loadMainPage;

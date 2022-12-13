@@ -60,6 +60,8 @@ export class Dish {
       case "D":
         n = 2;
         break;
+      default:
+        n=-1;
     }
     Dish.amount[n]++;
   }//just for increase the amount of dishes of one type
