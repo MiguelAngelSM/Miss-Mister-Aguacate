@@ -95,7 +95,7 @@ export function showDishes(page, mode) {
   }
 }
 
-export function showDish(mode,n,i,dish){
+export function showDish(mode,n,i){
   //This function show a dish in the Menu
   //It only works for the created dishes
   
@@ -117,10 +117,10 @@ export function showDish(mode,n,i,dish){
 export function updateArrows(mode, page) {
   //This function update the arrows to be ready to change to the right page
 
-  let b = document.getElementById("NextArrow"); //Update NextArrow
-  b.innerHTML = ` <button class="ArrowButton" onclick="changePage('${mode}', ${page}, 1)"><img class="menu-arrow-button img-responsive" src="Iconos/NextArrow.png"></button>`;
-  b = document.getElementById("BackArrow"); //Update BackArrow
-  b.innerHTML = ` <button class="ArrowButton" onclick="changePage('${mode}', ${page}, -1)"><img class="menu-arrow-button img-responsive" src="Iconos/BackArrow.png"></button>`;
+  let b = document.getElementById("NextArrowButton"); //Update NextArrow
+  b.onclick = function(){changePage(mode,page, 1)};
+  b = document.getElementById("BackArrowButton"); //Update BackArrow
+  b.onclick = function(){changePage(mode,page, -1)};
 }
 
 export function newDish(mode) {
