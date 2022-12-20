@@ -1,5 +1,4 @@
 //Imports from other modules
-import { dishes, Dish } from "./dish.js";
 import { loadMainPage } from "./common.js";
 import { newDish } from "./mainPage.js";
 

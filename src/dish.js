@@ -5,6 +5,7 @@ export class Dish {
   description;
   atributes = []; //The ingredients
   img; //image link
+  type;
   static amount = [0, 0, 0]; //Normal Vegan Drink; it will help us to know exactly how many elements from each type are.
 
   constructor(name, price, description, atributes, img, type) {
@@ -13,6 +14,7 @@ export class Dish {
     this.setDescription(description);
     this.setAtributes(atributes);
     this.setImg(img);
+    this.setType(type);
     Dish.setAmount(type);
   }
 
@@ -66,6 +68,12 @@ export class Dish {
     Dish.amount[n]++;
   }//just for increase the amount of dishes of one type
 
+  getType() {
+    return this.type;
+  }
+  setType(value) {
+    this.type = value;
+  }
   getName() {
     return this.name;
   }
@@ -152,7 +160,8 @@ addDish(
       "Jamón Serrano",
       "Queso de cabra",
     ],
-    "Platos/Normal/Pizza.jpg"
+    "Platos/Normal/Pizza.jpg",
+    "N"
   )
 );
 addDish(

@@ -1,5 +1,4 @@
 //Imports from other modules
-import { dishes, Dish } from "./dish.js";
 import {
   backButton,
   saveDish,
@@ -48,70 +47,19 @@ export function changeMode(actual_mode, mode, mode1) {
   //Actual_mode is the mode we change to
 
   changeMenuButtons(actual_mode, mode, mode1);
-  updateArrows(actual_mode[0], 0);
+  //updateArrows(actual_mode[0], 0);
   showDishes(0, actual_mode[0]); 
 }
 
 export function showDishes(page, mode) {
-  //Show four dishes from the specific mode and the specific page by filling the html
-  //It will only show one new dish button then it will fill the other clean
-  //If there are dishes to show it will charge  the dish and print the info
-  //If there are not more dishes to show it will print one dish with a new dish button and a default image, name and price
-  //The other places wher dishes are shown will be filled with nothing
-
-  let n = page * 4; //page*4 is to be placed in the right elements of each page cause each page has 4 dishes
-  let thereAreNewDishButton = false; //It will help to avoid many new dishes buttons
-  for (let i = 0; i < 4; i++) {
-    if (dishes.get(mode + (n + i))) {
-      showDish(mode,n,i);
-    } else {
-      if (thereAreNewDishButton) {
-        let img = document.getElementById("Image" + i); //Clear the div
-        img.innerHTML = ``;
-
-        let name = document.getElementById("Name" + i); //Clear the div
-        name.innerHTML = ``;
-
-        let price = document.getElementById("Price" + i); //Clear the div
-        price.innerHTML = ``;
-
-        let moreInfo = document.getElementById("Info" + i); //Clear the div
-        moreInfo.innerHTML = ``;
-      } else {
-        let img = document.getElementById("Image" + i); //Prints a default image when there are no dishes
-        img.innerHTML = `<img src ="Iconos/Plato.png" class="dish-image img-responsive">`;
-
-        let name = document.getElementById("Name" + i); //Prints a default name
-        name.innerHTML = `<p>No hay plato</p>`;
-
-        let price = document.getElementById("Price" + i); //Print a default price
-        price.innerHTML = `<p>???</p>`;
-
-        let moreInfo = document.getElementById("Info" + i); //Print a new dish button
-        moreInfo.innerHTML = `<button id="Button ${i}" class="InfoButton" onclick="newDish('${mode}')">Añadir plato</button>`;
-        thereAreNewDishButton = true;
-      }
+  let divs = document.getElementsByClassName("mustache");
+  for(let i=0;i<divs.length;i++){
+    if (divs[i].id===mode){
+      divs[i].style.display="flex";
+    }else{
+      divs[i].style.display="none";
     }
-  }
-}
-
-export function showDish(mode,n,i){
-  //This function show a dish in the Menu
-  //It only works for the created dishes
-  
-  let dish = dishes.get(mode + (n + i)); //Get the dish
-  
-  let img = document.getElementById("Image" + i); //Refresh Image
-  img.innerHTML = `<img src ="${dish.getImg()}" class="dish-image img-responsive">`;
-
-  let name = document.getElementById("Name" + i); //Refresh Name
-  name.innerHTML = `<p>${dish.getName()}</p>`;
-
-  let price = document.getElementById("Price" + i); //Refresh Price
-  price.innerHTML = `<p>${dish.getPrice()}€</p>`;
-
-  let moreInfo = document.getElementById("Info" + i); //Refresh Button
-  moreInfo.innerHTML = `<button id="Button${i}" class="InfoButton" onclick="showSpecificDish('${mode + (n + i)}')">Más Info</button>`;
+  };
 }
 
 export function updateArrows(mode, page) {

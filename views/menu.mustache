@@ -26,14 +26,14 @@
         <!--Bootstrap template from CDN Bootstrap-->
     
         <!--Our css file-->
-        <link type="text/css" rel="stylesheet" href="/public/Styles/style.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Header.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Display.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Menu.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Form.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/InfoDish.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Reviews.css" />
-        <link type="text/css" rel="stylesheet" href="/public/Styles/Footer.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/style.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Header.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Display.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Menu.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Form.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/InfoDish.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Reviews.css" />
+        <link type="text/css" rel="stylesheet" href="Styles/Footer.css" />
         <!--Our css file-->
     
         <!--Bootstrap template from CDN Bootstrap-->
@@ -62,27 +62,99 @@
         <!-- Library for stars rating in Reviews -->
     
         <!-- Our JS file -->
-        <script src="./main.js" type="module"></script>
+        <script src="main.js" type="module"></script>
         <!-- Our JS file -->
       </head>
 <body>
-    <h1>Dishes</h1>
+  <div id="Header" class="row">
+    <div id="Restaurant_Name" class="col-xs-6">
+      <h1>Miss & Mister Aguacate</h1>
+      <!--Restaurant Name-->
+    </div>
+
+    <div class="flex-gap">
+      <div id="Insta" class="col-xs-2">
+        <a href="https://www.instagram.com/" target="_blank">
+          <img class="Social img-responsive" src="Iconos/insta.png" />
+          <!--Link to Instagram-->
+        </a>
+      </div>
+      <div id="Facebook" class="col-xs-2">
+        <a href="https://es-es.facebook.com/" target="_blank">
+          <img class="Social img-responsive" src="Iconos/facebook.png" />
+          <!--Link to Facebook-->
+        </a>
+      </div>
+      <div id="Twitter" class="col-xs-2">
+        <a href="https://twitter.com/?lang=es" target="_blank">
+          <img class="Social img-responsive" src="Iconos/twitter.png" />
+          <!--Link to Twitter-->
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--Header from the page-->
+<div id="Display" class="row">
+    <!--It will change between the following pictures every 5 seconds-->
+    <img class="Photo" src="Imagenes/Cartel.jpg" />
+    <img class="Photo" src="Imagenes/Amigos.jpg" />
+    <img class="Photo" src="Imagenes/Mesa.jpg" />
+    <img class="Photo" src="Imagenes/Sitio.jpg" />
+  </div>
+  <!--This is a display just decorative-->
+  <div id="Head" class="row">
+    <!--Default mode is Normal mode-->
+
+    <div id="OptionButton1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <button
+        id="ModeLeft"
+        class="MenuButton"
+        onclick="changeMode('Vegan','Normal','Drink')"
+      >
+        <img
+          id="ImageModeLeft"
+          class="menu-header-button img-responsive"
+          src="Iconos/Vegan.png"
+        />
+      </button>
+      <!--Vegan Button is loaded by default-->
+    </div>
+
+    <div id="MenuTitle" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h1>Menú</h1>
+    </div>
+
+    <div id="OptionButton2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <button
+        id="ModeRight"
+        class="MenuButton"
+        onclick="changeMode('Drink','Normal','Vegan')"
+      >
+        <img
+          id="ImageModeRight"
+          class="menu-header-button img-responsive"
+          src="Iconos/Drink.png"
+        />
+      </button>
+      <!--Drink Button is loadedby default-->
+    </div>
+  </div>
 	{{#dishes}}
-    <div>
+    <div id={{type}} class="row mustache"><!--ClassName Mustache must be changed -->
 	<div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-        <img src={{img}}>
+        <img src={{img}} class="dish-image img-responsive">
       </div>
       <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <div class="row">
-          <div id="Name0" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <div id="Name" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             {{name}}
           </div>
-          <div id="Price0" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             {{price}}
           </div>
         </div>
         <div class="row">
-          <div id="Info0" class="ShowInfo col-12">
+          <div id="Info" class="ShowInfo col-12">
             <button>Mas Info</button>
           </div>
         </div>
@@ -94,8 +166,119 @@
 	<p>No dishes yet.</p>
 	{{/dishes}}
 
+  <div id="NewDish" class="row"><!--ClassName Mustache must be changed -->
+    <div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <img src="Iconos/Plato.png" class="dish-image img-responsive">
+        </div>
+        <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="row">
+            <div id="Name" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              Añadir un nuevo plato
+            </div>
+            <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              
+            </div>
+          </div>
+          <div class="row">
+            <div id="Info" class="ShowInfo col-12">
+              <button>Añadir Plato</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
+      <div id="Reviews" class="row">
+        <div id="ReviewsTitle">
+          <h1>Reseñas</h1>
+        </div>
     
+        <div class="row">
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Sergio De Oro Fernández</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              itaque ratione cupiditate consectetur nulla veritatis soluta
+              accusantium est repellendus aliquam, omnis laborum magnam libero,
+              laboriosam ipsam. Odio pariatur in nobis!
+            </h6>
+          </div>
+    
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Antonio José Alanís Bernal</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+              ipsa fugit vel accusantium itaque laudantium beatae et quis, iusto
+              ducimus nostrum suscipit quisquam voluptates tempore dignissimos
+              eligendi, magnam reiciendis architecto.
+            </h6>
+          </div>
+    
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Kiko Martínez De Lizarduy</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
+              quis fugit modi soluta, atque eum est dicta porro, vero corporis
+              doloremque nulla. Dolor voluptatum iste in neque magnam earum
+              nulla!
+            </h6>
+          </div>
+        </div>
+      </div>
+      <!--Reviews Section; it does not work just only see some-->
+    <div id="Footer" class="row">
+        <div id="ContactInfo" class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <p>
+              <img src="Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 -
+              01:00
+            </p>
+            <p>
+              <img src="Iconos/Correo.png" /> Contacto:
+              missandmisteraguacate@gmail.com
+            </p>
+            <p><img src="Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
+            <p><img src="Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
+          </div>
+    
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div>
+              <iframe
+                id="Map"
+                src="https://maps.google.com/maps?q=40.153524,%20-4.743002&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div id="Copyright" class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+              &copy; Design by Miguel y Demelza <img src="Iconos/corazon.png" />
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--Footer from the page-->
 </body>
 </html>

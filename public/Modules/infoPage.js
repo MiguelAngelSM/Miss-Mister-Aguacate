@@ -1,5 +1,4 @@
 //Imports from other modules
-import { dishes, Dish } from "./dish.js";
 import { showIngredientsList, loadMainPage } from "./common.js";
 //Functions of this module
 

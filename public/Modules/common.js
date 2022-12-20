@@ -1,6 +1,5 @@
 //Imports from other modules
 import { changeMenuButtons, showDishes, updateArrows } from "./mainPage.js";
-import { dishes } from "./dish.js";
 
 //Functions of this module
 export function showIngredientsList(key, printIngredient) {
