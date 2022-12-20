@@ -102,11 +102,20 @@ export class Dish {
 }
 
 export let dishes = new Map(); //Map of dishes
+let nextId = 0;
 //The keys will be made by a letter (N for normal dishes, V for vegan dishes and D for drinks) and a number of the element
-
+export function addDish(dish) {
+  let id = nextId++;
+  dishes.set(id.toString(), dish);
+  }
+export function getDish(id){
+    return dishes.get(id);
+  }
+  export function getDishes(){
+    return [...dishes.values()];
+    }
 //Deafult dishes definition
-dishes.set(
-  "N0",
+addDish(
   new Dish(
     "Hamburguesa completa",
     5,
@@ -126,8 +135,7 @@ dishes.set(
     "N"
   )
 );
-dishes.set(
-  "N1",
+addDish(
   new Dish(
     "Pizza",
     8,
@@ -147,19 +155,17 @@ dishes.set(
     "Platos/Normal/Pizza.jpg"
   )
 );
-dishes.set(
-  "N2",
+addDish(
   new Dish(
     "Macarrones con albóndigas",
     4,
     "Deliciosos macarrones con tomate con sabrosas albóndigas hechas al estilo de la abuela",
     ["Macarrones", "Tomate frito natural", "Albóndigas de carne mixta"],
-    "Platos/Normal/Macarrones con albondigas.jpg",
+    "Platos/Normal/Macarrones.jpg",
     "N"
   )
 );
-dishes.set(
-  "N3",
+addDish(
   new Dish(
     "Pollo al pesto",
     7,
@@ -175,8 +181,7 @@ dishes.set(
     "N"
   )
 );
-dishes.set(
-  "N4",
+addDish(
   new Dish(
     "Fajitas",
     8,
@@ -195,8 +200,7 @@ dishes.set(
     "N"
   )
 );
-dishes.set(
-  "N5",
+addDish(
   new Dish(
     "Tallarines chinos con setas y pollo",
     3,
@@ -206,20 +210,18 @@ dishes.set(
     "N"
   )
 );
-dishes.set(
-  "N6",
+addDish(
   new Dish(
     "Pescado con papas",
     4,
     "Podría parecer que es una copia del 'Fish&Chips' inglés, pero no, este pescado con papas es mejor gracias a nuestro chef valenciano que pone su toque culinario",
     ["Filete de merluza a la plancha", "Patatas fritas", "Cebolla", "Pimiento"],
-    "Platos/Normal/Pescado con papas.jpg",
+    "Platos/Normal/Pescado.jpg",
     "N"
   )
 );
 //7 Normal dishes by default
-dishes.set(
-  "V0",
+addDish(
   new Dish(
     "Hamburguesa vegana",
     5,
@@ -232,12 +234,11 @@ dishes.set(
       "Plátano macho frito",
       "Salsa secreta de la casa",
     ],
-    "Platos/Vegano/Burguer Vegana.jpg",
+    "Platos/Vegano/BurguerVegana.jpg",
     "V"
   )
 );
-dishes.set(
-  "V1",
+addDish(
   new Dish(
     "Ensalada vegana",
     3,
@@ -252,23 +253,21 @@ dishes.set(
       "Pepino",
       "Rúcula",
     ],
-    "Platos/Vegano/Ensalada Vegana.jpg",
+    "Platos/Vegano/EnsaladaVegana.jpg",
     "V"
   )
 );
-dishes.set(
-  "V2",
+addDish(
   new Dish(
     "Macarrones con tomate y queso",
     4,
     "Macarrones con tomate y queso 100% vegano",
     ["Macarrones", "Tomate frito natural", "Queso vegano"],
-    "Platos/Vegano/Pasta Vegana.jpg",
+    "Platos/Vegano/PastaVegana.jpg",
     "V"
   )
 );
-dishes.set(
-  "V3",
+addDish(
   new Dish(
     "Tarta de Manzana",
     2,
@@ -278,8 +277,7 @@ dishes.set(
     "V"
   )
 );
-dishes.set(
-  "V4",
+addDish(
   new Dish(
     "Pizza vegana",
     8,
@@ -291,13 +289,12 @@ dishes.set(
       "Queso vegano en rodajas",
       "Albahaca",
     ],
-    "Platos/Vegano/Pizza vegana.jpg",
+    "Platos/Vegano/PizzaVegana.jpg",
     "V"
   )
 );
 //5 Vegan dishes by default
-dishes.set(
-  "D0",
+addDish(
   new Dish(
     "Agua",
     2,
@@ -307,8 +304,7 @@ dishes.set(
     "D"
   )
 );
-dishes.set(
-  "D1",
+addDish(
   new Dish(
     "Cerveza",
     2,
@@ -318,8 +314,7 @@ dishes.set(
     "D"
   )
 );
-dishes.set(
-  "D2",
+addDish(
   new Dish(
     "Refrescos",
     3,
@@ -338,8 +333,7 @@ dishes.set(
     "D"
   )
 );
-dishes.set(
-  "D3",
+addDish(
   new Dish(
     "Café",
     1,
@@ -349,8 +343,7 @@ dishes.set(
     "D"
   )
 );
-dishes.set(
-  "D4",
+addDish(
   new Dish(
     "Vino Pasión de Bobal",
     7.95,
@@ -360,8 +353,7 @@ dishes.set(
     "D"
   )
 );
-dishes.set(
-  "D5",
+addDish(
   new Dish(
     "Vino Teso La Monja",
     1272,

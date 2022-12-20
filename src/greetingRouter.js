@@ -1,11 +1,11 @@
 import express from 'express';
-
+import * as dishes from './dish.js';
 const router = express.Router();
 
-router.get('/greeting', (req, res) => {
+router.get('/menu', (req, res) => {
 
-    res.render('greeting', {
-        name: req.query.userName
+    res.render('menu', {
+        dishes: dishes.getDishes()
     });
 });
 
