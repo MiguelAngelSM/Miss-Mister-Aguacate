@@ -9,4 +9,11 @@ router.get('/menu', (req, res) => {
     });
 });
 
+router.get('/form', (req, res) => {
+
+    res.render('form', {
+    });
+});
+
+
 export default router;

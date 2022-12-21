@@ -27,7 +27,7 @@
     <!--Bootstrap template from CDN Bootstrap-->
 
     <!--Our css file-->
-    <link type="text/css" rel="stylesheet" href="./Styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
     <link type="text/css" rel="stylesheet" href="./Styles/Header.css" />
     <link type="text/css" rel="stylesheet" href="./Styles/Display.css" />
     <link type="text/css" rel="stylesheet" href="./Styles/Menu.css" />
@@ -69,7 +69,43 @@
 
   <body>
     <div id="Home" class="container-fluid">
-      
+      <div id="Header" class="row">
+        <div id="Restaurant_Name" class="col-xs-6">
+          <h1>Miss & Mister Aguacate</h1>
+          <!--Restaurant Name-->
+        </div>
+
+        <div class="flex-gap">
+          <div id="Insta" class="col-xs-2">
+            <a href="https://www.instagram.com/" target="_blank">
+              <img class="Social img-responsive" src="Iconos/insta.png" />
+              <!--Link to Instagram-->
+            </a>
+          </div>
+          <div id="Facebook" class="col-xs-2">
+            <a href="https://es-es.facebook.com/" target="_blank">
+              <img class="Social img-responsive" src="Iconos/facebook.png" />
+              <!--Link to Facebook-->
+            </a>
+          </div>
+          <div id="Twitter" class="col-xs-2">
+            <a href="https://twitter.com/?lang=es" target="_blank">
+              <img class="Social img-responsive" src="Iconos/twitter.png" />
+              <!--Link to Twitter-->
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--Header from the page-->
+
+      <div id="Display" class="row">
+        <!--It will change between the following pictures every 5 seconds-->
+        <img class="Photo" src="Imagenes/Cartel.jpg" />
+        <img class="Photo" src="Imagenes/Amigos.jpg" />
+        <img class="Photo" src="Imagenes/Mesa.jpg" />
+        <img class="Photo" src="Imagenes/Sitio.jpg" />
+      </div>
+      <!--This is a display just decorative-->
 
       <div id="Menu" class="row" style="display: block">
         <div id="Head" class="row">
@@ -77,12 +113,11 @@
 
           <div id="OptionButton1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <button
-              id="ModeLeft"
+              id="VeganMode"
               class="MenuButton"
               onclick="changeMode('Vegan','Normal','Drink')"
             >
               <img
-                id="ImageModeLeft"
                 class="menu-header-button img-responsive"
                 src="Iconos/Vegan.png"
               />
@@ -96,12 +131,11 @@
 
           <div id="OptionButton2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <button
-              id="ModeRight"
+              id="DrinkMode"
               class="MenuButton"
               onclick="changeMode('Drink','Normal','Vegan')"
             >
               <img
-                id="ImageModeRight"
                 class="menu-header-button img-responsive"
                 src="Iconos/Drink.png"
               />
@@ -159,7 +193,7 @@
 
         <div id="Arrows" class="row">
           <div id="BackArrow" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <button id="BackArrowButton" class="ArrowButton" onclick="changePage('N', 0, -1)">
+            <button class="ArrowButton" onclick="changePage('N', 0, -1)">
               <img
                 class="menu-arrow-button img-responsive"
                 src="Iconos/BackArrow.png"
@@ -169,7 +203,7 @@
           </div>
 
           <div id="NextArrow" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <button id="NextArrowButton" class="ArrowButton" onclick="changePage('N', 0, 1)">
+            <button class="ArrowButton" onclick="changePage('N', 0, 1)">
               <img
                 class="menu-arrow-button img-responsive"
                 src="Iconos/NextArrow.png"
@@ -225,8 +259,6 @@
           </div>
         </div>
       </div>
-
-      
       <!--Menu page-->
 
       <div id="Form" style="display: none" class="container-fluid">
@@ -234,7 +266,7 @@
           <div id="FormPhoto" class="col-xs-2">
             <!--This input is for the new dish option in order to let the user get an image from its own desktop-->
             <input id="AddImage" type="file" style="display: none" />
-            
+
             <!--This image is for the modify dish option in order to print the image from the dish that is being modified-->
             <img
               id="FormImage"
@@ -280,11 +312,10 @@
         </div>
         <div class="row">
           <div class="FormButtons col-xs-1">
-            <button id="formSaveButton" onclick="saveDish('N')">
-              Guardar
-            </button>
+            <button id="formSaveButton" onclick="saveDish('N')">Guardar</button>
           </div>
-          <div class="FormButtons col-xs-1"><!--This will cancel the operation and back you to the menu-->
+          <div class="FormButtons col-xs-1">
+            <!--This will cancel the operation and back you to the menu-->
             <button id="formCancelButton" onclick="backButton('N')">
               Cancelar
             </button>
@@ -294,7 +325,10 @@
         <div id="IngredientListTitle">
           <h2>Lista de ingredientes</h2>
         </div>
-        <div id="IngredientsList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div
+          id="IngredientsList"
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+        >
           <!--The list will be generated by JS-->
         </div>
       </div>
@@ -303,8 +337,11 @@
       <div id="InfoDish" style="display: none" class="container-fluid">
         <div class="row">
           <div id="InfoArrow" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-            <button id="InfoDishArrow" onclick="loadMainPage()">
-              <img class="arrow-button img-responsive" src="Iconos/BackArrow.png" />
+            <button id="InfoDishArrow" onclick="goToMainPage()">
+              <img
+                class="arrow-button img-responsive"
+                src="Iconos/BackArrow.png"
+              />
             </button>
           </div>
           <div id="InfoPhoto" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -336,13 +373,110 @@
         </div>
 
         <div class="row">
-          <div id="infoDishIngredientsList" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div
+            id="infoDishIngredientsList"
+            class="col-xs-6 col-sm-6 col-md-6 col-lg-6"
+          >
             <!--The list will be generated by JS-->
           </div>
         </div>
       </div>
       <!--More info page-->
 
+      <div id="Reviews" class="row">
+        <div id="ReviewsTitle">
+          <h1>Reseñas</h1>
+        </div>
+
+        <div class="row">
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Sergio De Oro Fernández</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              itaque ratione cupiditate consectetur nulla veritatis soluta
+              accusantium est repellendus aliquam, omnis laborum magnam libero,
+              laboriosam ipsam. Odio pariatur in nobis!
+            </h6>
+          </div>
+
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Antonio José Alanís Bernal</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-full checked"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+              ipsa fugit vel accusantium itaque laudantium beatae et quis, iusto
+              ducimus nostrum suscipit quisquam voluptates tempore dignissimos
+              eligendi, magnam reiciendis architecto.
+            </h6>
+          </div>
+
+          <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Kiko Martínez De Lizarduy</h4>
+            <div class="Stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <h6>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
+              quis fugit modi soluta, atque eum est dicta porro, vero corporis
+              doloremque nulla. Dolor voluptatum iste in neque magnam earum
+              nulla!
+            </h6>
+          </div>
+        </div>
+      </div>
+      <!--Reviews Section; it does not work just only see some-->
+
+      <div id="Footer" class="row">
+        <div id="ContactInfo" class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <p>
+              <img src="Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 -
+              01:00
+            </p>
+            <p>
+              <img src="Iconos/Correo.png" /> Contacto:
+              missandmisteraguacate@gmail.com
+            </p>
+            <p><img src="Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
+            <p><img src="Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
+          </div>
+
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div>
+              <iframe
+                id="Map"
+                src="https://maps.google.com/maps?q=40.153524,%20-4.743002&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div id="Copyright" class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+              &copy; Design by Miguel y Demelza <img src="Iconos/corazon.png" />
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--Footer from the page-->
     </div>
   </body>
 </html>
