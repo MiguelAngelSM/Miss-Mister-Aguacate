@@ -15,5 +15,10 @@ router.get('/form', (req, res) => {
     });
 });
 
+router.get('/infoDish/:n', (req, res) => {
+    let dish = dishes.getDish(req.params.n);
+    let ingredients = dishes.getAtributes(req.params.n);
+    res.render('infoDish', {dish,ingredients});
+});
 
 export default router;

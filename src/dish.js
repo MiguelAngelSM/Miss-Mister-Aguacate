@@ -6,6 +6,7 @@ export class Dish {
   atributes = []; //The ingredients
   img; //image link
   type;
+  id;
   static amount = [0, 0, 0]; //Normal Vegan Drink; it will help us to know exactly how many elements from each type are.
 
   constructor(name, price, description, atributes, img, type) {
@@ -15,6 +16,7 @@ export class Dish {
     this.setAtributes(atributes);
     this.setImg(img);
     this.setType(type);
+
     Dish.setAmount(type);
   }
 
@@ -104,6 +106,12 @@ export class Dish {
   setImg(value) {
     this.img = value;
   }
+  getId() {
+    return this.id;
+  }
+  setId(value) {
+    this.id = value;
+  }
   addAtribute(value) {
     this.atributes.push(value);
   }//just for adding an ingredient to the list
@@ -114,14 +122,18 @@ let nextId = 0;
 //The keys will be made by a letter (N for normal dishes, V for vegan dishes and D for drinks) and a number of the element
 export function addDish(dish) {
   let id = nextId++;
+  dish.setId(id);
   dishes.set(id.toString(), dish);
   }
 export function getDish(id){
-    return dishes.get(id);
+    return dishes.get(id.toString());
   }
-  export function getDishes(){
+export function getDishes(){
     return [...dishes.values()];
-    }
+  }
+export function getAtributes(id){
+  return getDish(id).getAtributes();
+}
 //Deafult dishes definition
 addDish(
   new Dish(

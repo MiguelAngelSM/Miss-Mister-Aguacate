@@ -150,12 +150,12 @@
             {{name}}
           </div>
           <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            {{price}}
+            {{price}}€
           </div>
         </div>
         <div class="row">
           <div id="Info" class="ShowInfo col-12">
-            <button>Mas Info</button>
+            <button onclick="window.location.href='/infoDish/{{id}}'">Mas Info</button> 
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
 	{{/dishes}}
 	
 	{{^dishes}}
-	<p>No dishes yet.</p>
+	<p>No hay platos</p>
 	{{/dishes}}
 
   <div id="NewDish" class="row"><!--ClassName Mustache must be changed -->
