@@ -9,7 +9,7 @@ router.get('/menu', (req, res) => {
     });
 });
 
-router.get('/form/:n', (req, res) => {
+router.get('/infoDish/:n/form', (req, res) => {
     let dish = dishes.getDish(req.params.n);
     let ingredients = dishes.getAtributes(req.params.n);
     res.render('form', {dish,ingredients});
