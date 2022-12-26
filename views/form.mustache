@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Miss&Mister Aguacate</title>
-    <link rel="shortcut icon" href="Iconos/aguacate.png" />
+    <link rel="shortcut icon" href="../Iconos/aguacate.png" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -26,14 +26,14 @@
     <!--Bootstrap template from CDN Bootstrap-->
 
     <!--Our css file-->
-    <link type="text/css" rel="stylesheet" href="./Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Reviews.css" />
-    <link type="text/css" rel="stylesheet" href="./Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Form.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -62,7 +62,7 @@
     <!-- Library for stars rating in Reviews -->
 
     <!-- Our JS file -->
-    <script src="./main.js" type="module"></script>
+    <script src="../main.js" type="module"></script>
     <!-- Our JS file -->
   </head>
 
@@ -76,19 +76,19 @@
         <div class="flex-gap">
             <div id="Insta" class="col-xs-2">
                 <a href="https://www.instagram.com/" target="_blank">
-                <img class="Social img-responsive" src="Iconos/insta.png" />
+                <img class="Social img-responsive" src="../Iconos/insta.png" />
                 <!--Link to Instagram-->
                 </a>
             </div>
             <div id="Facebook" class="col-xs-2">
                 <a href="https://es-es.facebook.com/" target="_blank">
-                <img class="Social img-responsive" src="Iconos/facebook.png" />
+                <img class="Social img-responsive" src="../Iconos/facebook.png" />
                 <!--Link to Facebook-->
                 </a>
             </div>
             <div id="Twitter" class="col-xs-2">
                 <a href="https://twitter.com/?lang=es" target="_blank">
-                <img class="Social img-responsive" src="Iconos/twitter.png" />
+                <img class="Social img-responsive" src="../Iconos/twitter.png" />
                 <!--Link to Twitter-->
                 </a>
             </div>
@@ -106,7 +106,7 @@
             <img
               id="FormImage"
               class="dish-image img-responsive"
-              src="Iconos/Plato.png" values={{img}}
+              src="../{{dish.img}}"
             />
           </div>
 
@@ -114,15 +114,15 @@
             <form role="form">
               <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
                 <label for="Name">Nombre:</label>
-                <input id="Name" class="form-control" type="text" values={{name}} />
+                <input id="Name" class="form-control" type="text" value="{{dish.name}}" />
               </div>
               <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
                 <label for="Price">Precio:</label>
-                <input id="Price" class="form-control" type="text" values={{price}} />
+                <input id="Price" class="form-control" type="text" value="{{dish.price}}" />
               </div>
               <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
                 <label for="Description">Descripción:</label>
-                <input id="Description" class="form-control" type="text" values={{description}} />
+                <input id="Description" class="form-control" type="text" value="{{dish.description}}" />
               </div>
               <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
                 <label for="Ingredients">Ingrediente:</label>
@@ -164,6 +164,15 @@
           id="IngredientsList"
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
         >
+          {{#ingredients}}
+            <div class="form-inline">
+              <input class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11" type="text" value="{{.}}"/>
+              <input class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1" type="button" value="Eliminar"/>
+            </div>
+          {{/ingredients}}
+          {{^ingredients}}
+          <p>No hay ingredientes</p>
+          {{/ingredients}}
           <!--The list will be generated by JS-->
         </div>
       </div>
@@ -173,10 +182,10 @@
     <div id="Footer" class="row">
         <div id="ContactInfo" class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><img src="Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 - 01:00</p>
-            <p><img src="Iconos/Correo.png" /> Contacto: missandmisteraguacate@gmail.com</p>
-            <p><img src="Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
-            <p><img src="Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
+            <p><img src="../Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 - 01:00</p>
+            <p><img src="../Iconos/Correo.png" /> Contacto: missandmisteraguacate@gmail.com</p>
+            <p><img src="../Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
+            <p><img src="../Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
           </div>
     
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -192,7 +201,7 @@
 
         <div id="Copyright" class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p>&copy; Design by Miguel y Demelza <img src="Iconos/corazon.png" /></p>
+            <p>&copy; Design by Miguel y Demelza <img src="../Iconos/corazon.png" /></p>
           </div>
         </div>
     </div>
