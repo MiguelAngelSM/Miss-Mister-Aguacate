@@ -58,36 +58,9 @@ export function modifyDish(key) {
   //It will print the ingredients list too
   //It will upload the buttons from that menu
 
-  let e = document.getElementById("InfoDish");
-  e.style.display = "none";
-  e = document.getElementById("Form");
-  e.style.display = "block";
-  e = document.getElementById("AddImage");
+  let e = document.getElementById("AddImage");
   e.style.display = "none";
   document.getElementById("FormImage").style.display = "block";
 
-  document.getElementById("Ingredient").value='';//To clean the label
-  document.getElementById("FormImage").src = dishes.get(key).getImg();
-  document.getElementById("Name").value = dishes.get(key).getName();
-  document.getElementById("Name").disabled = true; //put the input only readable
-  document.getElementById("Price").value = dishes.get(key).getPrice();
-  document.getElementById("Description").value = dishes
-    .get(key)
-    .getDescription();
-  e = document.getElementById("IngredientsList");
-  e.innerHTML = ``;//to clean the list
-  showIngredientsList(key, printIngredient);
-
-  e = document.getElementById("IngredientButton");
-  e.onclick = function () {
-    addNewIngredient();
-  };
-  e = document.getElementById("formSaveButton");
-  e.onclick = function () {
-    saveDish(key, 0);
-  };
-  e = document.getElementById("formCancelButton");
-  e.onclick = function () {
-    backButton(key, 0);
-  };
+  
 }

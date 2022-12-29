@@ -1,6 +1,5 @@
 import express from 'express';
 import * as dishes from './dish.js';
-import * as functions from './function.js';
 const router = express.Router();
 
 router.get('/menu', (req, res) => {
@@ -14,7 +13,6 @@ router.get('/infoDish/:n/form', (req, res) => {
     let dish = dishes.getDish(req.params.n);
     let ingredients = dishes.getAtributes(req.params.n);
     res.render('form', {dish,ingredients});
-    functions.changeDisplay(false);
 });
 
 router.get('/menu/form/:type', (req, res) => {
@@ -27,7 +25,6 @@ router.get('/infoDish/:n', (req, res) => {
     let dish = dishes.getDish(req.params.n);
     let ingredients = dishes.getAtributes(req.params.n);
     res.render('infoDish', {dish,ingredients});
-    functions.changeDisplay(true);
 });
 
 export default router;

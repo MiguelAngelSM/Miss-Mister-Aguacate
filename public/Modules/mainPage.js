@@ -78,18 +78,19 @@ export function newDish(mode) {
   //It will clean the Ingredients list
   //Update the page buttons
 
-  let e = document.getElementById("Menu");
+  /*let e = document.getElementById("Menu");
   e.style.display = "none";
   e = document.getElementById("Display");
   e.style.display = "none";
   e = document.getElementById("Reviews");
   e.style.display = "none";
   e = document.getElementById("Form");
-  e.style.display = "block";
-  e = document.getElementById("AddImage");
+  e.style.display = "block";*/
+  let e = document.getElementById("AddImage");
   e.style.display = "block";
   document.getElementById("FormImage").style.display = "none";
 
+  /*
   dishes.set(
     mode + Dish.getAmount(mode),
     new Dish(
@@ -123,7 +124,7 @@ export function newDish(mode) {
   e = document.getElementById("formCancelButton");
   e.onclick = function () {
     backButton(key, 1);
-  };
+  };*/
 }
 
 export function showSpecificDish(key) {
