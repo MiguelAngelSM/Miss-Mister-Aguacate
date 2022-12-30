@@ -4,10 +4,26 @@ import * as dishService from "./dishService.js";
 const router = express.Router();
 
 router.get("/menu", (req, res) => {
+
+  const dishes = dishService.getDishes(0,4);
+
   res.render("menu", {
-    dishes: dishService.getDishes(),
+    dishes: dishes,
   });
 });
+
+router.get('/platos', (req, res) => {
+
+  const from = parseInt(req.query.from);
+  const to = parseInt(req.query.to);
+
+  const dishes = dishService.getDishes(from,to);
+
+  res.render('platos', {
+      dishes: dishes,
+  });
+});
+
 
 router.get("/infoDish/:n/modify", (req, res) => {
   let dish = dishService.getDish(req.params.n);

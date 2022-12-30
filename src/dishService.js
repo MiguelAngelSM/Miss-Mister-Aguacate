@@ -80,8 +80,13 @@ export function addDish(dish) {
 export function getDish(id) {
   return dishes.get(id.toString());
 }
-export function getDishes() {
-  return [...dishes.values()];
+export function getDishes(from, to) {
+  let values = [...dishes.values()];
+  if (from !== undefined) {
+    return values.slice(from, to);
+} else {
+    return values;
+}
 }
 export function getIngredients(id) {
   return [...getDish(id).getIngredients()];

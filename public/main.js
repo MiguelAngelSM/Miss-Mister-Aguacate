@@ -3,6 +3,7 @@ import {addNewIngredient, backButton,deleteIngredient,saveDish} from './Modules/
 import {carousel} from './Modules/carousel.js';
 import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newDish} from './Modules/mainPage.js';
 import {loadMainPage} from './Modules/common.js';
+import {loadMore} from './ajax.js';
 
 //First Page Load
 document.addEventListener("DOMContentLoaded", function(){
@@ -24,3 +25,4 @@ window.saveDish=saveDish;
 window.backButton=backButton;
 window.loadMainPage=loadMainPage;
 window.addNewIngredient=addNewIngredient;
+window.loadMore=loadMore;

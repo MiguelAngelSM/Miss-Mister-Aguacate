@@ -85,6 +85,15 @@
   object-fit: contain;
 }
 
+#LoadMoreButton{
+  background-color: rgba(39, 37, 38, 0.4);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.7);
+  border-radius: 3px;
+  margin: 10px;
+}
+
+
 /* In order to align some items that where misplaced*/
 #OptionButton1 {
   display: flex;

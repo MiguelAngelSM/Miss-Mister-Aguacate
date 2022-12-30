@@ -141,6 +141,7 @@
       <!--Drink Button is loadedby default-->
     </div>
   </div>
+  <div id="platos">
 	{{#dishes}}
     <div class="row dish {{type}}"><!--ClassName Mustache must be changed -->
 	<div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -163,10 +164,18 @@
       </div>
     </div>
 	{{/dishes}}
-	
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button id="LoadMoreButton" onclick="loadMore()">Más platos</button>
+    </div>
+  </div>	
+
 	{{^dishes}}
 	<p>No hay platos</p>
 	{{/dishes}}
+
 
   <div id="NewDish" class="row"><!--ClassName Mustache must be changed -->
     <div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
