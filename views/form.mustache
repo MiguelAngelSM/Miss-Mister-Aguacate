@@ -101,84 +101,95 @@
     <!--Header from the page-->
 
     <div id="Form" class="container-fluid">
-      <div class="FormStructure row">
-        <div id="FormPhoto" class="col-xs-2">
-          <!--This input is for the new dish option in order to let the user get an image from its own desktop-->
-          <input id="AddImage" name="image" type="file" style="display: none" />
+      <form role="form" action="/dish/new" method="post">
+        <div class="FormStructure row">
+          <div id="FormPhoto" class="col-xs-2">
+            <!--This input is for the new dish option in order to let the user get an image from its own desktop-->
+            <input
+              id="AddImage"
+              name="imageForm"
+              type="file"
+              style="display: none"
+              accept="image/png, image/jpeg"
+            />
 
-          <!--This image is for the modify dish option in order to print the image from the dish that is being modified-->
-          <img
-            id="FormImage"
-            class="dish-image img-responsive"
-            src="../../{{ dish.img }}"
-          />
-        </div>
+            <!--This image is for the modify dish option in order to print the image from the dish that is being modified-->
+            <img
+              id="FormImage"
+              class="dish-image img-responsive"
+              src="../../{{ dish.img }}"
+            />
+          </div>
 
-        <div id="BasicForm" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <form role="form" action="/dish/new" method="post">
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <label for="Name">Nombre:</label>
-              <input
-                id="Name"
-                name="name"
-                class="form-control"
-                type="text"
-                value="{{ dish.name }}"
-              />
-            </div>
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <label for="Price">Precio:</label>
-              <input
-                id="Price"
-                name="price"
-                class="form-control"
-                type="text"
-                value="{{ dish.price }}"
-              />
-            </div>
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <label for="Description">Descripción:</label>
-              <input
-                id="Description"
-                name="description"
-                class="form-control"
-                type="text"
-                value="{{ dish.description }}"
-              />
-            </div>
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <label for="Ingredients">Ingrediente:</label>
-              <div class="form-inline">
-                <!--This form will have a button at the end in order to let the user add more than one ingrdient each time-->
+          <div id="BasicForm" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                <label for="Name">Nombre:</label>
                 <input
-                  id="Ingredient"
-                  class="form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+                  id="Name"
+                  name="name"
+                  class="form-control"
                   type="text"
-                />
-                <input
-                  id="IngredientButton"
-                  class="form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
-                  type="button"
-                  onclick="addNewIngredient()"
-                  value="Añadir"
+                  value="{{ dish.name }}"
                 />
               </div>
-            </div>
+              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                <label for="Price">Precio:</label>
+                <input
+                  id="Price"
+                  name="price"
+                  class="form-control"
+                  type="text"
+                  value="{{ dish.price }}"
+                />
+              </div>
+              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                <label for="Description">Descripción:</label>
+                <input
+                  id="Description"
+                  name="description"
+                  class="form-control"
+                  type="text"
+                  value="{{ dish.description }}"
+                />
+              </div>
+              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                <label for="Ingredients">Ingrediente:</label>
+                <div class="form-inline">
+                  <!--This form will have a button at the end in order to let the user add more than one ingrdient each time-->
+                  <input
+                    id="Ingredient"
+                    name="ingredient"
+                    class="form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+                    type="text"
+                  />
+                  <input
+                    id="IngredientButton"
+                    class="form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
+                    type="button"
+                    onclick="addNewIngredient()"
+                    value="Añadir"
+                  />
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="FormButtons col-xs-1">
             <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <input id="formSaveButton" type="submit" value="Guardar" />
+              <input id="formSaveButton" type="submit" value="Guardar"/>
             </div>
-          </form>
+          </div>
+          <div class="FormButtons col-xs-1">
+            <!--This will cancel the operation and back you to the menu-->
+            <button
+              id="formCancelButton"
+              onclick="window.location.href='/menu'"
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="FormButtons col-xs-1"></div>
-        <div class="FormButtons col-xs-1">
-          <!--This will cancel the operation and back you to the menu-->
-          <button id="formCancelButton" onclick="window.location.href='/menu'">
-            Cancelar
-          </button>
-        </div>
-      </div>
+      </form>
 
       <div id="IngredientListTitle">
         <h2>Lista de ingredientes</h2>
@@ -188,7 +199,7 @@
         <div class="form-inline">
           <input
             class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
-            name="{{ingredients.id}}"
+            name="{{ ingredients.id }}"
             type="text"
             value="{{.}}"
           />
