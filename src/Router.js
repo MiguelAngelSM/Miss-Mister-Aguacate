@@ -1,4 +1,5 @@
 import express from "express";
+import { __dirname } from "./dirname.js";
 import * as dishService from "./dishService.js";
 const router = express.Router();
 
@@ -39,9 +40,7 @@ router.post("/dish/new", (req, res) => {
   let name = req.body.name;
   let price = req.body.price;
   let desc = req.body.description;
-  //not finished
-  let image = ""; //req.body.image;
-  //console.log(image);
+  let image = req.body.image;
   dishService.addDish(new dishService.Dish(name, price, desc, [], image, "N"));
   res.render("saved");
 });
