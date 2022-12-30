@@ -9,14 +9,30 @@ router.get("/menu", (req, res) => {
   });
 });
 
-router.get("/infoDish/:n/form", (req, res) => {
+router.get("/infoDish/:n/modify", (req, res) => {
   let dish = dishService.getDish(req.params.n);
   let ingredients = dishService.getIngredients(req.params.n);
-  res.render("form", { dish, ingredients });
+  let objectArray =[];
+  for (let i=0;i<ingredients.length;i++){
+    objectArray[i]={ingredient:ingredients[i]};
+  }
+  let index = 0;
+  let data = {
+    dish: dish,
+    ingredients: objectArray,
+    increaseIndex: function () {
+      return index++;
+    },
+    actualIndex: function () {
+      return index;
+    },
+  };
+  res.render("form", data);
 });
 
-router.get("/menu/form/:type", (req, res) => {
-  let dish = new dishService.Dish("", "", "", [], "", req.params.type[0]);
+router.get("/menu/create", (req, res) => {
+  let dish = new dishService.Dish("", "", "", [], "");
+  dish.id = "";
   let ingredients = dish.getIngredients();
   res.render("form", { dish, ingredients });
 });
@@ -36,12 +52,21 @@ router.get("/form/:n/saved", (req, res) => {
   res.render("savedDish");
 });
 
-router.post("/dish/new", (req, res) => {
+router.post("/dish/saved", (req, res) => {
   let name = req.body.name;
   let price = req.body.price;
   let desc = req.body.description;
   let image = req.body.image;
-  dishService.addDish(new dishService.Dish(name, price, desc, [], image, "N"));
+  let type = req.body.type;
+  let ingredients = req.body.ingredient;
+  let id = req.body.id;
+  if (id) {
+    dishService.updateAtributes(id, price, desc, ingredients); //image,name and type should not be changeable
+  } else {
+    dishService.addDish(
+      new dishService.Dish(name, price, desc, ingredients, image, type)
+    );
+  }
   res.render("saved");
 });
 

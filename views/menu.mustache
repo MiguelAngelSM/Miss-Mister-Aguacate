@@ -110,12 +110,12 @@
       <button
         id="ModeLeft"
         class="MenuButton"
-        onclick="changeMode('Vegan','Normal','Drink')"
+        onclick="changeMode('Vegano','Normal','Bebida')"
       >
         <img
           id="ImageModeLeft"
           class="menu-header-button img-responsive"
-          src="Iconos/Vegan.png"
+          src="Iconos/Vegano.png"
         />
       </button>
       <!--Vegan Button is loaded by default-->
@@ -129,19 +129,19 @@
       <button
         id="ModeRight"
         class="MenuButton"
-        onclick="changeMode('Drink','Normal','Vegan')"
+        onclick="changeMode('Bebida','Normal','Vegano')"
       >
         <img
           id="ImageModeRight"
           class="menu-header-button img-responsive"
-          src="Iconos/Drink.png"
+          src="Iconos/Bebida.png"
         />
       </button>
       <!--Drink Button is loadedby default-->
     </div>
   </div>
 	{{#dishes}}
-    <div id={{type}} class="row mustache"><!--ClassName Mustache must be changed -->
+    <div class="row dish {{type}}"><!--ClassName Mustache must be changed -->
 	<div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <img src={{img}} class="dish-image img-responsive">
       </div>
@@ -182,7 +182,7 @@
           </div>
           <div class="row">
             <div id="Info" class="ShowInfo col-12">
-              <button onclick="window.location.href='/menu/form/Normal'">Añadir Plato</button>
+              <button onclick="window.location.href='/menu/create'">Añadir Plato</button>
             </div>
           </div>
         </div>

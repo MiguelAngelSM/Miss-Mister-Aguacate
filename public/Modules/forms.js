@@ -3,6 +3,31 @@ import { loadMainPage } from "./common.js";
 
 //Functions of this module
 
+export function printIngredient(ingredient, i) {
+  //Add to the IngredientsList the ingredient selected
+  //The key is required for the delete button
+  //i is the number of the dish printed
+  //This printIngredient will print them in an input modifyable and with a delete button for each one
+
+  let e = document.getElementById("IngredientsList");
+  e.innerHTML += `
+  <div id="Ingredient${i}" class="form-group">
+    <input
+      id="IngredientText${i}"
+      name="ingredient"
+      class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+      type="text"
+      value="${ingredient}"
+      />
+      <input
+      class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
+      type="button"
+      onclick="deleteIngredient('${i}')"
+      value="Eliminar"
+      />
+    </div>`;
+}
+
 export function deleteIngredient(i) {
   //Delete the ingredient from the ingredients list from the page
 
@@ -79,6 +104,8 @@ export function addNewIngredient() {
     document.getElementById("Ingredient").value = ""; //To clean the label
   }
 }
+
+
 
 export function saveIngredients() {
   //This function will collect the tags of the ingredients from the list cause they might have changed and then save them

@@ -45,7 +45,7 @@ export class Dish {
     return this.ingredients;
   }
   setIngredients(value) {
-    this.ingredients = value;
+    this.ingredients = new Set(value);
   }
   getImg() {
     return this.img;
@@ -60,8 +60,13 @@ export class Dish {
     this.id = value;
   }
   addAtribute(value) {
-    this.Ingredients.add(value);
-  }//just for adding an ingredient to the list
+    this.ingredients.add(value);
+  }
+  updateAtributes(price, desc, ingredients) {
+    this.price = price;
+    this.description = desc;
+    this.setIngredients(ingredients);
+  }
 }
 
 export let dishes = new Map(); //Map of dishes
@@ -71,18 +76,21 @@ export function addDish(dish) {
   let id = nextId++;
   dish.setId(id);
   dishes.set(id.toString(), dish);
-  }
-export function getDish(id){
-    return dishes.get(id.toString());
-  }
-export function getDishes(){
-    return [...dishes.values()];
-  }
-export function getIngredients(id){
+}
+export function getDish(id) {
+  return dishes.get(id.toString());
+}
+export function getDishes() {
+  return [...dishes.values()];
+}
+export function getIngredients(id) {
   return [...getDish(id).getIngredients()];
 }
-export function deleteDish(id){
+export function deleteDish(id) {
   dishes.delete(id);
+}
+export function updateAtributes(id, price, desc, ingredients) {
+  dishes.get(id).updateAtributes(price, desc, ingredients);
 }
 //Deafult dishes definition
 //7 Normal dishes by default
@@ -103,7 +111,7 @@ addDish(
       "Salsa Barbacoa",
     ],
     "Platos/Normal/Burguer.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -124,7 +132,7 @@ addDish(
       "Queso de cabra",
     ],
     "Platos/Normal/Pizza.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -134,7 +142,7 @@ addDish(
     "Deliciosos macarrones con tomate con sabrosas albóndigas hechas al estilo de la abuela",
     ["Macarrones", "Tomate frito natural", "Albóndigas de carne mixta"],
     "Platos/Normal/Macarrones.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -150,7 +158,7 @@ addDish(
       "Tomates Cherry",
     ],
     "Platos/Normal/Pesto.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -169,7 +177,7 @@ addDish(
       "Salsa de queso mexicana",
     ],
     "Platos/Normal/Fajitas.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -179,7 +187,7 @@ addDish(
     "Deliciosos tallarines fritos hechos por un hombre de las tierras del Quijote",
     ["Tallarines", "Champiñones", "Pollo a la plancha", "Salsa de soja"],
     "Platos/Normal/Tallarines.jpg",
-    "N"
+    "Normal"
   )
 );
 addDish(
@@ -189,7 +197,7 @@ addDish(
     "Podría parecer que es una copia del 'Fish&Chips' inglés, pero no, este pescado con papas es mejor gracias a nuestro chef valenciano que pone su toque culinario",
     ["Filete de merluza a la plancha", "Patatas fritas", "Cebolla", "Pimiento"],
     "Platos/Normal/Pescado.jpg",
-    "N"
+    "Normal"
   )
 );
 //5 Vegan dishes by default
@@ -198,16 +206,16 @@ addDish(
     "Hamburguesa vegana",
     5,
     "Deliciosa hamburguesa vegana hecha para los amantes de los sabores exóticos",
-    new Set([
+    [
       "'Carne' Beyond",
       "Cebolla morada",
       "Rúcula",
       "Aguacate",
       "Plátano macho frito",
       "Salsa secreta de la casa",
-    ]),
+    ],
     "Platos/Vegano/BurguerVegana.jpg",
-    "V"
+    "Vegano"
   )
 );
 addDish(
@@ -215,7 +223,7 @@ addDish(
     "Ensalada vegana",
     3,
     "Plato vegano por defecto en cualquier restaurante",
-    new Set([
+    [
       "Lechuga iceberg",
       "Cebolla",
       "Tomate",
@@ -224,9 +232,9 @@ addDish(
       "Vinagre",
       "Pepino",
       "Rúcula",
-    ]),
+    ],
     "Platos/Vegano/EnsaladaVegana.jpg",
-    "V"
+    "Vegano"
   )
 );
 addDish(
@@ -234,9 +242,9 @@ addDish(
     "Macarrones con tomate y queso",
     4,
     "Macarrones con tomate y queso 100% vegano",
-    new Set(["Macarrones", "Tomate frito natural", "Queso vegano"]),
+    ["Macarrones", "Tomate frito natural", "Queso vegano"],
     "Platos/Vegano/PastaVegana.jpg",
-    "V"
+    "Vegano"
   )
 );
 addDish(
@@ -244,9 +252,9 @@ addDish(
     "Tarta de Manzana",
     2,
     "Dulce postre elaborado por nuestra chef mostoleña",
-    new Set(["Manzanas"]),
+    ["Manzanas"],
     "Platos/Vegano/Tarta.jpg",
-    "V"
+    "Vegano"
   )
 );
 addDish(
@@ -254,15 +262,15 @@ addDish(
     "Pizza vegana",
     8,
     "Deliciosa pizza vegana para los amantes de la naturaleza",
-    new Set([
+    [
       "Champiñones",
       "Base de tomate y queso vegano",
       "Maíz",
       "Queso vegano en rodajas",
       "Albahaca",
-    ]),
+    ],
     "Platos/Vegano/PizzaVegana.jpg",
-    "V"
+    "Vegano"
   )
 );
 //6 Drinks by default
@@ -271,9 +279,9 @@ addDish(
     "Agua",
     2,
     "Agua fresca de Solan de Cabras edición Rocas del Manantial en botella de vidrio de 70cl",
-    new Set(["Agua de manantial"]),
+    ["Agua de manantial"],
     "Platos/Bebida/Agua.jpg",
-    "D"
+    "Bebida"
   )
 );
 addDish(
@@ -281,9 +289,9 @@ addDish(
     "Cerveza",
     2,
     "Cerveza Mahou 5 estrellas en botellín de 33cl",
-    new Set(["Agua", "Malta de cebada", "Maíz", "Lúpulo"]),
+    ["Agua", "Malta de cebada", "Maíz", "Lúpulo"],
     "Platos/Bebida/Cerveza.jpg",
-    "D"
+    "Bebida"
   )
 );
 addDish(
@@ -291,7 +299,7 @@ addDish(
     "Refrescos",
     3,
     "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limón, Aquarius de Naranja o de Limón, Trina de Naranja,",
-    new Set([
+    [
       "Coca-Cola Normal",
       "Coca-Cola Zero",
       "Coca-Cola Light",
@@ -300,9 +308,9 @@ addDish(
       "Aquarius de Naranja",
       "Aquarius de Limón",
       "Trina de Naranja",
-    ]),
+    ],
     "Platos/Bebida/Refrescos.jpg",
-    "D"
+    "Bebida"
   )
 );
 addDish(
@@ -310,9 +318,9 @@ addDish(
     "Café",
     1,
     "Café 100% natural hecho en cafetera moka italiana",
-    new Set(["Café de Cuba", "Azúcar", "Leche", "Agua"]),
+    ["Café de Cuba", "Azúcar", "Leche", "Agua"],
     "Platos/Bebida/Cafe.jpg",
-    "D"
+    "Bebida"
   )
 );
 addDish(
@@ -320,9 +328,9 @@ addDish(
     "Vino Pasión de Bobal",
     7.95,
     "Vino ecológico con origen en viñedos de más de 60 años ",
-    new Set(["Agua", "Alcohol", "Glucosa y fructosa"]),
+    ["Agua", "Alcohol", "Glucosa y fructosa"],
     "Platos/Bebida/VinoBarato.jpg",
-    "D"
+    "Bebida"
   )
 );
 addDish(
@@ -330,8 +338,8 @@ addDish(
     "Vino Teso La Monja",
     1272,
     "Vino de gran calidad cultivado según los principios de la biodinámica",
-    new Set(["Agua", "Alcohol", "Glucosa y fructosa"]),
+    ["Agua", "Alcohol", "Glucosa y fructosa"],
     "Platos/Bebida/VinoCaro.jpg",
-    "D"
+    "Bebida"
   )
 );

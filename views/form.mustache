@@ -34,7 +34,11 @@
     <link type="text/css" rel="stylesheet" href="../../Styles/InfoDish.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/DeletedDish.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../Styles/DeletedDish.css"
+    />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -102,9 +106,12 @@
     <!--Header from the page-->
 
     <div id="Form" class="container-fluid">
-      <form role="form" action="/dish/new" method="post">
+      <form role="form" action="/dish/saved" method="post">
+        <div style="display: none">
+          <input name="id" value="{{ dish.id }}" />
+        </div>
         <div class="FormStructure row">
-          <div id="FormPhoto" class="col-xs-2">
+          <div id="FormPhoto" class="col-xs-3">
             <!--This input is for the new dish option in order to let the user get an image from its own desktop-->
             <input
               id="AddImage"
@@ -123,39 +130,40 @@
           </div>
 
           <div id="BasicForm" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-            <form role="form" action="/dish/new" method="post">
-              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                <label for="Name">Nombre:</label>
-                <input
-                  id="Name"
-                  name="name"
-                  class="form-control"
-                  type="text"
-                  value="{{ dish.name }}"
-                />
-              </div>
-              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                <label for="Price">Precio:</label>
-                <input
-                  id="Price"
-                  name="price"
-                  class="form-control"
-                  type="text"
-                  value="{{ dish.price }}"
-                />
-              </div>
-              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                <label for="Description">Descripción:</label>
-                <input
-                  id="Description"
-                  name="description"
-                  class="form-control"
-                  type="text"
-                  value="{{ dish.description }}"
-                />
-              </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label for="Name">Nombre:</label>
+              <input
+                id="Name"
+                name="name"
+                class="form-control"
+                type="text"
+                value="{{ dish.name }}"
+              />
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label for="Price">Precio:</label>
+              <input
+                id="Price"
+                name="price"
+                class="form-control"
+                type="text"
+                value="{{ dish.price }}"
+              />
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label for="Description">Descripción:</label>
+              <textArea
+                id="Description"
+                name="description"
+                class="form-control"
+                type="text"
+                >{{ dish.description }}</textArea
+              >
+            </div>
 
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11 btn-group">
+            <div
+              class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 btn-group"
+            >
               <label for="Type">Tipo de plato:</label>
               <select name="type">
                 <option value="Normal">Normal</option>
@@ -164,34 +172,29 @@
               </select>
             </div>
 
-              <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                <label for="Ingredients">Ingrediente:</label>
-                <div class="form-inline">
-                  <!--This form will have a button at the end in order to let the user add more than one ingrdient each time-->
-                  <input
-                    id="Ingredient"
-                    name="ingredient"
-                    class="form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
-                    type="text"
-                  />
-                  <input
-                    id="IngredientButton"
-                    class="form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
-                    type="button"
-                    onclick="addNewIngredient()"
-                    value="Añadir"
-                  />
-                </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label for="Ingredients">Ingrediente:</label>
+              <div class="form-inline">
+                <!--This form will have a button at the end in order to let the user add more than one ingrdient each time-->
+                <input
+                  id="Ingredient"
+                  class="form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+                  type="text"
+                />
+                <input
+                  id="IngredientButton"
+                  class="form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
+                  type="button"
+                  onclick="addNewIngredient()"
+                  value="Añadir"
+                />
               </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="FormButtons col-xs-1">
-          </div>
-        </div>
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-            <div class="form-group col-xs-11 col-sm-11 col-md-11 col-lg-11">
-              <input id="formSaveButton" type="submit" value="Guardar"/>
-            </div>
+            <input id="formSaveButton" type="submit" value="Guardar" />
           </div>
           <div class="FormButtons col-xs-1">
             <!--This will cancel the operation and back you to the menu-->
@@ -203,32 +206,36 @@
             </button>
           </div>
         </div>
-      </form>
 
-      <div id="IngredientListTitle">
-        <h2>Lista de ingredientes</h2>
-      </div>
-      <div id="IngredientsList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        {{#ingredients}}
-        <div class="form-inline">
-          <input
-            class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
-            name="{{ ingredients.id }}"
-            type="text"
-            value="{{.}}"
-          />
-          <input
-            class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
-            type="button"
-            value="Eliminar"
-          />
+        <div id="IngredientListTitle">
+          <h2>Lista de ingredientes</h2>
         </div>
-        {{/ingredients}}
-        {{^ingredients}}
-        <p>No hay ingredientes</p>
-        {{/ingredients}}
-        <!--The list will be generated by JS-->
-      </div>
+        <div
+          id="IngredientsList"
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+        >
+          {{#ingredients}}
+          <div id="Ingredient{{ actualIndex }}" class="form-inline">
+            <input
+              id="IngredientText{{ actualIndex }}"
+              class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+              name="ingredient"
+              type="text"
+              value="{{ ingredient }}"
+            />
+            <input
+              class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
+              type="button"
+              onclick="deleteIngredient('{{ increaseIndex }}')"
+              value="Eliminar"
+            />
+          </div>
+          {{/ingredients}}
+          {{^ingredients}}
+          <p>No hay ingredientes</p>
+          {{/ingredients}}
+        </div>
+      </form>
     </div>
     <!--Modify and create form page-->
 

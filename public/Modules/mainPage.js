@@ -42,13 +42,13 @@ export function changeMode(actual_mode, mode, mode1) {
 
   changeMenuButtons(actual_mode, mode, mode1);
   //updateArrows(actual_mode[0], 0);
-  showDishes(0, actual_mode[0]); 
+  showDishes(0, actual_mode); 
 }
 
 export function showDishes(page, mode) {
-  let divs = document.getElementsByClassName("mustache");
+  let divs = document.getElementsByClassName("dish");
   for(let i=0;i<divs.length;i++){
-    if (divs[i].id===mode){
+    if (divs[i].classList.contains(mode)){
       divs[i].style.display="flex";
     }else{
       divs[i].style.display="none";
