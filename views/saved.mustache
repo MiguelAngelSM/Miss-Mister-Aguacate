@@ -35,6 +35,7 @@
     <link type="text/css" rel="stylesheet" href="../../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/DeletedDish.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/SavedDish.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -96,10 +97,14 @@
     </div>
     <!--Header from the page-->
 
-    <div id="savedDish">
-      <h1 id="savedDishMessage">El plato ha sido guardado con éxito</h1>
-      <img id="savedDishImage" src="../../Iconos/Basura.png" />
-      <button onclick="window.location.href='/menu'">Volver al Menu</button>
+    <div id="savedDish" class="container-fluid">
+      <h1 id="savedDishMessage" class="SavedStructure row">El plato ha sido guardado con éxito</h1>
+      <div class="SavedStructure row">
+        <img id="savedDishImage" src="../../Iconos/Guardado.png" />
+      </div>
+      <div class="SavedStructure row">
+        <button onclick="window.location.href='/menu'">Volver al Menu</button>
+      </div>
     </div>
 
     <div id="Footer" class="row">
