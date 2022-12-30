@@ -34,6 +34,7 @@
     <link type="text/css" rel="stylesheet" href="../../Styles/InfoDish.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/DeletedDish.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -99,10 +100,14 @@
     </div>
     <!--Header from the page-->
 
-    <div id="deletedDish">
-      <h1 id="deletedDishMessage">El plato ha sido borrado con éxito</h1>
-      <img id="deletedDishImage" src="../../Iconos/Basura.png" />
-      <button onclick="window.location.href='/menu'">Volver al Menu</button>
+    <div id="deletedDish" class="container-fluid">
+      <h1 id="deletedDishMessage" class="DeletedStructure row">El plato ha sido borrado con éxito</h1>
+      <div class="DeletedStructure row">
+        <img id="deletedDishImage" src="../../Iconos/Basura.png" />
+      </div>
+      <div class="DeletedStructure row">
+        <button onclick="window.location.href='/menu'">Volver al Menu</button>
+      </div>
     </div>
 
     <div id="Footer" class="row">

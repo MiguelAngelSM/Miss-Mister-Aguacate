@@ -1,0 +1,21 @@
+#deletedDishMessage{
+    font-family: "Times New Roman", Times, serif;
+    color: black;
+}
+
+#deletedDishImage{
+    width: 20%;
+    height: 20%;
+    border-radius: 11%;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.DeletedStructure button{
+    margin-bottom: 5px;
+}
+
+.DeletedStructure{
+    display:flex;
+    justify-content: center;
+}
