@@ -1,0 +1,21 @@
+#savedDishMessage{
+    font-family: "Times New Roman", Times, serif;
+    color: black;
+}
+
+#savedDishImage{
+    width: 20%;
+    height: 20%;
+    border-radius: 11%;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.SavedStructure button{
+    margin-bottom: 5px;
+}
+
+.SavedStructure{
+    display:flex;
+    justify-content: center;
+}
