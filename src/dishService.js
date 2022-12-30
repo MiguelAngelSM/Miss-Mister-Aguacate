@@ -3,72 +3,19 @@ export class Dish {
   name;
   price;
   description;
-  atributes = []; //The ingredients
+  ingredients = new Set(); //The ingredients
   img; //image link
   type;
   id;
-  static amount = [0, 0, 0]; //Normal Vegan Drink; it will help us to know exactly how many elements from each type are.
 
-  constructor(name, price, description, atributes, img, type) {
+  constructor(name, price, description, ingredients, img, type) {
     this.setName(name);
     this.setPrice(price);
     this.setDescription(description);
-    this.setAtributes(atributes);
+    this.setIngredients(ingredients);
     this.setImg(img);
     this.setType(type);
-
-    Dish.setAmount(type);
   }
-
-  static removeDish(type) {
-    let n = 0;
-    switch (type) {
-      case "N":
-        n = 0;
-        break;
-      case "V":
-        n = 1;
-        break;
-      case "D":
-        n = 2;
-        break;
-    }
-    Dish.amount[n]--;
-  }//just for decrease the amount of dishes of one type
-
-  static getAmount(type) {
-    let n = 0;
-    switch (type) {
-      case "N":
-        n = 0;
-        break;
-      case "V":
-        n = 1;
-        break;
-      case "D":
-        n = 2;
-        break;
-    }
-    return Dish.amount[n];
-  }
-
-  static setAmount(type) {
-    let n = 0;
-    switch (type) {
-      case "N":
-        n = 0;
-        break;
-      case "V":
-        n = 1;
-        break;
-      case "D":
-        n = 2;
-        break;
-      default:
-        n=-1;
-    }
-    Dish.amount[n]++;
-  }//just for increase the amount of dishes of one type
 
   getType() {
     return this.type;
@@ -94,11 +41,11 @@ export class Dish {
   setDescription(value) {
     this.description = value;
   }
-  getAtributes() {
-    return this.atributes;
+  getIngredients() {
+    return this.ingredients;
   }
-  setAtributes(value) {
-    this.atributes = value;
+  setIngredients(value) {
+    this.ingredients = value;
   }
   getImg() {
     return this.img;
@@ -113,7 +60,7 @@ export class Dish {
     this.id = value;
   }
   addAtribute(value) {
-    this.atributes.push(value);
+    this.Ingredients.add(value);
   }//just for adding an ingredient to the list
 }
 
@@ -131,10 +78,14 @@ export function getDish(id){
 export function getDishes(){
     return [...dishes.values()];
   }
-export function getAtributes(id){
-  return getDish(id).getAtributes();
+export function getIngredients(id){
+  return [...getDish(id).getIngredients()];
+}
+export function deleteDish(id){
+  dishes.delete(id);
 }
 //Deafult dishes definition
+//7 Normal dishes by default
 addDish(
   new Dish(
     "Hamburguesa completa",
@@ -241,20 +192,20 @@ addDish(
     "N"
   )
 );
-//7 Normal dishes by default
+//5 Vegan dishes by default
 addDish(
   new Dish(
     "Hamburguesa vegana",
     5,
     "Deliciosa hamburguesa vegana hecha para los amantes de los sabores exóticos",
-    [
+    new Set([
       "'Carne' Beyond",
       "Cebolla morada",
       "Rúcula",
       "Aguacate",
       "Plátano macho frito",
       "Salsa secreta de la casa",
-    ],
+    ]),
     "Platos/Vegano/BurguerVegana.jpg",
     "V"
   )
@@ -264,7 +215,7 @@ addDish(
     "Ensalada vegana",
     3,
     "Plato vegano por defecto en cualquier restaurante",
-    [
+    new Set([
       "Lechuga iceberg",
       "Cebolla",
       "Tomate",
@@ -273,7 +224,7 @@ addDish(
       "Vinagre",
       "Pepino",
       "Rúcula",
-    ],
+    ]),
     "Platos/Vegano/EnsaladaVegana.jpg",
     "V"
   )
@@ -283,7 +234,7 @@ addDish(
     "Macarrones con tomate y queso",
     4,
     "Macarrones con tomate y queso 100% vegano",
-    ["Macarrones", "Tomate frito natural", "Queso vegano"],
+    new Set(["Macarrones", "Tomate frito natural", "Queso vegano"]),
     "Platos/Vegano/PastaVegana.jpg",
     "V"
   )
@@ -293,7 +244,7 @@ addDish(
     "Tarta de Manzana",
     2,
     "Dulce postre elaborado por nuestra chef mostoleña",
-    ["Manzanas"],
+    new Set(["Manzanas"]),
     "Platos/Vegano/Tarta.jpg",
     "V"
   )
@@ -303,24 +254,24 @@ addDish(
     "Pizza vegana",
     8,
     "Deliciosa pizza vegana para los amantes de la naturaleza",
-    [
+    new Set([
       "Champiñones",
       "Base de tomate y queso vegano",
       "Maíz",
       "Queso vegano en rodajas",
       "Albahaca",
-    ],
+    ]),
     "Platos/Vegano/PizzaVegana.jpg",
     "V"
   )
 );
-//5 Vegan dishes by default
+//6 Drinks by default
 addDish(
   new Dish(
     "Agua",
     2,
     "Agua fresca de Solan de Cabras edición Rocas del Manantial en botella de vidrio de 70cl",
-    ["Agua de manantial"],
+    new Set(["Agua de manantial"]),
     "Platos/Bebida/Agua.jpg",
     "D"
   )
@@ -330,7 +281,7 @@ addDish(
     "Cerveza",
     2,
     "Cerveza Mahou 5 estrellas en botellín de 33cl",
-    ["Agua", "Malta de cebada", "Maíz", "Lúpulo"],
+    new Set(["Agua", "Malta de cebada", "Maíz", "Lúpulo"]),
     "Platos/Bebida/Cerveza.jpg",
     "D"
   )
@@ -340,7 +291,7 @@ addDish(
     "Refrescos",
     3,
     "Coca-Cola Normal o Zero o Light, Fanta de Naranja o de Limón, Aquarius de Naranja o de Limón, Trina de Naranja,",
-    [
+    new Set([
       "Coca-Cola Normal",
       "Coca-Cola Zero",
       "Coca-Cola Light",
@@ -349,7 +300,7 @@ addDish(
       "Aquarius de Naranja",
       "Aquarius de Limón",
       "Trina de Naranja",
-    ],
+    ]),
     "Platos/Bebida/Refrescos.jpg",
     "D"
   )
@@ -359,7 +310,7 @@ addDish(
     "Café",
     1,
     "Café 100% natural hecho en cafetera moka italiana",
-    ["Café de Cuba", "Azúcar", "Leche", "Agua"],
+    new Set(["Café de Cuba", "Azúcar", "Leche", "Agua"]),
     "Platos/Bebida/Cafe.jpg",
     "D"
   )
@@ -369,7 +320,7 @@ addDish(
     "Vino Pasión de Bobal",
     7.95,
     "Vino ecológico con origen en viñedos de más de 60 años ",
-    ["Agua", "Alcohol", "Glucosa y fructosa"],
+    new Set(["Agua", "Alcohol", "Glucosa y fructosa"]),
     "Platos/Bebida/VinoBarato.jpg",
     "D"
   )
@@ -379,9 +330,8 @@ addDish(
     "Vino Teso La Monja",
     1272,
     "Vino de gran calidad cultivado según los principios de la biodinámica",
-    ["Agua", "Alcohol", "Glucosa y fructosa"],
+    new Set(["Agua", "Alcohol", "Glucosa y fructosa"]),
     "Platos/Bebida/VinoCaro.jpg",
     "D"
   )
 );
-//6 Drinks by default

@@ -2,7 +2,6 @@
 import {backButton,deleteIngredient,saveDish} from './Modules/forms.js';
 import {carousel} from './Modules/carousel.js';
 import {changePage,changeMenuButtons,changeMode,showDishes,showSpecificDish,newDish} from './Modules/mainPage.js';
-import {deleteDish} from './Modules/infoPage.js';
 import {loadMainPage} from './Modules/common.js';
 
 //First Page Load
@@ -22,6 +21,5 @@ window.showSpecificDish=showSpecificDish;
 window.deleteIngredient=deleteIngredient;
 window.newDish=newDish;
 window.saveDish=saveDish;
-window.deleteDish=deleteDish;
 window.backButton=backButton;
 window.loadMainPage=loadMainPage;

@@ -1,10 +1,4 @@
 //Imports from other modules
-import {
-  backButton,
-  saveDish,
-  addNewIngredient,
-} from "./forms.js";
-import { updateInfoScreen } from "./infoPage.js";
 
 //Functions of this module
 export function changePage(mode, page, nextOrPrevious) {
@@ -101,7 +95,7 @@ export function newDish(mode) {
       "Iconos/Plato.png",
       mode
     )
-  );
+  );*/
 
   document.getElementById("Name").value = "";
   document.getElementById("Name").disabled = false;
@@ -111,7 +105,7 @@ export function newDish(mode) {
   document.getElementById("Ingredient").value = "";
   e = document.getElementById("IngredientsList");
   e.innerHTML = ``;
-
+/*
   let key = mode + (Dish.getAmount(mode) - 1);
   e = document.getElementById("IngredientButton");
   e.onclick = function () {

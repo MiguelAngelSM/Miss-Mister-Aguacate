@@ -1,54 +1,6 @@
 //Imports from other modules
-import { showIngredientsList, loadMainPage } from "./common.js";
 //Functions of this module
 
-export function updateInfoScreen(key) {
-  //This function will update the info menu with the dish get from the key
-  //It will also update the buttons
-
-  let dish = dishes.get(key);
-  let e = document.getElementById("InfodishImage");
-  e.src = dish.getImg();
-
-  e = document.getElementById("infoDishName");
-  e.innerHTML = `${dish.getName()}`;
-
-  e = document.getElementById("infoDishPrice");
-  e.innerHTML = `${dish.getPrice()}€`;
-
-  e = document.getElementById("infoDishDescription");
-  e.innerHTML = `${dish.getDescription()}`;
-
-  e = document.getElementById("infoDishIngredientsList");
-  e.innerHTML = ``;//to clean the list
-  showIngredientsList(key, printIngredient);
-
-  e = document.getElementById("DeleteButton");
-  e.onclick=function() {deleteDish(key)};
-
-  e = document.getElementById("ModifyButton");
-  e.onclick=function() {modifyDish(key)};
-  
-}
-
-export function printIngredient(ingredient) {
-  //Add to the IngredientsList the ingredient
-  //This printInngredient just add the ingredient to the Ingredients list as a paragraph
-
-  let e = document.getElementById("infoDishIngredientsList");
-  e.innerHTML += `<p>${ingredient}</p>`;
-}
-
-export function deleteDish(key){
-  //This function delete the dish from the map if the user confirms; else it will let you in the same page
-
-  if (confirm('¿Desea borrar el plato?')){
-    Dish.removeDish(key[0]);
-    dishes.set(key,dishes.get(key[0] + Dish.getAmount(key[0])));
-    dishes.delete(key[0]+Dish.getAmount(key[0]));
-    loadMainPage();
-  }
-}
 
 export function modifyDish(key) {
   //It will change to the form for modifying the dish

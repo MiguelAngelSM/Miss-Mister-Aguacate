@@ -1,31 +1,7 @@
 //Imports from other modules
 import { loadMainPage } from "./common.js";
-import { newDish } from "./mainPage.js";
 
 //Functions of this module
-export function printIngredient(ingredient, i) {
-  //Add to the IngredientsList the ingredient selected
-  //The key is required for the delete button
-  //i is the number of the dish printed
-  //This printIngredient will print them in an input modifyable and with a delete button for each one
-
-  let e = document.getElementById("IngredientsList");
-  e.innerHTML += `
-  <div id="Ingredient${i}" class="form-inline">
-    <input
-      id="IngredientText${i}"
-      class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
-      type="text"
-      value="${ingredient}"
-      />
-      <input
-      class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
-      type="button"
-      onclick="deleteIngredient('${i}')"
-      value="Eliminar"
-      />
-    </div>`;
-}
 
 export function deleteIngredient(i) {
   //Delete the ingredient from the ingredients list from the page
@@ -47,7 +23,7 @@ export function backButton(key, opt) {
   loadMainPage();
 }
 
-export function saveDish(key, opt) {
+export function saveDish() {
   //If the user confirm at the pop-up the dish will be updated with the info from the form
   //If the user cancel at the pop-up the new dish will be deleted from the map
   //It will clean the form
@@ -55,33 +31,28 @@ export function saveDish(key, opt) {
   //Option 1 is for the newDish function
 
   if (confirm("¿Deseas guardar el plato?")) {
-    dishes.get(key).setName(document.getElementById("Name").value);
-    dishes.get(key).setPrice(document.getElementById("Price").value);
-    dishes
-      .get(key)
-      .setDescription(document.getElementById("Description").value);
+    let name = document.getElementById("Name").value;
+    let price = document.getElementById("Price").value;
+    let desc =document.getElementById("Description").value;
+    //let type = document.getElementById("Type").value;
+    let type = "N";
+    let ingredients =saveIngredients();
+    let dish = new dishes.Dish(name,price,desc,ingredients,"",type);//Image will be saved later
     //This is to get the images saved
     let input = document.getElementById("AddImage");
-    if (opt === 1 && input.files[0]) {
+    if (input.files[0]) {
       //if the user does not select an image it would let the default one
       let fReader = new FileReader();
       fReader.readAsDataURL(input.files[0]);
       fReader.onloadend = function (event) {
-        dishes.get(key).setImg(event.target.result);
+        dish.setImg(event.target.result);
       };
     }
     //This is to get the images saved
-    saveIngredients(key);
-
-    loadMainPage();
+    dishes.addDish(dish);
+    //loadMainPage();
   } else {
-    if (opt === 1) {
-      dishes.delete(key);
-      Dish.removeDish(key[0]); //First char from the key is the mode
-      newDish(key[0]);
-    } else {
-      modifyDish(key);
-    }
+    
   }
 }
 
@@ -105,17 +76,17 @@ export function addNewIngredient() {
       index = Number(index) + 1;
     }
     printIngredient(document.getElementById("Ingredient").value, index);
-    document.getElementById("Ingredient").value='';//To clean the label
+    document.getElementById("Ingredient").value = ""; //To clean the label
   }
 }
 
-export function saveIngredients(key) {
+export function saveIngredients() {
   //This function will collect the tags of the ingredients from the list cause they might have changed and then save them
   //It will delete the previous list and push each ingredient to the list
-
-  dishes.get(key).setAtributes([]); //Delete the previous list of ingredients
   let inputs = document.getElementsByClassName("IngredientsStructure");
+  let ingredients = [];
   for (let i = 0; i < inputs.length; i++) {
-    dishes.get(key).addAtribute(inputs[i].value);
+    ingredients.push(inputs[i].value);
   }
+  return ingredients;
 }

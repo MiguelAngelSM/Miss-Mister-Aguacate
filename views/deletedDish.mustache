@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Miss&Mister Aguacate</title>
-    <link rel="shortcut icon" href="../Iconos/aguacate.png" />
+    <link rel="shortcut icon" href="../../Iconos/aguacate.png" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -26,14 +26,14 @@
     <!--Bootstrap template from CDN Bootstrap-->
 
     <!--Our css file-->
-    <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Header.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Display.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Menu.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Form.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/InfoDish.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Reviews.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -62,9 +62,10 @@
     <!-- Library for stars rating in Reviews -->
 
     <!-- Our JS file -->
-    <script src="../main.js" type="module"></script>
+    <script src="../../form.js" type="module"></script>
     <!-- Our JS file -->
   </head>
+
   <body>
     <div id="Header" class="row">
       <div id="Restaurant_Name" class="col-xs-6">
@@ -75,19 +76,22 @@
       <div class="flex-gap">
         <div id="Insta" class="col-xs-2">
           <a href="https://www.instagram.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/insta.png" />
+            <img class="Social img-responsive" src="../../Iconos/insta.png" />
             <!--Link to Instagram-->
           </a>
         </div>
         <div id="Facebook" class="col-xs-2">
           <a href="https://es-es.facebook.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/facebook.png" />
+            <img
+              class="Social img-responsive"
+              src="../../Iconos/facebook.png"
+            />
             <!--Link to Facebook-->
           </a>
         </div>
         <div id="Twitter" class="col-xs-2">
           <a href="https://twitter.com/?lang=es" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/twitter.png" />
+            <img class="Social img-responsive" src="../../Iconos/twitter.png" />
             <!--Link to Twitter-->
           </a>
         </div>
@@ -95,73 +99,29 @@
     </div>
     <!--Header from the page-->
 
-    <div id="InfoDish" class="container-fluid">
-      <div class="row">
-        <div id="InfoArrow" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-          <button id="InfoDishArrow" onclick="window.location.href='/menu'">
-            <img
-              class="arrow-button img-responsive"
-              src="../Iconos/BackArrow.png"
-            />
-          </button>
-        </div>
-        <div id="InfoPhoto" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <img
-            id="InfodishImage"
-            class="dish-image img-responsive"
-            src=../{{dish.img}}
-          />
-        </div>
-
-        <div id="DishAtributes" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <h4 id="infoDishName">{{dish.name}}</h4>
-          <p id="infoDishPrice">{{dish.price}}</p>
-          <p id="infoDishDescription">{{dish.description}}</p>
-        </div>
-        <!--It will be updated when the user enter with a dish-->
-      </div>
-
-      <div id="ButtonsRow" class="row">
-        <div class="InfoButtons col-xs-1">
-          <button id="DeleteButton" onclick="window.location.href='/infoDish/{{dish.id}}/deleted'">Borrar</button>
-        </div>
-        <div class="InfoButtons col-xs-1">
-          <button id="ModifyButton" onclick="window.location.href='/infoDish/{{dish.id}}/form'">Modificar</button>
-        </div>
-      </div>
-      <div id="InfoIngredientTitle">
-        <h2>Ingredientes</h2>
-      </div>
-
-      <div class="row">
-        <div
-          id="infoDishIngredientsList"
-          class="col-xs-6 col-sm-6 col-md-6 col-lg-6"
-        >
-          {{#ingredients}}
-          <p>{{.}}</p>
-          {{/ingredients}}
-          {{^ingredients}}
-          <p>No hay ingredientes</p>
-          {{/ingredients}}
-        </div>
-      </div>
+    <div id="deletedDish">
+      <h1 id="deletedDishMessage">El plato ha sido borrado con éxito</h1>
+      <img id="deletedDishImage" src="../../Iconos/Basura.png" />
+      <button onclick="window.location.href='/menu'">Volver al Menu</button>
     </div>
-    <!--More info page-->
 
     <div id="Footer" class="row">
       <div id="ContactInfo" class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <p>
-            <img src="../Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00 -
-            01:00
+            <img src="../../Iconos/Reloj.png" /> Horario: Lunes a Viernes 12:00
+            - 01:00
           </p>
           <p>
-            <img src="../Iconos/Correo.png" /> Contacto:
+            <img src="../../Iconos/Correo.png" /> Contacto:
             missandmisteraguacate@gmail.com
           </p>
-          <p><img src="../Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
-          <p><img src="../Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
+          <p>
+            <img src="../../Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00
+          </p>
+          <p>
+            <img src="../../Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631
+          </p>
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -174,10 +134,12 @@
           </div>
         </div>
       </div>
+
       <div id="Copyright" class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <p>
-            &copy; Design by Miguel y Demelza <img src="../Iconos/corazon.png" />
+            &copy; Design by Miguel y Demelza
+            <img src="../../Iconos/corazon.png" />
           </p>
         </div>
       </div>
