@@ -2,7 +2,7 @@ import express from "express";
 import mustacheExpress from "mustache-express";
 import bodyParser from "body-parser";
 import { __dirname } from "./dirname.js";
-import Router from "./Router.js";
+import Router from "./router.js";
 
 const app = express();
 

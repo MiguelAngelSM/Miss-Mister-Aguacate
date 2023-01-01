@@ -1,0 +1,28 @@
+{{#dishes}}
+<div class="row dish {{ type }}">
+  <!--ClassName Mustache must be changed -->
+  <div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <img src=../{{ img }} class="dish-image img-responsive">
+  </div>
+  <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="row">
+      <div id="Name" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        {{ name }}
+      </div>
+      <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        {{ price }}€
+      </div>
+    </div>
+    <div class="row">
+      <div id="Info" class="ShowInfo col-12">
+        <button onclick="window.location.href='/infoDish/{{ id }}?type={{type}}'">
+          Más Info
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/dishes}}
+{{^dishes}}
+<p>No hay más platos</p>
+{{/dishes}}

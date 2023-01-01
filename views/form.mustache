@@ -108,7 +108,9 @@
     <div id="Form" class="container-fluid">
       <form role="form" action="/dish/saved" method="post">
         <div style="display: none">
+          <!--This inputs are for getting useful info that does not need to be shown-->
           <input name="id" value="{{ dish.id }}" />
+          <input id="actualType" name="actual_type" value="{{ dish.type }}" />
         </div>
         <div class="FormStructure row">
           <div id="FormPhoto" class="col-xs-3">
@@ -165,10 +167,10 @@
               class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 btn-group"
             >
               <label for="Type">Tipo de plato:</label>
-              <select name="type">
-                <option value="Normal">Normal</option>
-                <option value="Vegano">Vegano</option>
-                <option value="Bebida">Bebida</option>
+              <select id="Type" name="type">
+                <option id="OptionN" value="Normal">Normal</option>
+                <option id="OptionV" value="Vegano">Vegano</option>
+                <option id="OptionB" value="Bebida">Bebida</option>
               </select>
             </div>
 
@@ -198,12 +200,12 @@
           </div>
           <div class="FormButtons col-xs-1">
             <!--This will cancel the operation and back you to the menu-->
-            <button
+            <input
               id="formCancelButton"
-              onclick="window.location.href='/menu'"
-            >
-              Cancelar
-            </button>
+              type="button"
+              onclick="window.location.href='/menu/{{dish.type}}'"
+              value="Cancelar"
+            />
           </div>
         </div>
 

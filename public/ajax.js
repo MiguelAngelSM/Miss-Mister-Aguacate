@@ -2,18 +2,18 @@ const NUM_RESULTS = 4;
 
 let loadMoreRequests = 0;
 
-export async function loadMore(){
+export async function loadMore(type){
 
     const from = (loadMoreRequests+1) * NUM_RESULTS;
     const to = from + NUM_RESULTS;
 
-    const response = await fetch(`/platos?from=${from}&to=${to}`);
+    const response = await fetch(`/dishes?from=${from}&to=${to}&type=${type}`);
 
-    const newplatos = await response.text();
+    const newDishes = await response.text();
   
-    const platosDiv = document.getElementById("platos");
+    const dishesDiv = document.getElementById("dishes");
 
-    platosDiv.innerHTML += newplatos;
+    dishesDiv.innerHTML += newDishes;
 
     loadMoreRequests++;
 }

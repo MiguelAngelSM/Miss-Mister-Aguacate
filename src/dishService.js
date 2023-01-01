@@ -69,33 +69,82 @@ export class Dish {
   }
 }
 
-export let dishes = new Map(); //Map of dishes
-let nextId = 0;
-//The keys will be made by a letter (N for normal dishes, V for vegan dishes and D for drinks) and a number of the element
+export let dishesVegan = new Map(); //Map of vegan dishes
+export let dishesNormal = new Map(); //Map of vegan dishes
+export let dishesDrinks = new Map(); //Map of vegan dishes
+let nextIdVegan = 0;
+let nextIdNormal = 0;
+let nextIdDrinks = 0;
+
 export function addDish(dish) {
-  let id = nextId++;
-  dish.setId(id);
-  dishes.set(id.toString(), dish);
+  let id;
+  switch (dish.type) {
+    case "Vegano":
+      id = nextIdVegan++;
+      dish.setId(id);
+      dishesVegan.set(id.toString(), dish);
+      break;
+    case "Normal":
+      id = nextIdNormal++;
+      dish.setId(id);
+      dishesNormal.set(id.toString(), dish);
+      break;
+    case "Bebida":
+      id = nextIdDrinks++;
+      dish.setId(id);
+      dishesDrinks.set(id.toString(), dish);
+      break;
+  }
 }
-export function getDish(id) {
-  return dishes.get(id.toString());
+export function getDish(type, id) {
+  let dish;
+  switch (type) {
+    case "Vegano":
+      dish = dishesVegan.get(id.toString());
+      break;
+    case "Normal":
+      dish = dishesNormal.get(id.toString());
+      break;
+    case "Bebida":
+      dish = dishesDrinks.get(id.toString());
+      break;
+  }
+  return dish;
 }
-export function getDishes(from, to) {
-  let values = [...dishes.values()];
+export function getDishes(type, from, to) {
+  let values;
+  switch (type) {
+    case "Vegano":
+      values = [...dishesVegan.values()];
+      break;
+    case "Normal":
+      values = [...dishesNormal.values()];
+      break;
+    case "Bebida":
+      values = [...dishesDrinks.values()];
+      break;
+  }
   if (from !== undefined) {
-    return values.slice(from, to);
-} else {
-    return values;
+    values = values.slice(from, to);
+  }
+  return values;
 }
+export function getIngredients(type, id) {
+  return [...getDish(type, id).getIngredients()];
 }
-export function getIngredients(id) {
-  return [...getDish(id).getIngredients()];
+export function deleteDish(type, id) {
+  switch (type) {
+    case "Vegano":
+      dishesVegan.delete(id);
+    case "Normal":
+      dishesNormal.delete(id);
+    case "Bebida":
+      dishesDrinks.delete(id);
+  }
 }
-export function deleteDish(id) {
-  dishes.delete(id);
-}
-export function updateAtributes(id, price, desc, ingredients) {
-  dishes.get(id).updateAtributes(price, desc, ingredients);
+export function updateAtributes(type, id, price, desc, ingredients) {
+  let dish = getDish(type, id);
+  dish.updateAtributes(price, desc, ingredients);
 }
 //Deafult dishes definition
 //7 Normal dishes by default

@@ -100,7 +100,7 @@
     <div id="InfoDish" class="container-fluid">
       <div class="row">
         <div id="InfoArrow" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-          <button id="InfoDishArrow" onclick="window.location.href='/menu'">
+          <button id="InfoDishArrow" onclick="window.location.href='/menu/{{dish.type}}'">
             <img
               class="arrow-button img-responsive"
               src="../Iconos/BackArrow.png"
@@ -125,10 +125,10 @@
 
       <div id="ButtonsRow" class="row">
         <div class="InfoButtons col-xs-1">
-          <button id="DeleteButton" onclick="window.location.href='/infoDish/{{dish.id}}/deleted'">Borrar</button>
+          <button id="DeleteButton" onclick="window.location.href='/infoDish/{{dish.id}}/deleted?type={{dish.type}}'">Borrar</button>
         </div>
         <div class="InfoButtons col-xs-1">
-          <button id="ModifyButton" onclick="window.location.href='/infoDish/{{dish.id}}/modify'">Modificar</button>
+          <button id="ModifyButton" onclick="window.location.href='/infoDish/{{dish.id}}/modify?type={{dish.type}}'">Modificar</button>
         </div>
       </div>
       <div id="InfoIngredientTitle">
