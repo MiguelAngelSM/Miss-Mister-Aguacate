@@ -51,9 +51,9 @@
 }
 
 .InfoButton {
-  background-color: rgba(39, 37, 38, 0.4);
+  background-color:rgba(39, 37, 38, 0.2);
   border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.7);
+  border-color: rgba(39, 37, 38, 0.6);
   border-radius: 3px;
 }
 
@@ -86,9 +86,9 @@
 }
 
 #LoadMoreButton{
-  background-color: rgba(39, 37, 38, 0.4);
+  background-color: rgba(39, 37, 38, 0.2);
   border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.7);
+  border-color: rgba(39, 37, 38, 0.6);
   border-radius: 3px;
   margin: 10px;
 }
