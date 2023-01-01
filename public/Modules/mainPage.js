@@ -34,7 +34,10 @@ export function changeMenuButtons(actual_mode, mode, mode1) {
   b.src = `../Iconos/${mode1}.png`;
 
   b = document.getElementById("LoadMoreButton"); //Update LoadMoreButton
-  b.setAttribute("onclick", `loadMore('${actual_mode}')`);
+  b.setAttribute("onclick", `loadMore('${actual_mode}',1)`);
+
+  b = document.getElementById("LoadLessButton"); //Update LoadLessButton
+  b.setAttribute("onclick", `loadMore('${actual_mode}',-1)`);
 }
 
 export function changeMode(actual_mode, mode, mode1) {
