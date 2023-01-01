@@ -3,6 +3,7 @@ import mustacheExpress from "mustache-express";
 import bodyParser from "body-parser";
 import { __dirname } from "./dirname.js";
 import Router from "./router.js";
+import fileUpload from "express-fileupload";
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.set("views", __dirname + "/../views");
 app.set("view engine", "mustache");
 app.engine("mustache", mustacheExpress());
 
+app.use(fileUpload())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + "/../public"));

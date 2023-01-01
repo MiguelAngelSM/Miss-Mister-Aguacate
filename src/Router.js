@@ -7,7 +7,7 @@ router.get("/menu/:type", (req, res) => {
   const dishes = dishService.getDishes(req.params.type, 0, 4);
   res.render("menu", {
     dishes: dishes,
-    typeReturnPage:req.params.type
+    typeReturnPage: req.params.type,
   });
 });
 
@@ -32,7 +32,7 @@ router.get("/infoDish/:n/modify", (req, res) => {
   let data = {
     dish: dish,
     ingredients: objectArray,
-    type:dish.type,
+    type: dish.type,
     increaseIndex: function () {
       return index++;
     },
@@ -45,7 +45,7 @@ router.get("/infoDish/:n/modify", (req, res) => {
 
 router.get("/create", (req, res) => {
   let type = req.query.type;
-  let dish = new dishService.Dish("", "", "", [],"../", type);
+  let dish = new dishService.Dish("", "", "", [], "../", type);
   dish.id = "";
   let ingredients = [...dish.getIngredients()];
   res.render("form", { dish, ingredients, type });
@@ -70,7 +70,6 @@ router.post("/dish/saved", (req, res) => {
   let name = req.body.name;
   let price = req.body.price;
   let desc = req.body.description;
-  let image = req.body.image;
   let ingredients = req.body.ingredient;
   let id = req.body.id;
   let type;
@@ -79,6 +78,15 @@ router.post("/dish/saved", (req, res) => {
     dishService.updateAtributes(type, id, price, desc, ingredients); //image,name and type should not be changeable
   } else {
     type = req.body.type;
+    let image = "Iconos/Plato.png";
+    if (req.files) {
+      let file = req.files.imageForm;
+      let fileName = file.name;
+      file.mv("../public/Platos/" + type + "/" + fileName, function (err) {
+        console.log(err);
+      });
+      image = "Platos/" + type + "/" + fileName;
+    }
     dishService.addDish(
       new dishService.Dish(name, price, desc, ingredients, image, type)
     );
