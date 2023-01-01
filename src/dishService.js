@@ -76,6 +76,24 @@ let nextIdVegan = 0;
 let nextIdNormal = 0;
 let nextIdDrinks = 0;
 
+export function getAmount(type) {
+  let amount;
+
+  switch (type) {
+    case "Normal":
+      amount = dishesNormal.size;
+      break;
+    case "Vegano":
+      amount = dishesVegan.size;
+      break;
+    case "Bebida":
+      amount = dishesDrinks.size;
+      break;
+  }
+
+  return amount;
+}
+
 export function addDish(dish) {
   let id;
   switch (dish.type) {

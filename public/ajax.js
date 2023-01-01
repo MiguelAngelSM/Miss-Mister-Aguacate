@@ -2,9 +2,11 @@ const NUM_RESULTS = 4;
 
 let loadMoreRequests = 0;
 
-export async function loadMore(type){
+export async function loadMore(type,direction){
 
-    const from = (loadMoreRequests+1) * NUM_RESULTS;
+    if ( (direction === 1) ||
+    (direction === -1 && loadMoreRequests !== 0)){
+    const from = (loadMoreRequests+direction) * NUM_RESULTS;
     const to = from + NUM_RESULTS;
 
     const response = await fetch(`/dishes?from=${from}&to=${to}&type=${type}`);
@@ -13,7 +15,8 @@ export async function loadMore(type){
   
     const dishesDiv = document.getElementById("dishes");
 
-    dishesDiv.innerHTML += newDishes;
+    dishesDiv.innerHTML = newDishes;
 
-    loadMoreRequests++;
+    loadMoreRequests+=direction;
+    }
 }
