@@ -28,6 +28,11 @@ router.get("/dishes", (req, res) => {
   });
 });
 
+router.get("/calculateAmount",(req, res) => {
+  let amount={amount:dishService.getAmount(req.query.type)};
+  res.send(JSON.stringify(amount));
+});
+
 router.get("/infoDish/:n/modify", (req, res) => {
   let dish = dishService.getDish(req.query.type, req.params.n);
   let ingredients = dishService.getIngredients(req.query.type, req.params.n);
@@ -96,5 +101,7 @@ router.post("/dish/saved", (req, res) => {
   }
   res.render("saved", { type });
 });
+
+
 
 export default router;

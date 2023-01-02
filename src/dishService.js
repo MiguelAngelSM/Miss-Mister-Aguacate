@@ -154,10 +154,13 @@ export function deleteDish(type, id) {
   switch (type) {
     case "Vegano":
       dishesVegan.delete(id);
+      break;
     case "Normal":
       dishesNormal.delete(id);
+      break;
     case "Bebida":
       dishesDrinks.delete(id);
+      break;
   }
 }
 export function updateAtributes(type, id, price, desc, ingredients) {

@@ -101,13 +101,27 @@ export function addNewIngredient() {
   }
 }
 
-export function deleteDish(type,id){
-  if (confirm("¿Desea borrar el plato?")){
-    window.location.href=`${id}/deleted?type=${type}`;
+export function deleteDish(type, id) {
+  if (confirm("¿Desea borrar el plato?")) {
+    window.location.href = `${id}/deleted?type=${type}`;
+  }
+}
+
+export function validate() {
+  let valid =
+    document.getElementById("Name").value!=="" &&
+    document.getElementById("Price").value!=="" &&
+    document.getElementById("Description").value!=="";
+    //The user can make a dish withouth ingredients(No hay ingredientes) and without image(default one)
+  if (valid) {
+    document.getElementById("formSaveButton").type = "submit";
+  }else{
+    alert("Nombre, descripción y precio son campos obligatorios")
   }
 }
 
 //Window will let html use the functions
-window.deleteDish=deleteDish;
+window.deleteDish = deleteDish;
 window.addNewIngredient = addNewIngredient;
 window.deleteIngredient = deleteIngredient;
+window.validate = validate;
