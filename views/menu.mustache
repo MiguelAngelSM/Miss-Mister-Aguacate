@@ -151,10 +151,10 @@
         </div>
         <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <div class="row">
-            <div id="Name" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div id="Name" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 DishProperties">
               {{ name }}
             </div>
-            <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div id="Price" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 DishProperties">
               {{ price }}€
             </div>
           </div>
@@ -169,22 +169,31 @@
       </div>
       {{/dishes}}
       {{^dishes}}
-      <p>No hay platos</p>
+      <h3>No hay platos</h3>
       {{/dishes}}
     </div>
 
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <button id="LoadMoreButton" onclick="loadMore('{{typeReturnPage}}',1)">Más platos</button>
-        <button id="LoadLessButton" onclick="loadMore('{{typeReturnPage}}',-1)">Menos platos</button>
+      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <button id="LoadLessButton" onclick="loadMore('{{typeReturnPage}}',-1)">
+        
+        <img class="AjaxImages img-responsive" src="../Iconos/BackArrow.png"/>
+
+        </button>
       </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <button
+
+      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+       <button
           id="NewDishButton"
           class="InfoButton"
-          onclick="window.location.href='/create?type={{typeReturnPage}}'"
-        >
-          Añadir Plato
+          onclick="window.location.href='/create?type={{typeReturnPage}}'">Añadir Plato</button>
+      </div>
+
+      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <button id="LoadMoreButton" onclick="loadMore('{{typeReturnPage}}',1)">
+        
+        <img class="AjaxImages img-responsive" src="../Iconos/NextArrow.png"/>
+        
         </button>
       </div>
     </div>
