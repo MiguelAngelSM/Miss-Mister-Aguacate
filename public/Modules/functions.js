@@ -51,7 +51,7 @@ export function printIngredient(ingredient, i) {
 
   let e = document.getElementById("IngredientsList");
   e.innerHTML += `
-  <div id="Ingredient${i}" class="form-group">
+  <div id="Ingredient${i}" class="form-inline">
     <input
       id="IngredientText${i}"
       name="ingredient"
