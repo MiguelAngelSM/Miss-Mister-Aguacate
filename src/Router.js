@@ -59,18 +59,14 @@ router.get("/infoDish/:n", (req, res) => {
 
 router.get("/infoDish/:n/deleted", (req, res) => {
   dishService.deleteDish(req.query.type, req.params.n);
-  res.render("deletedDish");
-});
-
-router.get("/form/:n/saved", (req, res) => {
-  res.render("savedDish");
+  res.render("deletedDish", { type: req.query.type });
 });
 
 router.post("/dish/saved", (req, res) => {
   let name = req.body.name;
   let price = req.body.price;
   let desc = req.body.description;
-  let ingredients = req.body.ingredient;
+  let ingredients = [].concat(req.body.ingredient || []); //It forces it to be an array
   let id = req.body.id;
   let type;
   if (id) {

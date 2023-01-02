@@ -1,12 +1,18 @@
 const NUM_RESULTS = 4;
 
-let loadMoreRequests = 0;
+let page = 0;
 
-export async function loadMore(type,direction){
+/**
+ * It will change the page dependign on the direction
+ * 
+ * @param type of the page wanted to be loaded
+ * @param direction that if its value is -1 it goes to the previous page and if 1 it goes to the next page
+ */
+export async function changePage(type,direction){
 
     if ( (direction === 1) ||
-    (direction === -1 && loadMoreRequests !== 0)){
-    const from = (loadMoreRequests+direction) * NUM_RESULTS;
+    (direction === -1 && page !== 0)){
+    const from = (page+direction) * NUM_RESULTS;
     const to = from + NUM_RESULTS;
 
     const response = await fetch(`/dishes?from=${from}&to=${to}&type=${type}`);
@@ -17,6 +23,6 @@ export async function loadMore(type,direction){
 
     dishesDiv.innerHTML = newDishes;
 
-    loadMoreRequests+=direction;
+    page+=direction;
     }
 }

@@ -28,11 +28,6 @@
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../../Styles/style.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/DeletedDish.css" />
     <link type="text/css" rel="stylesheet" href="../../Styles/SavedDish.css" />
@@ -62,10 +57,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Library for stars rating in Reviews -->
-
-    <!-- Our JS file -->
-    <script src="../../form.js" type="module"></script>
-    <!-- Our JS file -->
   </head>
 
   <body>
@@ -107,7 +98,7 @@
         <img id="deletedDishImage" src="../../Iconos/Basura.png" />
       </div>
       <div class="DeletedStructure row">
-        <button onclick="window.location.href='/menu'">Volver al Menu</button>
+        <button onclick="window.location.href='/menu/{{type}}'">Volver al Menu</button>
       </div>
     </div>
 

@@ -28,14 +28,8 @@
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Form.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/DeletedDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/SavedDish.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -62,10 +56,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Library for stars rating in Reviews -->
-
-    <!-- Our JS file -->
-    <script src="../main.js" type="module"></script>
-    <!-- Our JS file -->
+    <!--Our JS file-->
+    <script src="../../Modules/functions.js" type="module"></script>
+    <!--Our JS file-->
   </head>
   <body>
     <div id="Header" class="row">
@@ -125,7 +118,7 @@
 
       <div id="ButtonsRow" class="row">
         <div class="InfoButtons col-xs-1">
-          <button id="DeleteButton" onclick="window.location.href='/infoDish/{{dish.id}}/deleted?type={{dish.type}}'">Borrar</button>
+          <button id="DeleteButton" onclick="deleteDish('{{dish.type}}','{{dish.id}}')">Borrar</button>
         </div>
         <div class="InfoButtons col-xs-1">
           <button id="ModifyButton" onclick="window.location.href='/infoDish/{{dish.id}}/modify?type={{dish.type}}'">Modificar</button>

@@ -30,12 +30,8 @@
     <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
     <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/DeletedDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/SavedDish.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -172,11 +168,10 @@
       <p>No hay platos</p>
       {{/dishes}}
     </div>
-
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <button id="LoadMoreButton" onclick="loadMore('{{typeReturnPage}}',1)">Más platos</button>
-        <button id="LoadLessButton" onclick="loadMore('{{typeReturnPage}}',-1)">Menos platos</button>
+        <button id="LoadMoreButton" onclick="changePage('{{typeReturnPage}}',1)">Más platos</button>
+        <button id="LoadLessButton" onclick="changePage('{{typeReturnPage}}',-1)">Menos platos</button>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <button
@@ -188,7 +183,6 @@
         </button>
       </div>
     </div>
-
     <div id="Reviews" class="row">
       <div id="ReviewsTitle">
         <h1>Reseñas</h1>
