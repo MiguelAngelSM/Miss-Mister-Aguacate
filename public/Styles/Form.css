@@ -4,9 +4,9 @@
   background-color: rgba(39, 37, 38, 0.2);
 }
 
-.FormStructure {
+.formStructure {
   display: flex;
-  margin-left:1.5%;
+  margin-left: 1.5%;
   align-content: center;
 }
 
@@ -48,19 +48,12 @@ label {
   cursor: pointer;
 }
 
-.FormButtons {
+.formButtonContainer {
   margin-left: 30px;
   margin-bottom: 30px;
 }
 
-#formSaveButton {
-  background-color: white;
-  border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.6);
-  border-radius: 3px;
-}
-
-#formCancelButton {
+.formButton {
   background-color: white;
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
@@ -77,13 +70,13 @@ label {
   margin-left: 20px;
 }
 
-.IngredientsStructure {
+.ingredientsStructure {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
   margin-bottom: 5px;
 }
 
-.IngredientsStructureButton {
+.ingredientsStructureButton {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
   margin-bottom: 5px;

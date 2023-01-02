@@ -27,15 +27,11 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/DeletedDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/SavedDish.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/header.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/display.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/menu.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/reviews.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -62,14 +58,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Library for stars rating in Reviews -->
-
+    
     <!-- Our JS file -->
-    <script src="../main.js" type="module"></script>
+    <script src="../Modules/carousel.js" type="module"></script>
     <!-- Our JS file -->
   </head>
 
   <body>
     <div id="Home" class="container-fluid">
+      <!--Header from the page-->
       <div id="Header" class="row">
         <div id="Restaurant_Name" class="col-xs-6">
           <h1>Miss & Mister Aguacate</h1>
@@ -79,59 +76,52 @@
         <div class="flex-gap">
           <div id="Insta" class="col-xs-2">
             <a href="https://www.instagram.com/" target="_blank">
-              <img class="Social img-responsive" src="../Iconos/insta.png" />
+              <img class="social img-responsive" src="../Iconos/insta.png" />
               <!--Link to Instagram-->
             </a>
           </div>
           <div id="Facebook" class="col-xs-2">
             <a href="https://es-es.facebook.com/" target="_blank">
-              <img class="Social img-responsive" src="../Iconos/facebook.png" />
+              <img class="social img-responsive" src="../Iconos/facebook.png" />
               <!--Link to Facebook-->
             </a>
           </div>
           <div id="Twitter" class="col-xs-2">
             <a href="https://twitter.com/?lang=es" target="_blank">
-              <img class="Social img-responsive" src="../Iconos/twitter.png" />
+              <img class="social img-responsive" src="../Iconos/twitter.png" />
               <!--Link to Twitter-->
             </a>
           </div>
         </div>
       </div>
-      <!--Header from the page-->
-
+      <!--This is a display just decorative-->
       <div id="Display" class="row">
         <!--It will change between the following pictures every 5 seconds-->
-        <img class="Photo" src="../Imagenes/Cartel.jpg" />
-        <img class="Photo" src="../Imagenes/Amigos.jpg" />
-        <img class="Photo" src="../Imagenes/Mesa.jpg" />
-        <img class="Photo" src="../Imagenes/Sitio.jpg" />
+        <img class="photo" src="../Imagenes/Cartel.jpg" />
+        <img class="photo" src="../Imagenes/Amigos.jpg" />
+        <img class="photo" src="../Imagenes/Mesa.jpg" />
+        <img class="photo" src="../Imagenes/Sitio.jpg" />
       </div>
-      <!--This is a display just decorative-->
-
+      <!--This is a where the button for going to the menu is-->
       <div id="Menu" class="row" style="display: block">
+        <!--This is the header of the section-->
         <div id="Head" class="row">
-
+          <!--This is a decorative button-->
           <div id="OptionButton1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <button
-              id="VeganMode"
-              class="MenuButton"
-            >
+            <button id="VeganMode" class="menuButton">
               <img
                 class="menu-header-button img-responsive"
                 src="../Iconos/Comida.png"
               />
             </button>
           </div>
-
+          <!--This is the titles-->
           <div id="MenuTitle" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h1>Menú</h1>
           </div>
-
+          <!--This is a decorative button-->
           <div id="OptionButton2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <button
-              id="DrinkMode"
-              class="MenuButton"
-            >
+            <button id="DrinkMode" class="menuButton">
               <img
                 class="menu-header-button img-responsive"
                 src="../Iconos/Comida.png"
@@ -139,15 +129,20 @@
             </button>
           </div>
         </div>
-
+        <!--This is the button to load the menu page on normal mode (default one)-->
         <div id="ListofPlates" class="row">
           <div>
-            <button id="ListButton" Sclass="MenuButton" onclick="window.location.href='/menu/Normal'">Ver carta</button>
+            <button
+              id="ListButton"
+              class="menuButton"
+              onclick="window.location.href='/menu/Normal'"
+            >
+              Ver carta
+            </button>
           </div>
         </div>
       </div>
-      <!-- Initial page-->
-
+      <!--Reviews Section; it does not work just only see some-->
       <div id="Reviews" class="row">
         <div id="ReviewsTitle">
           <h1>Reseñas</h1>
@@ -156,7 +151,7 @@
         <div class="row">
           <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Sergio De Oro Fernández</h4>
-            <div class="Stars">
+            <div class="stars">
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -173,7 +168,7 @@
 
           <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Antonio José Alanís Bernal</h4>
-            <div class="Stars">
+            <div class="stars">
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -190,7 +185,7 @@
 
           <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <h4>Kiko Martínez De Lizarduy</h4>
-            <div class="Stars">
+            <div class="stars">
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -206,8 +201,7 @@
           </div>
         </div>
       </div>
-      <!--Reviews Section; it does not work just only see some-->
-
+      <!--Footer from the page-->
       <div id="Footer" class="row">
         <div id="ContactInfo" class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -219,7 +213,9 @@
               <img src="../Iconos/Correo.png" /> Contacto:
               missandmisteraguacate@gmail.com
             </p>
-            <p><img src="../Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00</p>
+            <p>
+              <img src="../Iconos/Telefono.png" /> Teléfono: +34 910 00 00 00
+            </p>
             <p><img src="../Iconos/Mapa.png" /> Calle: Las Antenas, 21 45631</p>
           </div>
 
@@ -236,12 +232,12 @@
         <div id="Copyright" class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <p>
-              &copy; Design by Miguel y Demelza <img src="../Iconos/corazon.png" />
+              &copy; Design by Miguel y Demelza
+              <img src="../Iconos/corazon.png" />
             </p>
           </div>
         </div>
       </div>
-      <!--Footer from the page-->
     </div>
   </body>
 </html>

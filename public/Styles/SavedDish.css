@@ -1,9 +1,9 @@
-#savedDishMessage{
+#SavedDishMessage{
     font-family: "Times New Roman", Times, serif;
     color: black;
 }
 
-#savedDishImage{
+#SavedDishImage{
     width: 20%;
     height: 20%;
     border-radius: 11%;
@@ -11,11 +11,11 @@
     margin-bottom: 20px;
 }
 
-.SavedStructure button{
+.savedStructure button{
     margin-bottom: 5px;
 }
 
-.SavedStructure{
+.savedStructure{
     display:flex;
     justify-content: center;
 }

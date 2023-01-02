@@ -44,7 +44,7 @@
   text-align: justify; /*All the lines have the same width*/
 }
 
-.InfoButtons {
+.infoButtons {
   margin-left: 80px;
   margin-bottom: 30px;
   margin-top: 20px;
@@ -76,7 +76,7 @@
   margin-left: 20px;
 }
 
-#infoDishIngredientsList {
+#InfoDishIngredientsList {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
   margin-bottom: 5px;

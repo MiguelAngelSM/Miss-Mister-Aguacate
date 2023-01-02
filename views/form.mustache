@@ -27,9 +27,9 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Form.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/header.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/form.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -58,12 +58,13 @@
     <!-- Library for stars rating in Reviews -->
 
     <!-- Our JS file -->
-    <script src="../../form.js" type="module"></script>
+    <script src="../../Modules/form.js" type="module"></script>
     <script src="../../Modules/functions.js" type="module"></script>
     <!-- Our JS file -->
   </head>
 
   <body>
+    <!--Header from the page-->
     <div id="Header" class="row">
       <div id="Restaurant_Name" class="col-xs-6">
         <h1>Miss & Mister Aguacate</h1>
@@ -73,14 +74,14 @@
       <div class="flex-gap">
         <div id="Insta" class="col-xs-2">
           <a href="https://www.instagram.com/" target="_blank">
-            <img class="Social img-responsive" src="../../Iconos/insta.png" />
+            <img class="social img-responsive" src="../../Iconos/insta.png" />
             <!--Link to Instagram-->
           </a>
         </div>
         <div id="Facebook" class="col-xs-2">
           <a href="https://es-es.facebook.com/" target="_blank">
             <img
-              class="Social img-responsive"
+              class="social img-responsive"
               src="../../Iconos/facebook.png"
             />
             <!--Link to Facebook-->
@@ -88,22 +89,23 @@
         </div>
         <div id="Twitter" class="col-xs-2">
           <a href="https://twitter.com/?lang=es" target="_blank">
-            <img class="Social img-responsive" src="../../Iconos/twitter.png" />
+            <img class="social img-responsive" src="../../Iconos/twitter.png" />
             <!--Link to Twitter-->
           </a>
         </div>
       </div>
     </div>
-    <!--Header from the page-->
-
+    <!--Modify and create form page-->
     <div id="Form" class="container-fluid">
       <form role="form" action="/dish/saved" method="post" enctype="multipart/form-data">
+        <!--This inputs are for getting useful info that does not need to be shown-->
         <div style="display: none">
-          <!--This inputs are for getting useful info that does not need to be shown-->
           <input name="id" value="{{ dish.id }}" />
-          <input id="actualType" name="actual_type" value="{{ dish.type }}" />
+          <input id="ActualType" name="actual_type" value="{{ dish.type }}" />
         </div>
-        <div class="FormStructure row">
+        <!--This div is where the form is-->
+        <div class="formStructure row">
+          <!--This div is where images are (it could be the image or the input for loading it)-->
           <div id="FormPhoto" class="col-xs-3">
             <!--This input is for the new dish option in order to let the user get an image from its own desktop-->
             <input
@@ -123,6 +125,7 @@
           </div>
 
           <div id="BasicForm" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <!--This div is where input for the name is-->
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <label for="Name">Nombre:</label>
               <input
@@ -133,6 +136,7 @@
                 value="{{ dish.name }}"
               />
             </div>
+            <!--This div is where input for the price is-->
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <label for="Price">Precio:</label>
               <input
@@ -143,6 +147,7 @@
                 value="{{ dish.price }}"
               />
             </div>
+            <!--This div is where input for the description is-->
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <label for="Description">Descripción:</label>
               <textArea
@@ -153,7 +158,7 @@
                 >{{ dish.description }}</textArea
               >
             </div>
-
+            <!--This div is where select for the type is-->
             <div
               class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 btn-group"
             >
@@ -164,7 +169,7 @@
                 <option id="OptionB" value="Bebida">Bebida</option>
               </select>
             </div>
-
+            <!--This div is where input for the adding new ingredients is-->
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <label for="Ingredients">Ingrediente:</label>
               <div class="form-inline">
@@ -185,39 +190,43 @@
             </div>
           </div>
         </div>
+        <!--This div is where cancel and save buttons are-->
         <div class="row">
-          <div class="FormButtons col-xs-1">
-            <input id="formSaveButton" type="button" onclick="validate()" value="Guardar" />
+          <div class="formButtonContainer col-xs-1">
+            <input id="FormSaveButton" class="formButton" type="button" onclick="validate()" value="Guardar" />
           </div>
-          <div class="FormButtons col-xs-1">
+          <div class="formButtonContainer col-xs-1">
             <!--This will cancel the operation and back you to the menu-->
             <input
               id="formCancelButton"
               type="button"
+              class="formButton"
               onclick="window.location.href='/menu/{{dish.type}}'"
               value="Cancelar"
             />
           </div>
         </div>
-
+        <!--This div is where ingredients list title is-->
         <div id="IngredientListTitle">
           <h2>Lista de ingredientes</h2>
         </div>
+        <!--This div is where ingredients list is-->
         <div
           id="IngredientsList"
           class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
         >
+          <!--This is to shown the ingredients list-->
           {{#ingredients}}
           <div id="Ingredient{{ actualIndex }}" class="form-inline">
             <input
               id="IngredientText{{ actualIndex }}"
-              class="IngredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
+              class="ingredientsStructure form-control col-xs-11 col-sm-11 col-md-11 col-lg-11"
               name="ingredient"
               type="text"
               value="{{ ingredient }}"
             />
             <input
-              class="IngredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
+              class="ingredientsStructureButton form-control col-xs-1 col-sm-1 col-md-1 col-lg-1"
               type="button"
               onclick="deleteIngredient('{{ increaseIndex }}')"
               value="Eliminar"
@@ -230,8 +239,7 @@
         </div>
       </form>
     </div>
-    <!--Modify and create form page-->
-
+    <!--Footer from the page-->
     <div id="Footer" class="row">
       <div id="ContactInfo" class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -271,6 +279,5 @@
         </div>
       </div>
     </div>
-    <!--Footer from the page-->
   </body>
 </html>

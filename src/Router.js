@@ -1,8 +1,12 @@
 import express from "express";
 import { __dirname } from "./dirname.js";
 import * as dishService from "./dishService.js";
+
 const router = express.Router();
 
+/**
+ * Renders the welcome page (index view)
+ */
 router.get('/', (req, res) => {
 
   res.render('index', {
@@ -10,6 +14,9 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * Renders the menu view of a type (only first 4 dishes)
+ */
 router.get("/menu/:type", (req, res) => {
   const dishes = dishService.getDishes(req.params.type, 0, 4);
   res.render("menu", {
@@ -18,6 +25,10 @@ router.get("/menu/:type", (req, res) => {
   });
 });
 
+/**
+ * Render dishes view (only from from (value) to to (value))
+ * It is used to charge dishes with ajax
+ */
 router.get("/dishes", (req, res) => {
   const from = parseInt(req.query.from);
   const to = parseInt(req.query.to);
@@ -28,11 +39,18 @@ router.get("/dishes", (req, res) => {
   });
 });
 
+/**
+ * Send a JSON object with the amount of dishes of the type required
+ */
 router.get("/calculateAmount",(req, res) => {
   let amount={amount:dishService.getAmount(req.query.type)};
   res.send(JSON.stringify(amount));
 });
 
+/**
+ * Renders the form view with the info of the param n
+ * The index functions of the object data is for printing the ingredients list with a number
+ */
 router.get("/infoDish/:n/modify", (req, res) => {
   let dish = dishService.getDish(req.query.type, req.params.n);
   let ingredients = dishService.getIngredients(req.query.type, req.params.n);
@@ -55,6 +73,10 @@ router.get("/infoDish/:n/modify", (req, res) => {
   res.render("form", data);
 });
 
+/**
+ * Renders the form view with a new dish with its fields empty 
+ * The type is to put the default selected option
+ */
 router.get("/create", (req, res) => {
   let type = req.query.type;
   let dish = new dishService.Dish("", "", "", [], "../", type);
@@ -63,17 +85,28 @@ router.get("/create", (req, res) => {
   res.render("form", { dish, ingredients, type });
 });
 
+/**
+ * Render the infoDish view with the dish of the param n of the type (req.query)
+ */
 router.get("/infoDish/:n", (req, res) => {
   let dish = dishService.getDish(req.query.type, req.params.n);
   let ingredients = dishService.getIngredients(req.query.type, req.params.n);
   res.render("infoDish", { dish, ingredients });
 });
 
+/**
+ * Renders the deletedDish view
+ * It will delete the dish of the param n of the type (req.query)
+ */
 router.get("/infoDish/:n/deleted", (req, res) => {
   dishService.deleteDish(req.query.type, req.params.n);
   res.render("deletedDish", { type: req.query.type });
 });
 
+/**
+ * Renders the saved view
+ * If the id is undefined(false) it is a new dish else it is a modified dish
+ */
 router.post("/dish/saved", (req, res) => {
   let name = req.body.name;
   let price = req.body.price;
@@ -101,7 +134,5 @@ router.post("/dish/saved", (req, res) => {
   }
   res.render("saved", { type });
 });
-
-
 
 export default router;

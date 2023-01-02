@@ -27,11 +27,11 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Display.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Menu.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Reviews.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/header.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/display.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/menu.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/reviews.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -60,7 +60,8 @@
     <!-- Library for stars rating in Reviews -->
 
     <!-- Our JS file -->
-    <script src="../main.js" type="module"></script>
+    <script src="../Modules/mainMenu.js" type="module"></script>
+    <script src="../Modules/carousel.js" type="module"></script>
     <!-- Our JS file -->
   </head>
 
@@ -75,19 +76,19 @@
       <div class="flex-gap">
         <div id="Insta" class="col-xs-2">
           <a href="https://www.instagram.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/insta.png" />
+            <img class="social img-responsive" src="../Iconos/insta.png" />
             <!--Link to Instagram-->
           </a>
         </div>
         <div id="Facebook" class="col-xs-2">
           <a href="https://es-es.facebook.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/facebook.png" />
+            <img class="social img-responsive" src="../Iconos/facebook.png" />
             <!--Link to Facebook-->
           </a>
         </div>
         <div id="Twitter" class="col-xs-2">
           <a href="https://twitter.com/?lang=es" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/twitter.png" />
+            <img class="social img-responsive" src="../Iconos/twitter.png" />
             <!--Link to Twitter-->
           </a>
         </div>
@@ -96,10 +97,10 @@
     <!--This is a display just decorative-->
     <div id="Display" class="row">
       <!--It will change between the following pictures every 5 seconds-->
-      <img class="Photo" src="../Imagenes/Cartel.jpg" />
-      <img class="Photo" src="../Imagenes/Amigos.jpg" />
-      <img class="Photo" src="../Imagenes/Mesa.jpg" />
-      <img class="Photo" src="../Imagenes/Sitio.jpg" />
+      <img class="photo" src="../Imagenes/Cartel.jpg" />
+      <img class="photo" src="../Imagenes/Amigos.jpg" />
+      <img class="photo" src="../Imagenes/Mesa.jpg" />
+      <img class="photo" src="../Imagenes/Sitio.jpg" />
     </div>
     <!--Header of the menu-->
     <div id="Head" class="row">
@@ -108,7 +109,7 @@
       <div id="OptionButton1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <button
           id="ModeLeft"
-          class="MenuButton"
+          class="menuButton"
           onclick="window.location.href='/menu/Vegano'"
         >
           <img
@@ -127,7 +128,7 @@
       <div id="OptionButton2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <button
           id="ModeRight"
-          class="MenuButton"
+          class="menuButton"
           onclick="window.location.href='/menu/Bebida'"
         >
           <img
@@ -140,32 +141,31 @@
       </div>
     </div>
     <!--List of dishes-->
-    <div id="dishes">
+    <div id="Dishes">
       {{#dishes}}
       <div class="row dish {{ type }}">
-        <!--ClassName Mustache must be changed -->
         <div id="Image" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <img src="../{{ img }}" class="dish-image img-responsive" />
         </div>
-        <div class="MenuStyle col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <div class="row">
             <div
               id="Name"
-              class="col-xs-8 col-sm-8 col-md-8 col-lg-8 DishProperties"
+              class="dishProperties col-xs-8 col-sm-8 col-md-8 col-lg-8"
             >
               {{ name }}
             </div>
             <div
               id="Price"
-              class="col-xs-4 col-sm-4 col-md-4 col-lg-4 DishProperties"
+              class="dishProperties col-xs-4 col-sm-4 col-md-4 col-lg-4"
             >
               {{ price }}€
             </div>
           </div>
           <div class="row">
-            <div id="Info" class="ShowInfo col-12">
+            <div id="Info" class="showInfo col-12">
               <button
-                class="InfoButton"
+                class="infoButton"
                 onclick="window.location.href='/infoDish/{{ id }}?type={{type}}'"
               >
                 Más Info
@@ -180,36 +180,38 @@
       {{/dishes}}
     </div>
     <!--Change page and addDish buttons-->
-    <div id="lowButtons" class="row">
-      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div id="LowButtons" class="row">
+      <div class="ajaxButton col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <button
-          id="LoadLessButton"
+          id="BackArrow"
+          class="arrow-button"
           onclick="changePage('{{ typeReturnPage }}',-1)"
         >
           <img
-            class="AjaxImages img-responsive"
+            class="ajaxImages img-responsive"
             src="../Iconos/BackArrow.png"
           />
         </button>
       </div>
 
-      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="ajaxButton col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <button
           id="NewDishButton"
-          class="InfoButton"
+          class="infoButton"
           onclick="window.location.href='/create?type={{ typeReturnPage }}'"
         >
           Añadir Plato
         </button>
       </div>
 
-      <div class="AjaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="ajaxButtons col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <button
-          id="LoadMoreButton"
+          id="NextArrow"
+          class="arrow-button"
           onclick="changePage('{{ typeReturnPage }}',1)"
         >
           <img
-            class="AjaxImages img-responsive"
+            class="ajaxImages img-responsive"
             src="../Iconos/NextArrow.png"
           />
         </button>
@@ -224,7 +226,7 @@
       <div class="row">
         <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <h4>Sergio De Oro Fernández</h4>
-          <div class="Stars">
+          <div class="stars">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -241,7 +243,7 @@
 
         <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <h4>Antonio José Alanís Bernal</h4>
-          <div class="Stars">
+          <div class="stars">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -258,7 +260,7 @@
 
         <div class="block col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <h4>Kiko Martínez De Lizarduy</h4>
-          <div class="Stars">
+          <div class="stars">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>

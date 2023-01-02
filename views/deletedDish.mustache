@@ -27,10 +27,10 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/Footer.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/DeletedDish.css" />
-    <link type="text/css" rel="stylesheet" href="../../Styles/SavedDish.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/header.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/footer.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/deletedDish.css" />
+    <link type="text/css" rel="stylesheet" href="../../Styles/savedDish.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -60,6 +60,7 @@
   </head>
 
   <body>
+    <!--Header from the page-->
     <div id="Header" class="row">
       <div id="Restaurant_Name" class="col-xs-6">
         <h1>Miss & Mister Aguacate</h1>
@@ -69,14 +70,14 @@
       <div class="flex-gap">
         <div id="Insta" class="col-xs-2">
           <a href="https://www.instagram.com/" target="_blank">
-            <img class="Social img-responsive" src="../../Iconos/insta.png" />
+            <img class="social img-responsive" src="../../Iconos/insta.png" />
             <!--Link to Instagram-->
           </a>
         </div>
         <div id="Facebook" class="col-xs-2">
           <a href="https://es-es.facebook.com/" target="_blank">
             <img
-              class="Social img-responsive"
+              class="social img-responsive"
               src="../../Iconos/facebook.png"
             />
             <!--Link to Facebook-->
@@ -84,24 +85,23 @@
         </div>
         <div id="Twitter" class="col-xs-2">
           <a href="https://twitter.com/?lang=es" target="_blank">
-            <img class="Social img-responsive" src="../../Iconos/twitter.png" />
+            <img class="social img-responsive" src="../../Iconos/twitter.png" />
             <!--Link to Twitter-->
           </a>
         </div>
       </div>
     </div>
-    <!--Header from the page-->
-
-    <div id="deletedDish" class="container-fluid">
-      <h1 id="deletedDishMessage" class="DeletedStructure row">El plato ha sido borrado con éxito</h1>
-      <div class="DeletedStructure row">
-        <img id="deletedDishImage" src="../../Iconos/Basura.png" />
+    <!--Deleted dish page-->
+    <div id="DeletedDish" class="container-fluid">
+      <h1 id="DeletedDishMessage" class="deletedStructure row">El plato ha sido borrado con éxito</h1>
+      <div class="deletedStructure row">
+        <img id="DeletedDishImage" src="../../Iconos/Basura.png" />
       </div>
-      <div class="DeletedStructure row">
+      <div class="deletedStructure row">
         <button onclick="window.location.href='/menu/{{type}}'">Volver al Menu</button>
       </div>
     </div>
-
+    <!--Footer from the page-->
     <div id="Footer" class="row">
       <div id="ContactInfo" class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -141,6 +141,5 @@
         </div>
       </div>
     </div>
-    <!--Footer from the page-->
   </body>
 </html>

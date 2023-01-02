@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.Photo {
+.photo {
   width: 30%;
   height: 30%;
   border-radius: 3%; /*This property makes the edges of the photo rounded*/

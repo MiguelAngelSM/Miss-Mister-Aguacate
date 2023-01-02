@@ -1,9 +1,9 @@
-#deletedDishMessage{
+#DeletedDishMessage{
     font-family: "Times New Roman", Times, serif;
     color: black;
 }
 
-#deletedDishImage{
+#DeletedDishImage{
     width: 20%;
     height: 20%;
     border-radius: 11%;
@@ -11,11 +11,11 @@
     margin-bottom: 20px;
 }
 
-.DeletedStructure button{
+.deletedStructure button{
     margin-bottom: 5px;
 }
 
-.DeletedStructure{
+.deletedStructure{
     display:flex;
     justify-content: center;
 }

@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-.MenuButton {
+.menuButton {
   background-color: rgba(39, 37, 38, 0.4);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
@@ -45,12 +45,12 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.ShowInfo {
+.showInfo {
   display: flex;
   flex-direction: column-reverse;
 }
 
-.InfoButton {
+.infoButton {
   background-color:rgba(39, 37, 38, 0.2);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.6);
@@ -64,7 +64,7 @@
   object-fit: contain;
 }
 
-.ArrowButton {
+.arrow-Button {
   background-color: rgba(39, 37, 38, 0.4);
   border-width: 3px;
   border-color: rgba(39, 37, 38, 0.7);
@@ -86,42 +86,26 @@
   object-fit: contain;
 }
 
-#LoadMoreButton{
-  background-color: rgba(39, 37, 38, 0.2);
-  border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.6);
-  border-radius: 3px;
-  margin: 10px;
-}
-
-#LoadLessButton{
-  background-color: rgba(39, 37, 38, 0.2);
-  border-width: 3px;
-  border-color: rgba(39, 37, 38, 0.6);
-  border-radius: 3px;
-  margin: 10px;  
-}
-
-.AjaxButtons{
+.ajaxButton{
   display: flex;
   justify-content:space-evenly;
 }
 
-.AjaxImages{
+.ajaxImages{
   width: 50px;
   height: 50px;
   object-fit: contain;
   text-align: center;
 }
 
-#dishes h3{
+#Dishes h3{
   font-family: "Times New Roman", Times, serif;
   color: black;
   text-align: center;
   margin: 20px;
 }
 
-.DishProperties{
+.dishProperties{
   font-family: "Times New Roman", Times, serif;
   color: black;
 }

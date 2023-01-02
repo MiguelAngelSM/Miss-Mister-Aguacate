@@ -27,9 +27,9 @@
 
     <!--Our css file-->
     <link type="text/css" rel="stylesheet" href="../Styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Header.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/InfoDish.css" />
-    <link type="text/css" rel="stylesheet" href="../Styles/Footer.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/header.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/infoDish.css" />
+    <link type="text/css" rel="stylesheet" href="../Styles/footer.css" />
     <!--Our css file-->
 
     <!--Bootstrap template from CDN Bootstrap-->
@@ -56,11 +56,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Library for stars rating in Reviews -->
+    
     <!--Our JS file-->
     <script src="../../Modules/functions.js" type="module"></script>
     <!--Our JS file-->
   </head>
   <body>
+    <!--Header from the page-->
     <div id="Header" class="row">
       <div id="Restaurant_Name" class="col-xs-6">
         <h1>Miss & Mister Aguacate</h1>
@@ -70,28 +72,28 @@
       <div class="flex-gap">
         <div id="Insta" class="col-xs-2">
           <a href="https://www.instagram.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/insta.png" />
+            <img class="social img-responsive" src="../Iconos/insta.png" />
             <!--Link to Instagram-->
           </a>
         </div>
         <div id="Facebook" class="col-xs-2">
           <a href="https://es-es.facebook.com/" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/facebook.png" />
+            <img class="social img-responsive" src="../Iconos/facebook.png" />
             <!--Link to Facebook-->
           </a>
         </div>
         <div id="Twitter" class="col-xs-2">
           <a href="https://twitter.com/?lang=es" target="_blank">
-            <img class="Social img-responsive" src="../Iconos/twitter.png" />
+            <img class="social img-responsive" src="../Iconos/twitter.png" />
             <!--Link to Twitter-->
           </a>
         </div>
       </div>
     </div>
-    <!--Header from the page-->
-
+    <!--More info page-->
     <div id="InfoDish" class="container-fluid">
       <div class="row">
+        <!--This is the arrow to return the menu page-->
         <div id="InfoArrow" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
           <button id="InfoDishArrow" onclick="window.location.href='/menu/{{dish.type}}'">
             <img
@@ -100,6 +102,7 @@
             />
           </button>
         </div>
+        <!--This is the image of the dish-->
         <div id="InfoPhoto" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <img
             id="InfodishImage"
@@ -107,32 +110,33 @@
             src=../{{dish.img}}
           />
         </div>
-
+        <!--This is the info of the dish-->
         <div id="DishAtributes" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          <h4 id="infoDishName">{{dish.name}}</h4>
-          <p id="infoDishPrice">{{dish.price}}</p>
-          <p id="infoDishDescription">{{dish.description}}</p>
+          <h4 id="InfoDishName">{{dish.name}}</h4>
+          <p id="InfoDishPrice">{{dish.price}}</p>
+          <p id="InfoDishDescription">{{dish.description}}</p>
         </div>
-        <!--It will be updated when the user enter with a dish-->
       </div>
-
+      <!--This is the div with delete and modify buttons-->
       <div id="ButtonsRow" class="row">
-        <div class="InfoButtons col-xs-1">
+        <div class="infoButtons col-xs-1">
           <button id="DeleteButton" onclick="deleteDish('{{dish.type}}','{{dish.id}}')">Borrar</button>
         </div>
-        <div class="InfoButtons col-xs-1">
+        <div class="infoButtons col-xs-1">
           <button id="ModifyButton" onclick="window.location.href='/infoDish/{{dish.id}}/modify?type={{dish.type}}'">Modificar</button>
         </div>
       </div>
+      <!--This is the title of the ingredients list-->
       <div id="InfoIngredientTitle">
         <h2>Ingredientes</h2>
       </div>
-
+      <!--This is the ingredients list-->
       <div class="row">
         <div
-          id="infoDishIngredientsList"
+          id="InfoDishIngredientsList"
           class="col-xs-6 col-sm-6 col-md-6 col-lg-6"
         >
+          <!--This is for showing the ingredients list-->
           {{#ingredients}}
           <p>{{.}}</p>
           {{/ingredients}}
@@ -142,8 +146,7 @@
         </div>
       </div>
     </div>
-    <!--More info page-->
-
+    <!--Footer from the page-->
     <div id="Footer" class="row">
       <div id="ContactInfo" class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -177,6 +180,5 @@
         </div>
       </div>
     </div>
-    <!--Footer from the page-->
   </body>
 </html>

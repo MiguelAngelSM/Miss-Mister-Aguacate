@@ -69,13 +69,18 @@ export class Dish {
   }
 }
 
-export let dishesVegan = new Map(); //Map of vegan dishes
-export let dishesNormal = new Map(); //Map of vegan dishes
-export let dishesDrinks = new Map(); //Map of vegan dishes
-let nextIdVegan = 0;
-let nextIdNormal = 0;
-let nextIdDrinks = 0;
+export let dishesVegan = new Map(); //Map of Vegan dishes
+export let dishesNormal = new Map(); //Map of Normal dishes
+export let dishesDrinks = new Map(); //Map of Drinks
+let nextIdVegan = 0; //Id of Vegan dishes
+let nextIdNormal = 0; //Id of Normal dishes
+let nextIdDrinks = 0; //Id of Drinks
 
+/**
+ *
+ * @param {String} type
+ * @returns amount (Number) of dishes of the selected type
+ */
 export function getAmount(type) {
   let amount;
 
@@ -94,6 +99,11 @@ export function getAmount(type) {
   return amount;
 }
 
+/**
+ * The dish will be added to the specific Map depending on its type
+ *
+ * @param {Dish} dish to be saved
+ */
 export function addDish(dish) {
   let id;
   switch (dish.type) {
@@ -114,6 +124,14 @@ export function addDish(dish) {
       break;
   }
 }
+
+/**
+ * It select the dish from the specific Map depending on the type
+ *
+ * @param {String} type of the required dish
+ * @param {Number} id of the required dish
+ * @returns the dish (Dish) required
+ */
 export function getDish(type, id) {
   let dish;
   switch (type) {
@@ -129,6 +147,15 @@ export function getDish(type, id) {
   }
   return dish;
 }
+
+/**
+ * It gets an array of dishes from from (value) to to (value) of an specific type
+ *
+ * @param {String} type of the dishes required
+ * @param {Number} from initial of the required subSelection
+ * @param {Number} to end of the required subSelection
+ * @returns an array of one of the Maps depending on the type
+ */
 export function getDishes(type, from, to) {
   let values;
   switch (type) {
@@ -147,9 +174,22 @@ export function getDishes(type, from, to) {
   }
   return values;
 }
+
+/**
+ *
+ * @param {String} type of the dish of the required ingredients
+ * @param {String} id of the dish of the required ingredients
+ * @returns
+ */
 export function getIngredients(type, id) {
   return [...getDish(type, id).getIngredients()];
 }
+
+/**
+ *
+ * @param {String} type of the dish deleted
+ * @param {String} id of the dish deleted
+ */
 export function deleteDish(type, id) {
   switch (type) {
     case "Vegano":
@@ -163,10 +203,21 @@ export function deleteDish(type, id) {
       break;
   }
 }
+
+/**
+ * It will call a function from the dish that changes new price, description and ingredients list to the news
+ *
+ * @param {String} type of the dish modified
+ * @param {String} id of the dish modified
+ * @param {String} price new
+ * @param {String} desc new
+ * @param {String} ingredients new
+ */
 export function updateAtributes(type, id, price, desc, ingredients) {
   let dish = getDish(type, id);
   dish.updateAtributes(price, desc, ingredients);
 }
+
 //Deafult dishes definition
 //7 Normal dishes by default
 addDish(

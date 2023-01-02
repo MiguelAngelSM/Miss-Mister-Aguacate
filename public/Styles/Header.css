@@ -20,7 +20,7 @@
   align-content: center;
 }
 
-.Social {
+.social {
   width: 35px;
   height: 35px;
   object-fit: contain;
@@ -30,6 +30,6 @@
   transition: 0.3s; /*Property used for hover effect*/
 }
 
-.Social:hover {
+.social:hover {
   opacity: 0.5;
 }
