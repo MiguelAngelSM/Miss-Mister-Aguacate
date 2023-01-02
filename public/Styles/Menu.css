@@ -126,6 +126,23 @@
   color: black;
 }
 
+#ListofPlates{
+  display:flex;
+  justify-content: center;
+}
+
+#ListButton{
+  background-color: rgba(39, 37, 38, 0.2);
+  border-width: 3px;
+  border-color: rgba(39, 37, 38, 0.6);
+  border-radius: 3px;
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+
+
 /* In order to align some items that where misplaced*/
 #OptionButton1 {
   display: flex;

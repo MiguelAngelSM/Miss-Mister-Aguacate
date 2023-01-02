@@ -3,6 +3,13 @@ import { __dirname } from "./dirname.js";
 import * as dishService from "./dishService.js";
 const router = express.Router();
 
+router.get('/', (req, res) => {
+
+  res.render('index', {
+
+  });
+});
+
 router.get("/menu/:type", (req, res) => {
   const dishes = dishService.getDishes(req.params.type, 0, 4);
   res.render("menu", {
