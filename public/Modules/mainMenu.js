@@ -5,7 +5,7 @@ import { changePage } from "./ajax.js";
 //First Page Load
 document.addEventListener("DOMContentLoaded", function () {
   //This is in order to change the mode
-  let type = document.URL.slice(27); //
+  let type = document.URL.slice(27);
   switch (type) {
     case "Vegano":
       changeMenuButtons("Vegano", "Normal", "Bebida");
@@ -20,4 +20,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Window will let html use the functions
-window.changePage = changePage;
+window.changePage = changePage

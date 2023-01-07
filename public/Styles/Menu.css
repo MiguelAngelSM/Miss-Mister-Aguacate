@@ -32,13 +32,6 @@
   display: inline-block; /*This is in order to avoid links out from the box*/
 }
 
-#Block1 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-top: 10px;
-}
-
 #Menu p {
   text-align: center;
   color: black;
@@ -70,13 +63,6 @@
   border-color: rgba(39, 37, 38, 0.7);
   border-radius: 3px;
   margin: 10px;
-}
-
-#Block2 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-top: 10px;
 }
 
 .dish-image {
@@ -126,23 +112,13 @@
   text-align: center;
 }
 
-
 /* In order to align some items that where misplaced*/
 #OptionButton1 {
   display: flex;
   flex-direction: row-reverse;
 }
 
-#Image0 {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 #NextArrow {
-  display: flex;
-  flex-direction: row-reverse;
-}
-#Image2 {
   display: flex;
   flex-direction: row-reverse;
 }
