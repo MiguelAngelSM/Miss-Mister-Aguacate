@@ -22,8 +22,25 @@ The objective is to create a web page in which a series of elements can be creat
 
 # Preview
 
+https://user-images.githubusercontent.com/117300099/215362934-3e11d926-adbe-40ea-82c2-15b429b9598f.mp4
 
+---
+###### Menu Page
+---
 
+![Menu Page](https://user-images.githubusercontent.com/117300099/215363592-a67c9413-697f-4b21-b098-a6d1ea2e451a.png)
+
+---
+###### Modify Page
+---
+
+![Modify Page](https://user-images.githubusercontent.com/117300099/215363645-cd02f5f5-a867-4b86-b9c3-d65300c63fb4.png)
+
+---
+###### Form Page
+---
+
+![Form Page](https://user-images.githubusercontent.com/117300099/215363683-478e27a8-c55e-4492-bad2-d7c7e9ac784b.png)
 
 
 # Images and icons licenses
